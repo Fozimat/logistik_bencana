@@ -46,8 +46,11 @@
                             <td><?= $d->kebutuhan; ?></td>
                             <td><?= $d->keterangan; ?></td>
                             <td>
-                                <a href="" class="btn btn-info">edit</a> |
-                                <a href="" class="btn btn-danger">delete</a>
+                                <a href="<?= site_url('admin/dasar/edit/' . $d->id); ?>" class="btn btn-info">edit</a> |
+                                <form action="<?= site_url('admin/dasar/delete/' . $d->id); ?>" method="POST" class="d-inline">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger">delete</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>

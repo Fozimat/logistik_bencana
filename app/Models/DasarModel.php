@@ -16,4 +16,28 @@ class DasarModel extends Model
     {
         return $this->findAll();
     }
+
+    public function getDasarById($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
+
+    public function insertDasar($data)
+    {
+        return $this->save($data);
+    }
+
+    public function updateDasar($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteDasar($id)
+    {
+        $dasar = $this->find($id);
+        if (empty($dasar)) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Data dengan id: ' . $id . ' tidak ditemukan');
+        }
+        return $this->delete($id);
+    }
 }
