@@ -54,14 +54,14 @@
             <span>Informasi Kebencanaan</span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item <?= ($uri->getSegment(2) == 'beritabarangmasuk') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Berita Acara</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Barang Masuk</a>
+                <a class="collapse-item <?= ($uri->getSegment(2) == 'beritabarangmasuk') ? 'active' : ''; ?>" href="<?= site_url('admin/beritabarangmasuk'); ?>">Barang Masuk</a>
                 <a class="collapse-item" href="#">Barang Keluar</a>
             </div>
         </div>

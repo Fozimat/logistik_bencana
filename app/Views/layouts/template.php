@@ -172,6 +172,23 @@
         });
     </script>
 
+    <script>
+        function previewImg() {
+            const gambar = document.querySelector('#gambar');
+            const gambarLabel = document.querySelector('.custom-file-label');
+            const imgPreview = document.querySelector('.img-preview');
+
+            gambarLabel.textContent = gambar.files[0].name;
+
+            const fileSampul = new FileReader();
+            fileSampul.readAsDataURL(gambar.files[0])
+
+            fileSampul.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+    </script>
+
 </body>
 
 </html>
