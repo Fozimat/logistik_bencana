@@ -48,12 +48,6 @@ class Persediaan extends BaseController
                         'required' => 'Vol/Unit tidak boleh kosong'
                     ]
                 ],
-                'jumlah' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Jumlah tidak boleh kosong'
-                    ]
-                ],
                 'satuan' => [
                     'rules' => 'required',
                     'errors' => [
@@ -73,7 +67,6 @@ class Persediaan extends BaseController
         $data = [
             'jenis_barang' => $this->request->getVar('jenis_barang'),
             'vol_unit' => $this->request->getVar('vol_unit'),
-            'jumlah' => $this->request->getVar('jumlah'),
             'satuan' => $this->request->getVar('satuan'),
             'keterangan' => $this->request->getVar('keterangan'),
         ];
@@ -108,12 +101,6 @@ class Persediaan extends BaseController
                         'required' => 'Vol/Unit tidak boleh kosong'
                     ]
                 ],
-                'jumlah' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Jumlah tidak boleh kosong'
-                    ]
-                ],
                 'satuan' => [
                     'rules' => 'required',
                     'errors' => [
@@ -133,7 +120,6 @@ class Persediaan extends BaseController
         $data = [
             'jenis_barang' => $this->request->getVar('jenis_barang'),
             'vol_unit' => $this->request->getVar('vol_unit'),
-            'jumlah' => $this->request->getVar('jumlah'),
             'satuan' => $this->request->getVar('satuan'),
             'keterangan' => $this->request->getVar('keterangan'),
         ];

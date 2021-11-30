@@ -29,18 +29,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="vol_unit" class="hitam-tebal">Vol/Unit</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('vol_unit')) ? 'is-invalid' : ''; ?>" value="<?= old('vol_unit', $persediaan->vol_unit); ?>" name="vol_unit" id="vol_unit">
+                                        <input type="number" class="form-control <?= ($validation->hasError('vol_unit')) ? 'is-invalid' : ''; ?>" value="<?= old('vol_unit', $persediaan->vol_unit); ?>" name="vol_unit" id="vol_unit">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('vol_unit'); ?>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="jumlah" class="hitam-tebal">Jumlah</label>
-                                        <input type="number" class="form-control <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?>" value="<?= old('jumlah', $persediaan->jumlah); ?>" name="jumlah" id="jumlah">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('jumlah'); ?>
-                                        </div>
-                                    </div>
+
 
                                     <div class="form-group">
                                         <label for="satuan" class="hitam-tebal">Satuan</label>

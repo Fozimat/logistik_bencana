@@ -26,7 +26,6 @@
                         <th>No</th>
                         <th>Jenis Barang</th>
                         <th>Vol/Unit</th>
-                        <th>Jumlah</th>
                         <th>Satuan</th>
                         <th>Keterangan</th>
                         <th>Aksi</th>
@@ -40,7 +39,6 @@
                             <th><?= $i++; ?></th>
                             <td><?= $d->jenis_barang; ?></td>
                             <td><?= $d->vol_unit; ?></td>
-                            <td><?= $d->jumlah; ?></td>
                             <td><?= $d->satuan; ?></td>
                             <td><?= $d->keterangan; ?></td>
                             <td>
