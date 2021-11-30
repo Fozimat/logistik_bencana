@@ -29,8 +29,8 @@
             <span>Kebutuhan Dasar</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item  <?= ($uri->getSegment(2) == 'persediaan') ? 'active' : ''; ?>">
+        <a class="nav-link" href="<?= site_url('admin/persediaan'); ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Persediaan</span></a>
     </li>
