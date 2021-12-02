@@ -35,15 +35,15 @@
             <span>Persediaan</span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item <?= ($uri->getSegment(2) == 'logistikmasuk') || ($uri->getSegment(2) == 'logistikkeluar') ? 'active' : ''; ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Logistik</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">Masuk</a>
-                <a class="collapse-item" href="#">Keluar</a>
+                <a class="collapse-item <?= ($uri->getSegment(2) == 'logistikmasuk') ? 'active' : ''; ?>" href="<?= site_url('admin/logistikmasuk'); ?>">Masuk</a>
+                <a class="collapse-item <?= ($uri->getSegment(2) == 'logistikkeluar') ? 'active' : ''; ?>" href="<?= site_url('admin/logistikkeluar'); ?>">Keluar</a>
             </div>
         </div>
     </li>

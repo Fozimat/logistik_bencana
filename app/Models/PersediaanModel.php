@@ -32,6 +32,18 @@ class PersediaanModel extends Model
         return $this->update($id, $data);
     }
 
+    public function updateVolUnit($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function getVolUnitPersediaan($id)
+    {
+        return $this->db->table($this->table)
+            ->select('vol_unit')
+            ->where('id', $id)->get()->getRow();
+    }
+
     public function deletePersediaan($id)
     {
         $dasar = $this->find($id);
