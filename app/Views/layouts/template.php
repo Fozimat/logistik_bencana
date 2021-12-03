@@ -45,6 +45,10 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+                        <h4 class="font-weight-bold"> SISTEM INFORMASI LOGISTIK BENCANA</h4>
+                    </form>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -71,7 +75,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize"><?= session()->get('roles'); ?></span>
                                 <img class="img-profile rounded-circle" src="<?= base_url('assets/img/undraw_profile.svg'); ?>">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -140,7 +144,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?= site_url('login/logout'); ?>">Logout</a>
                 </div>
             </div>
         </div>
