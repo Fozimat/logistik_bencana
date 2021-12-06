@@ -4,15 +4,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
-                    <h4>PEMERINTAH KAB.LINGGA</h4>
+                    <h5>PEMERINTAH KAB.LINGGA</h5>
                     <img style="height: 100px; width: 100px;" src="<?= site_url('assets-profil/img/lingga.png'); ?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <h4>BNPB</h4>
+                    <h5>BNPB</h5>
                     <img style="height: 100px; width: 100px;" src="<?= site_url('assets-profil/img/bnpb.png'); ?>" class="img-fluid" alt="">
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <h4>BPBD PROV.KEPULAUAN RIAU</h4>
+                    <h5>BPBD PROV.KEPULAUAN RIAU</h5>
                     <img style="height: 100px; width: 100px;" src="<?= site_url('assets-profil/img/kepri.png'); ?>" class="img-fluid" alt="">
                 </div>
             </div>

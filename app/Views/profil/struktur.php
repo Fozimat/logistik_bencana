@@ -4,13 +4,15 @@
 
     <section class="breadcrumbs">
         <div class="container">
-            <div class="d-flex justify-content-center align-items-center">
+
+            <div class="d-flex justify-content-between align-items-center">
                 <h2>Struktur Organisasi</h2>
                 <ol>
                     <li><a href="#">Profil</a></li>
                     <li>Struktur Organisasi</li>
                 </ol>
             </div>
+
         </div>
     </section>
 
