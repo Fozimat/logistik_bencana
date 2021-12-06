@@ -3,12 +3,17 @@
     <div class="footer-newsletter">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h4>PEMERINTAH KAB.LINGGA</h4>
+                    <img style="height: 100px; width: 100px;" src="<?= site_url('assets-profil/img/lingga.png'); ?>" class="img-fluid" alt="">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h4>BNPB</h4>
+                    <img style="height: 100px; width: 100px;" src="<?= site_url('assets-profil/img/bnpb.png'); ?>" class="img-fluid" alt="">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h4>BPBD PROV.KEPULAUAN RIAU</h4>
+                    <img style="height: 100px; width: 100px;" src="<?= site_url('assets-profil/img/kepri.png'); ?>" class="img-fluid" alt="">
                 </div>
             </div>
         </div>

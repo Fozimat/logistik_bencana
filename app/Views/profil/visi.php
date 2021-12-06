@@ -16,7 +16,7 @@
         </div>
     </section>
 
-    <section id="about" class="about section-bg">
+    <section id="visi" class="visi">
         <div class="container" data-aos="fade-up">
 
             <div class="row">
