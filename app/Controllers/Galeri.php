@@ -4,11 +4,11 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class Kontak extends BaseController
+class Galeri extends BaseController
 {
     public function index()
     {
-        $data['title'] = 'Kontak';
-        return view('profil/kontak', $data);
+        $data['title'] = 'Galeri';
+        return view('profil/galeri', $data);
     }
 }
