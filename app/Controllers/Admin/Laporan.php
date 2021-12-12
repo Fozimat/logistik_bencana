@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\ThirdParty\PDF;
+use App\ThirdParty\PDFL;
 use App\Models\DasarModel;
 use App\Models\PersediaanModel;
 use App\Models\LogistikMasukModel;
@@ -23,6 +24,41 @@ class Laporan extends BaseController
         $this->beritaBarangMasukModel = new BeritaBarangMasukModel();
         $this->beritaBarangKeluarModel = new BeritaBarangKeluarModel();
         $this->informasiKebencanaanModel = new InformasiKebencanaanModel();
+    }
+
+    public function index()
+    {
+        $data = [
+            'title' => 'Laporan',
+        ];
+        return view('laporan/index', $data);
+    }
+
+    public function cetak()
+    {
+        $cetak = $this->request->getVar('cetak');
+        switch ($cetak) {
+            case "persediaan":
+                return redirect()->to('admin/laporan/persediaan');
+                break;
+            case "logistik_masuk":
+                return redirect()->to('admin/laporan/logistik_masuk');
+                break;
+            case "logistik_keluar":
+                return redirect()->to('admin/laporan/logistik_keluar');
+                break;
+            case "kebencanaan":
+                return redirect()->to('admin/laporan/informasi_kebencanaan');
+                break;
+            case "berita_masuk":
+                return redirect()->to('admin/laporan/berita_barang_masuk');
+                break;
+            case "berita_keluar":
+                return redirect()->to('admin/laporan/berita_barang_keluar');
+                break;
+            default:
+                return redirect()->to('admin/laporan/cetak');
+        }
     }
 
     public function kebutuhan_dasar()
@@ -201,7 +237,75 @@ class Laporan extends BaseController
         exit;
     }
 
+    public function berita_barang_keluar()
+    {
+        $pdf = new PDF();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Berita Acara Barang Keluar');
+        $pdf->AddPage('P', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 15, 'BERITA ACARA BARANG KELUAR', 0, 1, 'C');
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 10, 'No', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'No Berita Acara', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'Tanggal Keluar', 1, 0, 'C');
+        $pdf->Cell(45, 10, 'Tujuan Bantuan', 1, 0, 'C');
+        $pdf->Cell(60, 10, 'Gambar', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $berita_barang_keluar =  $this->beritaBarangKeluarModel->getBeritaBarangkeluar();
+        $no = 1;
+        foreach ($berita_barang_keluar as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 40,  $no++, 1, 0, 'C');
+            $pdf->Cell(40, 40, $data->no_berita_acara, 1, 0);
+            $pdf->Cell(40, 40, $data->tgl_ba_keluar, 1, 0, 'C');
+            $pdf->Cell(45, 40, $data->tujuan_bantuan, 1, 0, 'C');
+            $pdf->Cell(60, 40, $pdf->InlineImage(FCPATH . 'upload/barang_keluar/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 60, 40,));
+            $pdf->Ln(0);
+        }
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
+    }
+
     public function informasi_kebencanaan()
     {
+        $pdf = new PDFL();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Informasi Kebencanaan');
+        $pdf->AddPage('L', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 15, 'INFORMASI KEBENCANAAN', 0, 1, 'C');
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 6, 'No', 1, 0, 'C');
+        $pdf->Cell(35, 6, 'Jenis Bencana', 1, 0, 'C');
+        $pdf->Cell(35, 6, 'Tempat Kejadian', 1, 0, 'C');
+        $pdf->Cell(25, 6, 'Tanggal', 1, 0, 'C');
+        $pdf->Cell(35, 6, 'Objek Terdampak', 1, 0, 'C');
+        $pdf->Cell(35, 6, 'Kbn Terdampak LK', 1, 0, 'C');
+        $pdf->Cell(35, 6, 'Kbn Terdampak PR', 1, 0, 'C');
+        $pdf->Cell(30, 6, 'Tindakan', 1, 0, 'C');
+        $pdf->Cell(45, 6, 'Keterangan', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $informasi_kebencanaan =  $this->informasiKebencanaanModel->getInformasiKebencanaan();
+        $no = 1;
+        foreach ($informasi_kebencanaan as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 7, $no, 1, 0, 'C');
+            $pdf->Cell(35, 7, $data->jenis_bencana, 1, 0);
+            $pdf->Cell(35, 7, $data->lokasi_tempat_kejadian, 1, 0, 'C');
+            $pdf->Cell(25, 7, $data->tgl_bencana, 1, 0, 'C');
+            $pdf->Cell(35, 7, $data->objek_terdampak, 1, 0);
+            $pdf->Cell(35, 7, $data->jumlah_korban_terdampak_laki, 1, 0, 'C');
+            $pdf->Cell(35, 7, $data->jumlah_korban_terdampak_perempuan, 1, 0, 'C');
+            $pdf->Cell(30, 7, $data->tindakan, 1, 0);
+            $pdf->Cell(45, 7, $data->keterangan, 1, 1);
+            $no++;
+        }
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
     }
 }

@@ -65,8 +65,8 @@
         Settings
     </div>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item <?= ($uri->getSegment(2) == 'laporan') ? 'active' : ''; ?>">
+        <a class="nav-link" href="<?= site_url('admin/laporan'); ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Laporan</span></a>
     </li>
