@@ -8,6 +8,9 @@ use App\Models\PersediaanModel;
 use App\Models\LogistikMasukModel;
 use App\Controllers\BaseController;
 use App\Models\LogistikKeluarModel;
+use App\Models\BeritaBarangMasukModel;
+use App\Models\BeritaBarangKeluarModel;
+use App\Models\InformasiKebencanaanModel;
 
 class Laporan extends BaseController
 {
@@ -17,6 +20,9 @@ class Laporan extends BaseController
         $this->persediaanModel = new PersediaanModel();
         $this->logistikMasukModel = new LogistikMasukModel();
         $this->logistikKeluarModel = new LogistikKeluarModel();
+        $this->beritaBarangMasukModel = new BeritaBarangMasukModel();
+        $this->beritaBarangKeluarModel = new BeritaBarangKeluarModel();
+        $this->informasiKebencanaanModel = new InformasiKebencanaanModel();
     }
 
     public function kebutuhan_dasar()
@@ -161,5 +167,41 @@ class Laporan extends BaseController
         $pdf->isFinished = true;
         $pdf->Output();
         exit;
+    }
+
+    public function berita_barang_masuk()
+    {
+        $pdf = new PDF();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Berita Acara Barang Masuk');
+        $pdf->AddPage('P', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 15, 'BERITA ACARA BARANG MASUK', 0, 1, 'C');
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 10, 'No', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'No Berita Acara', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'Tanggal Masuk', 1, 0, 'C');
+        $pdf->Cell(45, 10, 'Sumber Bantuan', 1, 0, 'C');
+        $pdf->Cell(60, 10, 'Gambar', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $berita_barang_masuk =  $this->beritaBarangMasukModel->getBeritaBarangMasuk();
+        $no = 1;
+        foreach ($berita_barang_masuk as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 40,  $no++, 1, 0, 'C');
+            $pdf->Cell(40, 40, $data->no_berita_acara, 1, 0);
+            $pdf->Cell(40, 40, $data->tgl_ba_masuk, 1, 0, 'C');
+            $pdf->Cell(45, 40, $data->sumber_bantuan, 1, 0, 'C');
+            $pdf->Cell(60, 40, $pdf->InlineImage(FCPATH . 'upload/barang_masuk/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 60, 40,));
+            $pdf->Ln(0);
+        }
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
+    }
+
+    public function informasi_kebencanaan()
+    {
     }
 }
