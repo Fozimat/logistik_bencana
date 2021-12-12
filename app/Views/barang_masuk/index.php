@@ -16,7 +16,9 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a class="m-0 font-weight-bold btn btn-primary" href="<?= site_url('admin/beritabarangmasuk/create'); ?>"><i class="fa fa-user-plus mr-1"></i>Tambah Data</a>
+        <?php if (session()->get('roles') == 'ADMIN') : ?>
+            <a class="m-0 font-weight-bold btn btn-primary" href="<?= site_url('admin/beritabarangmasuk/create'); ?>"><i class="fa fa-user-plus mr-1"></i>Tambah Data</a>
+        <?php endif; ?>
         <a class="m-0 font-weight-bold btn btn-success ml-2" href="<?= site_url('admin/laporan/berita_barang_masuk'); ?>" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Laporan</a>
     </div>
     <div class="card-body">
@@ -29,7 +31,9 @@
                         <th>Tanggal Masuk</th>
                         <th>Sumber Bantuan</th>
                         <th>Gambar</th>
-                        <th>Aksi</th>
+                        <?php if (session()->get('roles') == 'ADMIN') : ?>
+                            <th>Aksi</th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
 
@@ -42,13 +46,15 @@
                             <td><?= $ba->tgl_ba_masuk; ?></td>
                             <td><?= $ba->sumber_bantuan; ?></td>
                             <td><img width="100" height="100" src="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" alt=""></td>
-                            <td>
-                                <a href="<?= site_url('admin/beritabarangmasuk/edit/' . $ba->id); ?>" class="btn btn-info">edit</a> |
-                                <form action="<?= site_url('admin/beritabarangmasuk/delete/' . $ba->id); ?>" method="POST" class="d-inline">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger">delete</button>
-                                </form>
-                            </td>
+                            <?php if (session()->get('roles') == 'ADMIN') : ?>
+                                <td>
+                                    <a href="<?= site_url('admin/beritabarangmasuk/edit/' . $ba->id); ?>" class="btn btn-info">edit</a> |
+                                    <form action="<?= site_url('admin/beritabarangmasuk/delete/' . $ba->id); ?>" method="POST" class="d-inline">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger">delete</button>
+                                    </form>
+                                </td>
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
