@@ -11,7 +11,7 @@ class PDF extends FPDF
         if ($this->PageNo() == 1) {
             $this->Image(APPPATH . 'ThirdParty/img/lingga.png', 10, 5, 35, 30, 'PNG');
             $this->Image(APPPATH . 'ThirdParty/img/kepri.png', 173, 4, 30, 30, 'PNG');
-            $this->judul('PEMERINTAH PROVINSI KEPULAUAN RIAU', 'BADAN PENANGGULANGAN BENCANA DAERAH', 'Jalan Tugu Pahlawan Nomor 18, Telepon (0771) 315977, Fax. (0771) 316977', 'Website: bpbd.kepriprov.go.id', 'TANJUNGPINANG');
+            $this->judul('PEMERINTAH KABUPATEN LINGGA', 'BADAN PENANGGULANGAN BENCANA DAERAH', 'Jalan ISTANA KOTA BARU (KOMPLEK PERKANTORAN PEMKAB)', 'e-mail: bpbdkab.lingga@gmail.com', 'DAIK - LINGGA');
             $this->garis();
         }
     }
@@ -69,8 +69,8 @@ class PDF extends FPDF
         if ($this->isFinished) {
             $this->Cell(300, 20, 'Lingga, ' . $this->format_ind(date('Y-m-d')), 0, 1, 'C');
             $this->Ln(10);
-            $this->Cell(300, 10, 'Bpk.Pimpinan', 0, 1, 'C');
-            $this->Cell(300, 0, '(Kepala BPBD Lingga)', 0, 1, 'C');
+            $this->Cell(300, 10, 'Said Yardiansyah, SE', 0, 1, 'C');
+            $this->Cell(300, 0, '(Kepala Seksi Kedaruratan dan Logistik)', 0, 1, 'C');
         }
     }
 

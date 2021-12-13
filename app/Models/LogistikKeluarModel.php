@@ -20,6 +20,12 @@ class LogistikKeluarModel extends Model
             ->get()->getResultObject();
     }
 
+    public function getCount()
+    {
+        $builder = $this->db->table('logistik_keluar');
+        return $builder->countAllResults();
+    }
+
     public function insertLogistikKeluar($data)
     {
         return $this->save($data);

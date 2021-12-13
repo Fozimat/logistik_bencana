@@ -17,6 +17,12 @@ class InformasiKebencanaanModel extends Model
         return $this->findAll();
     }
 
+    public function getCount()
+    {
+        $builder = $this->db->table('informasi_kebencanaan');
+        return $builder->countAllResults();
+    }
+
     public function getInformasiKebencanaanById($id)
     {
         return $this->where(['id' => $id])->first();

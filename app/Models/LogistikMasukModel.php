@@ -20,6 +20,12 @@ class LogistikMasukModel extends Model
             ->get()->getResultObject();
     }
 
+    public function getCount()
+    {
+        $builder = $this->db->table('logistik_masuk');
+        return $builder->countAllResults();
+    }
+
     public function insertLogistikMasuk($data)
     {
         return $this->save($data);

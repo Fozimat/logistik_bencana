@@ -14,8 +14,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Earnings (Monthly)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            Persediaan Barang</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_persediaan; ?> Barang</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -32,8 +32,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Earnings (Annual)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            Informasi Bencana</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_bencana; ?> Bencana</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -49,17 +49,13 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Logistik Masuk
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $total_logistik_masuk; ?> Data</div>
                             </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-auto">
@@ -77,13 +73,45 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Pending Requests</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            Logistik Keluar</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $total_logistik_keluar; ?> Data</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Informasi Bencana Terbaru</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Bencana</th>
+                            <th scope="col">Lokasi</th>
+                            <th scope="col">Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($informasi_kebencanaan as $data) : ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><?= $data->jenis_bencana; ?></td>
+                                <td><?= $data->lokasi_tempat_kejadian; ?></td>
+                                <td><?= $data->tgl_bencana; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

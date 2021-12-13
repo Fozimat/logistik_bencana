@@ -22,6 +22,12 @@ class PersediaanModel extends Model
         return $this->where(['id' => $id])->first();
     }
 
+    public function getCount()
+    {
+        $builder = $this->db->table('persediaan');
+        return $builder->countAllResults();
+    }
+
     public function insertPersediaan($data)
     {
         return $this->save($data);
