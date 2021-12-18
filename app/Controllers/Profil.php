@@ -18,9 +18,9 @@ class Profil extends BaseController
         return view('profil/struktur', $data);
     }
 
-    public function sejarah()
+    public function tentang()
     {
-        $data['title'] = 'Sejarah';
-        return view('profil/sejarah', $data);
+        $data['title'] = 'Tentang';
+        return view('profil/tentang', $data);
     }
 }

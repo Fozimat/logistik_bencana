@@ -5,7 +5,7 @@
         <li><a class="nav-link scrollto <?= ($uri->getSegment(1) == 'home') ? 'active' : ''; ?>" href="<?= site_url('home'); ?>">Beranda</a></li>
         <li class="dropdown"><a href="#" class="<?= ($uri->getSegment(1) == 'profil') ? 'active' : ''; ?>"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-                <li><a href="#">Sejarah</a></li>
+                <li><a href="<?= site_url('profil/tentang'); ?>" class="<?= ($uri->getSegment(2) == 'tentang') ? 'active' : ''; ?>">Tentang BPBD</a></li>
 
                 <li><a href="<?= site_url('profil/visi'); ?>" class="<?= ($uri->getSegment(2) == 'visi') ? 'active' : ''; ?>">Visi & Misi</a></li>
                 <li><a href="<?= site_url('profil/struktur_organisasi'); ?>" class="<?= ($uri->getSegment(2) == 'struktur_organisasi') ? 'active' : ''; ?>">Struktur Organisasi</a></li>
@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="#">Edukasi</a></li>
                 <li><a href="#">Data Kejadian</a></li>
-                <li><a href="#">Pedoman Peringatan Dini</a></li>
+                <li><a href="#">Siaga Bencana</a></li>
             </ul>
         </li>
         <li><a class="nav-link scrollto" href="#services">Berita</a></li>
