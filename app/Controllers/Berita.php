@@ -11,4 +11,10 @@ class Berita extends BaseController
         $data['title'] = 'Berita';
         return view('profil/berita', $data);
     }
+
+    public function detail()
+    {
+        $data['title'] = 'Detail Berita';
+        return view('profil/detail', $data);
+    }
 }

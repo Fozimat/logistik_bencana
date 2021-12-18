@@ -21,6 +21,7 @@
         <li><a class="nav-link scrollto  <?= ($uri->getSegment(1) == 'berita') ? 'active' : ''; ?>" href="<?= site_url('berita'); ?>">Berita</a></li>
         <li><a class="nav-link scrollto <?= ($uri->getSegment(1) == 'galeri') ? 'active' : ''; ?>" href="<?= site_url('galeri'); ?>">Galeri</a></li>
         <li><a class="nav-link scrollto <?= ($uri->getSegment(1) == 'kontak') ? 'active' : ''; ?>" href="<?= site_url('kontak'); ?>">Kontak</a></li>
+        <li><a class="nav-link scrollto" href="<?= site_url('login'); ?>">Login</a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
 </nav>

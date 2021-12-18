@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Perkembangan Bencana Gelombang tinggi</h5>
                             <p class="card-text">Perkembangan Bencana Gelombang tinggi dan disertai hujan di kab. Lingga, Provinsi kepulauan Riau</p>
-                            <a href="#" class="btn btn-primary btn-sm">Selengkapnya</a>
+                            <a href="<?= base_url('berita/detail'); ?>" class="btn btn-primary btn-sm">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,5 @@
             </div>
         </div>
     </section>
-
-
 </main>
 <?= $this->endSection(); ?>
