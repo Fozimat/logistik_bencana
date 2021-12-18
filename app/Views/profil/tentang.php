@@ -22,6 +22,12 @@
                 <p style="text-indent: 40px;text-align: justify;">
                     Badan Penanggulangan Bencana Daerah Kabupaten Lingga dibentuk dalam rangka membantu Bupati dalam penyelenggaraan Pemerintah Daerah di Bidang Penanggulangan Bencana. Dalam tugas dan fungsinya dituntut untuk menyelenggarakan Program dan Kegiatan yang merupakan upaya memberikan perlindungan dan pengurangan risiko.
                 </p>
+                <p style="text-indent: 40px;text-align: justify;">
+                    Kabupaten Lingga merupakan salah satu kabupaten di Povinsi Kepulauan Riau. Kabupaten Lingga merupakan daerah kepulauan yang luas lautan sekitar 43.338,9962 km persegi sedang daratan hanya 2.117,72 km persegi. Jika di persentase 95,34 % lautan dan 4,66 persen daratan. Secara geografis dan klimatologis kabupaten ini terdiri dari pegunungan, perbukita, dan pantai dengan curah hujan tinggi yang memiliki potensi dan bahaya bencana. Berdasarkan kondisi tersebut, maka sudah seharusnya pemerintah beserta stakeholder terkait malakukan pemutakhiran data daerah rawan bencana yang terdapat di Kabupaten Lingga. Pemutakhiran data daerah rawan bencana merupakan hal yang penting untuk dilakukan yang disebabkan anomali atau perubahan cuaca belakangan ini, sehingga wilayah kabupaten Lingga memiliki tingkat intensitas dan frekuensi bencana sering terjadi dan hampir merata.
+                </p>
+                <p style="text-indent: 40px;text-align: justify;">
+                    Penanganan bencana merupakan salah satu perwujudan fungsi pemerintah dalam perlindungan kepada masyarakat, oleh karena itu pemerintah wajib melaksanakan penanganan bencana sepenuhnya. Penanganan bencana merupakan suatu pekerjaan yang terpadu yang memerlukan koordinasi semua pihak, baik dari sektor pemerintah, lembaga masyarakat dan sebagainya. Sehubungan dengan hal tersebut, maka perlu dilakukan pemutakhiran data daerah rawan bencana di Kabupaten Lingga.
+                </p>
                 <div class="d-flex align-items-center justify-content-center">
                     <img src="<?= site_url('assets-profil/img/profil.jpg'); ?>" class="img-fluid" alt="">
                 </div>
@@ -68,9 +74,5 @@
             </div>
         </div>
     </section>
-
-
-
-
 </main>
 <?= $this->endSection(); ?>

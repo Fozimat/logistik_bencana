@@ -15,10 +15,10 @@
             <ul>
                 <li><a href="#">Edukasi</a></li>
                 <li><a href="#">Data Kejadian</a></li>
-                <li><a href="#">Siaga Bencana</a></li>
+                <li><a class="<?= ($uri->getSegment(2) == 'siaga_bencana') ? 'active' : ''; ?>" href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
             </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#services">Berita</a></li>
+        <li><a class="nav-link scrollto  <?= ($uri->getSegment(1) == 'berita') ? 'active' : ''; ?>" href="<?= site_url('berita'); ?>">Berita</a></li>
         <li><a class="nav-link scrollto <?= ($uri->getSegment(1) == 'galeri') ? 'active' : ''; ?>" href="<?= site_url('galeri'); ?>">Galeri</a></li>
         <li><a class="nav-link scrollto <?= ($uri->getSegment(1) == 'kontak') ? 'active' : ''; ?>" href="<?= site_url('kontak'); ?>">Kontak</a></li>
     </ul>

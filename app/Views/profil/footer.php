@@ -60,8 +60,8 @@
                     <p>Ikuti kami untuk mendapatkan informasi terkini</p>
                     <div class="social-links mt-3">
                         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100075927138948" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a target="_blank" href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                         <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
                     </div>
                 </div>

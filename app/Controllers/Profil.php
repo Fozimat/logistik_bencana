@@ -23,4 +23,10 @@ class Profil extends BaseController
         $data['title'] = 'Tentang';
         return view('profil/tentang', $data);
     }
+
+    public function siaga_bencana()
+    {
+        $data['title'] = 'Siaga Bencana';
+        return view('profil/siaga', $data);
+    }
 }
