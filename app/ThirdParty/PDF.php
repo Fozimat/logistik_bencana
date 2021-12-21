@@ -70,7 +70,7 @@ class PDF extends FPDF
             $this->Cell(300, 20, 'Daik Lingga, ' . $this->format_ind(date('Y-m-d')), 0, 1, 'C');
             $this->Ln(10);
             $this->SetFont('Times', 'B', '12');
-            $this->Cell(300, 10, 'SAID YARDIANSYAH,S.E', 0, 1, 'C');
+            $this->Cell(300, 10, 'SAID YARDIANSYAH, S.E', 0, 1, 'C');
             $this->SetFont('Times', '', '11');
             $this->Cell(300, 0, '(Kepala Seksi Kedaruratan dan Logistik)', 0, 1, 'C');
         }
