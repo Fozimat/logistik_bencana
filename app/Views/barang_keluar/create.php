@@ -10,9 +10,10 @@
         <div class="card-shadow">
             <div class="card-body">
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3 bg-primary">
+                    <div class="card-header py-3 bg-primary d-flex justify-content-between align-items-center">
                         <h5 class="m-0 font-weight-bold text-light">Form Tambah Berita Acara Barang Keluar
                         </h5>
+                        <a href="<?= base_url('admin/beritabarangkeluar'); ?>" class="btn btn-warning btn-sm"><i class="fa fa-backward"></i> Kembali</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -36,10 +37,18 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="tujuan_bantuan" class="hitam-tebal">Tujuan Bantuan</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('tujuan_bantuan')) ? 'is-invalid' : ''; ?>" value="<?= old('tujuan_bantuan'); ?>" name="tujuan_bantuan" id="tujuan_bantuan">
+                                        <label for="pihak_pertama" class="hitam-tebal">Pihak Pertama</label>
+                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_pertama')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_pertama'); ?>" name="pihak_pertama" id="pihak_pertama">
                                         <div class="invalid-feedback">
-                                            <?= $validation->getError('tujuan_bantuan'); ?>
+                                            <?= $validation->getError('pihak_pertama'); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pihak_kedua" class="hitam-tebal">Pihak Kedua</label>
+                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_kedua')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_kedua'); ?>" name="pihak_kedua" id="pihak_kedua">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('pihak_kedua'); ?>
                                         </div>
                                     </div>
 

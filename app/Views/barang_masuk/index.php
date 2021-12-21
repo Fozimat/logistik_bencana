@@ -29,7 +29,8 @@
                         <th>No</th>
                         <th>No berita Acara</th>
                         <th>Tanggal Masuk</th>
-                        <th>Sumber Bantuan</th>
+                        <th>Pihak Pertama</th>
+                        <th>Pihak Kedua</th>
                         <th>Gambar</th>
                         <?php if (session()->get('roles') == 'ADMIN') : ?>
                             <th>Aksi</th>
@@ -44,7 +45,8 @@
                             <th><?= $i++; ?></th>
                             <td><?= $ba->no_berita_acara; ?></td>
                             <td><?= $ba->tgl_ba_masuk; ?></td>
-                            <td><?= $ba->sumber_bantuan; ?></td>
+                            <td><?= $ba->pihak_pertama; ?></td>
+                            <td><?= $ba->pihak_kedua; ?></td>
                             <td><img width="100" height="100" src="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" alt=""></td>
                             <?php if (session()->get('roles') == 'ADMIN') : ?>
                                 <td>

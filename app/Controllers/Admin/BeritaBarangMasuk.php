@@ -48,10 +48,16 @@ class BeritaBarangMasuk extends BaseController
                         'required' => 'Tanggal berita acara tidak boleh kosong'
                     ]
                 ],
-                'sumber_bantuan' => [
+                'pihak_pertama' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Sumber bantuan tidak boleh kosong'
+                        'required' => 'Pihak pertama tidak boleh kosong'
+                    ]
+                ],
+                'pihak_kedua' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Pihak kedua tidak boleh kosong'
                     ]
                 ],
                 'gambar' => [
@@ -73,7 +79,8 @@ class BeritaBarangMasuk extends BaseController
         $data = [
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'tgl_ba_masuk' => $this->request->getVar('tgl_ba_masuk'),
-            'sumber_bantuan' => $this->request->getVar('sumber_bantuan'),
+            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
+            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'gambar' => $namaGambar
         ];
         $this->beritaBarangMasukModel->insertBeritaBarangMasuk($data);
@@ -107,10 +114,16 @@ class BeritaBarangMasuk extends BaseController
                         'required' => 'Tanggal berita acara tidak boleh kosong'
                     ]
                 ],
-                'sumber_bantuan' => [
+                'pihak_pertama' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Sumber bantuan tidak boleh kosong'
+                        'required' => 'Pihak pertama tidak boleh kosong'
+                    ]
+                ],
+                'pihak_kedua' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Pihak kedua tidak boleh kosong'
                     ]
                 ],
                 'gambar' => [
@@ -137,7 +150,8 @@ class BeritaBarangMasuk extends BaseController
         $data = [
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'tgl_ba_masuk' => $this->request->getVar('tgl_ba_masuk'),
-            'sumber_bantuan' => $this->request->getVar('sumber_bantuan'),
+            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
+            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'gambar' => $namaGambar
         ];
         $this->beritaBarangMasukModel->update($id, $data);
