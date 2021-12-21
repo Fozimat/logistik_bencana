@@ -4,14 +4,14 @@ namespace App\ThirdParty;
 
 use App\ThirdParty\FPDF;
 
-class PDF extends FPDF
+class PDF_Persediaan extends FPDF
 {
     function Header()
     {
         if ($this->PageNo() == 1) {
             $this->Image(APPPATH . 'ThirdParty/img/lingga.png', 10, 5, 35, 30, 'PNG');
             $this->Image(APPPATH . 'ThirdParty/img/kepri.png', 173, 4, 30, 30, 'PNG');
-            $this->judul('PEMERINTAH KABUPATEN LINGGA', 'BADAN PENANGGULANGAN BENCANA DAERAH', 'Jalan ISTANA KOTA BARU (KOMPLEK PERKANTORAN PEMKAB)', 'e-mail: bpbdkab.lingga@gmail.com', 'DAIK - LINGGA');
+            $this->judul('PEMERINTAH KABUPATEN LINGGA', 'BADAN PENANGGULANGAN BENCANA DAERAH', 'JALAN ISTANA KOTA BARU (KOMPLEK PERKANTORAN PEMKAB)', 'e-mail: bpbdkab.lingga@gmail.com', 'DAIK - LINGGA');
             $this->garis();
         }
     }
@@ -67,12 +67,15 @@ class PDF extends FPDF
     function Footer()
     {
         if ($this->isFinished) {
-            $this->Cell(300, 20, 'Daik Lingga, ' . $this->format_ind(date('Y-m-d')), 0, 1, 'C');
+            $this->Cell(97, 20, 'Plt. Kepala Pelaksana BPBD Kab.Lingga', 0, 0, 'C');
+            $this->Cell(97, 20, 'Kepala Seksi Kedaruratan dan Logistik', 0, 1, 'C');
             $this->Ln(10);
             $this->SetFont('Times', 'BU', '12');
-            $this->Cell(300, 10, 'SAID YARDIANSYAH, S.E', 0, 1, 'C');
+            $this->Cell(97, 10, 'OKTANIUS WIRSAI, S.Sos', 0, 0, 'C');
+            $this->Cell(97, 10, 'SAID YARDIANSYAH, S.E', 0, 1, 'C');
             $this->SetFont('Times', '', '11');
-            $this->Cell(300, 0, '(Kepala Seksi Kedaruratan dan Logistik)', 0, 1, 'C');
+            $this->Cell(97, 0, 'NIP: 19761007 200604 1 009', 0, 0, 'C');
+            $this->Cell(97, 0, 'NIP: 19810313 200502 1 005', 0, 1, 'C');
         }
     }
 
