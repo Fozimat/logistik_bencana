@@ -29,9 +29,10 @@
                     <tr>
                         <th>No</th>
                         <th>No Berita Acara</th>
-                        <th>Jenis Barang</th>
+                        <th>Nama Barang</th>
                         <th>Tangal Keluar</th>
-                        <th>Tujuan</th>
+                        <th>Pihak Pertama</th>
+                        <th>Pihak Kedua</th>
                         <th>Vol/Unit</th>
                         <th>Satuan</th>
                         <th>Keterangan</th>
@@ -47,9 +48,10 @@
                         <tr>
                             <th><?= $i++; ?></th>
                             <td><?= $d->no_berita_acara; ?></td>
-                            <td><?= $d->jenis_barang; ?></td>
+                            <td><?= $d->nama_barang; ?></td>
                             <td><?= $d->tgl_keluar; ?></td>
-                            <td><?= $d->tujuan; ?></td>
+                            <td><?= $d->pihak_pertama; ?></td>
+                            <td><?= $d->pihak_kedua; ?></td>
                             <td><?= $d->vol_unit; ?></td>
                             <td><?= $d->satuan; ?></td>
                             <td><?= $d->keterangan; ?></td>

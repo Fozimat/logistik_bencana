@@ -46,7 +46,7 @@ class LogistikKeluar extends BaseController
                 'id_barang' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Jenis Barang tidak boleh kosong'
+                        'required' => 'Nama Barang tidak boleh kosong'
                     ]
                 ],
                 'tgl_keluar' => [
@@ -55,10 +55,16 @@ class LogistikKeluar extends BaseController
                         'required' => 'Tanggal Keluar tidak boleh kosong'
                     ]
                 ],
-                'tujuan' => [
+                'pihak_pertama' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Tujuan tidak boleh kosong'
+                        'required' => 'Pihak Pertama tidak boleh kosong'
+                    ]
+                ],
+                'pihak_kedua' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Pihak Kedua tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -76,7 +82,8 @@ class LogistikKeluar extends BaseController
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_keluar' => $this->request->getVar('tgl_keluar'),
-            'tujuan' => $this->request->getVar('tujuan'),
+            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
+            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'vol_unit' => $this->request->getVar('vol_unit'),
         ];
         $this->logistikKeluarModel->insertLogistikKeluar($data);
@@ -116,7 +123,7 @@ class LogistikKeluar extends BaseController
                 'id_barang' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Jenis Barang tidak boleh kosong'
+                        'required' => 'Nama Barang tidak boleh kosong'
                     ]
                 ],
                 'tgl_keluar' => [
@@ -125,10 +132,16 @@ class LogistikKeluar extends BaseController
                         'required' => 'Tanggal Keluar tidak boleh kosong'
                     ]
                 ],
-                'tujuan' => [
+                'pihak_pertama' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Tujuan tidak boleh kosong'
+                        'required' => 'Pihak Pertama tidak boleh kosong'
+                    ]
+                ],
+                'pihak_kedua' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Pihak Kedua tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -145,7 +158,8 @@ class LogistikKeluar extends BaseController
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_keluar' => $this->request->getVar('tgl_keluar'),
-            'tujuan' => $this->request->getVar('tujuan'),
+            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
+            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'vol_unit' => $this->request->getVar('vol_unit'),
         ];
 

@@ -10,9 +10,10 @@
         <div class="card-shadow">
             <div class="card-body">
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3 bg-primary">
+                    <div class="card-header py-3 bg-primary d-flex justify-content-between align-items-center">
                         <h5 class="m-0 font-weight-bold text-light">Form Edit Logistik Keluar
                         </h5>
+                        <a href="<?= base_url('admin/logistikkeluar'); ?>" class="btn btn-warning btn-sm"><i class="fa fa-backward"></i> Kembali</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -29,11 +30,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="id_barang" class="hitam-tebal">Jenis Barang</label>
+                                        <label for="id_barang" class="hitam-tebal">Nama Barang</label>
                                         <select name="id_barang" id="id_barang" class="form-control  <?= ($validation->hasError('id_barang')) ? 'is-invalid' : ''; ?>">
                                             <option value="">--- Pilih Barang ---</option>
                                             <?php foreach ($persediaan as $pd) : ?>
-                                                <option value="<?= $pd->id; ?>" <?= ($pd->id == $logistik_keluar->id_barang ? 'selected' : ''); ?>><?= $pd->jenis_barang; ?></option>
+                                                <option value="<?= $pd->id; ?>" <?= ($pd->id == $logistik_keluar->id_barang ? 'selected' : ''); ?>><?= $pd->nama_barang; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                         <div class="invalid-feedback">
@@ -50,10 +51,18 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="tujuan" class="hitam-tebal">Tujuan</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('tujuan')) ? 'is-invalid' : ''; ?>" value="<?= old('tujuan', $logistik_keluar->no_berita_acara); ?>" name="tujuan" id="tujuan">
+                                        <label for="pihak_pertama" class="hitam-tebal">Pihak Pertama</label>
+                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_pertama')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_pertama', $logistik_keluar->pihak_pertama); ?>" name="pihak_pertama" id="pihak_pertama">
                                         <div class="invalid-feedback">
-                                            <?= $validation->getError('tujuan'); ?>
+                                            <?= $validation->getError('pihak_pertama'); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pihak_kedua" class="hitam-tebal">Pihak Kedua</label>
+                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_kedua')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_kedua', $logistik_keluar->pihak_kedua); ?>" name="pihak_kedua" id="pihak_kedua">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('pihak_kedua'); ?>
                                         </div>
                                     </div>
 

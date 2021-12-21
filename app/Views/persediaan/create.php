@@ -14,7 +14,6 @@
                         <h5 class="m-0 font-weight-bold text-light">Form Tambah Persediaan
                         </h5>
                         <a href="<?= base_url('admin/persediaan'); ?>" class="btn btn-warning btn-sm"><i class="fa fa-backward"></i> Kembali</a>
-
                     </div>
                     <div class="card-body">
                         <div class="row">

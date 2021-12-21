@@ -48,7 +48,7 @@ class LogistikMasuk extends BaseController
                 'id_barang' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Jenis Barang tidak boleh kosong'
+                        'required' => 'Nama Barang tidak boleh kosong'
                     ]
                 ],
                 'tgl_masuk' => [
@@ -57,10 +57,16 @@ class LogistikMasuk extends BaseController
                         'required' => 'Tanggal Masuk tidak boleh kosong'
                     ]
                 ],
-                'sumber' => [
+                'pihak_pertama' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Sumber tidak boleh kosong'
+                        'required' => 'Pihak Pertama tidak boleh kosong'
+                    ]
+                ],
+                'pihak_kedua' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Pihak Kedua tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -78,7 +84,8 @@ class LogistikMasuk extends BaseController
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_masuk' => $this->request->getVar('tgl_masuk'),
-            'sumber' => $this->request->getVar('sumber'),
+            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
+            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'vol_unit' => $this->request->getVar('vol_unit'),
         ];
         $this->logistikMasukModel->insertLogistikMasuk($data);
@@ -118,7 +125,7 @@ class LogistikMasuk extends BaseController
                 'id_barang' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Jenis Barang tidak boleh kosong'
+                        'required' => 'Nama Barang tidak boleh kosong'
                     ]
                 ],
                 'tgl_masuk' => [
@@ -127,10 +134,16 @@ class LogistikMasuk extends BaseController
                         'required' => 'Tanggal Masuk tidak boleh kosong'
                     ]
                 ],
-                'sumber' => [
+                'pihak_pertama' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Sumber tidak boleh kosong'
+                        'required' => 'Pihak Pertama tidak boleh kosong'
+                    ]
+                ],
+                'pihak_kedua' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Pihak Kedua tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -147,7 +160,8 @@ class LogistikMasuk extends BaseController
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_masuk' => $this->request->getVar('tgl_masuk'),
-            'sumber' => $this->request->getVar('sumber'),
+            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
+            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'vol_unit' => $this->request->getVar('vol_unit'),
         ];
 
