@@ -36,10 +36,10 @@ class Persediaan extends BaseController
     {
         if (!$this->validate(
             [
-                'jenis_barang' => [
+                'nama_barang' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Jenis Barang tidak boleh kosong'
+                        'required' => 'Nama Barang tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -65,7 +65,7 @@ class Persediaan extends BaseController
             return redirect()->to('admin/persediaan/create')->withInput();
         }
         $data = [
-            'jenis_barang' => $this->request->getVar('jenis_barang'),
+            'nama_barang' => $this->request->getVar('nama_barang'),
             'vol_unit' => $this->request->getVar('vol_unit'),
             'satuan' => $this->request->getVar('satuan'),
             'keterangan' => $this->request->getVar('keterangan'),
@@ -89,10 +89,10 @@ class Persediaan extends BaseController
     {
         if (!$this->validate(
             [
-                'jenis_barang' => [
+                'nama_barang' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Jenis Barang tidak boleh kosong'
+                        'required' => 'Nama Barang tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -118,7 +118,7 @@ class Persediaan extends BaseController
             return redirect()->to('admin/persediaan/edit/' . $this->request->getVar('id'))->withInput();
         }
         $data = [
-            'jenis_barang' => $this->request->getVar('jenis_barang'),
+            'nama_barang' => $this->request->getVar('nama_barang'),
             'vol_unit' => $this->request->getVar('vol_unit'),
             'satuan' => $this->request->getVar('satuan'),
             'keterangan' => $this->request->getVar('keterangan'),

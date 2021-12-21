@@ -10,7 +10,7 @@ class PersediaanModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['jenis_barang', 'vol_unit', 'jumlah', 'satuan', 'keterangan'];
+    protected $allowedFields    = ['nama_barang', 'vol_unit', 'jumlah', 'satuan', 'keterangan'];
 
     public function getPersediaan()
     {

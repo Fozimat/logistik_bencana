@@ -10,9 +10,10 @@
         <div class="card-shadow">
             <div class="card-body">
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3 bg-primary">
+                    <div class="card-header py-3 bg-primary d-flex justify-content-between align-items-center">
                         <h5 class="m-0 font-weight-bold text-light">Form Edit Persediaan
                         </h5>
+                        <a href="<?= base_url('admin/persediaan'); ?>" class="btn btn-warning btn-sm"><i class="fa fa-backward"></i> Kembali</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -21,10 +22,10 @@
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="id" value="<?= $persediaan->id; ?>">
                                     <div class="form-group">
-                                        <label for="jenis_barang" class="hitam-tebal">Jenis</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('jenis_barang')) ? 'is-invalid' : ''; ?>" value="<?= old('jenis_barang', $persediaan->jenis_barang); ?>" name="jenis_barang" id="jenis_barang">
+                                        <label for="nama_barang" class="hitam-tebal">Nama Barang</label>
+                                        <input type="text" class="form-control <?= ($validation->hasError('nama_barang')) ? 'is-invalid' : ''; ?>" value="<?= old('nama_barang', $persediaan->nama_barang); ?>" name="nama_barang" id="nama_barang">
                                         <div class="invalid-feedback">
-                                            <?= $validation->getError('jenis_barang'); ?>
+                                            <?= $validation->getError('nama_barang'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group">

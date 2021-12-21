@@ -26,13 +26,13 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Jenis Barang</th>
-                        <th>Vol/Unit</th>
-                        <th>Satuan</th>
-                        <th>Keterangan</th>
+                        <th>NO</th>
+                        <th>NAMA BARANG</th>
+                        <th>VOL/UNIT</th>
+                        <th>SATUAN</th>
+                        <th>KETERANGAN</th>
                         <?php if (session()->get('roles') == 'ADMIN') : ?>
-                            <th>Aksi</th>
+                            <th>AKSI</th>
                         <?php endif; ?>
 
                     </tr>
@@ -43,7 +43,7 @@
                     <?php foreach ($persediaan as $d) : ?>
                         <tr>
                             <th><?= $i++; ?></th>
-                            <td><?= $d->jenis_barang; ?></td>
+                            <td><?= $d->nama_barang; ?></td>
                             <td><?= $d->vol_unit; ?></td>
                             <td><?= $d->satuan; ?></td>
                             <td><?= $d->keterangan; ?></td>
