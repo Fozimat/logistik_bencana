@@ -67,7 +67,7 @@ class PDFL extends FPDF
     function Footer()
     {
         if ($this->isFinished) {
-            $this->Cell(480, 20, 'Lingga, ' . $this->format_ind(date('Y-m-d')), 0, 1, 'C');
+            $this->Cell(480, 20, 'Daik Lingga, ' . $this->format_ind(date('Y-m-d')), 0, 1, 'C');
             $this->Ln(10);
             $this->Cell(480, 10, 'Said Yardiansyah, SE', 0, 1, 'C');
             $this->Cell(480, 0, '(Kepala Seksi Kedaruratan dan Logistik)', 0, 1, 'C');

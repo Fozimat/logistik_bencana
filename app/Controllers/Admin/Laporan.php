@@ -322,13 +322,11 @@ class Laporan extends BaseController
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(8, 6, 'No', 1, 0, 'C');
         $pdf->Cell(35, 6, 'Jenis Bencana', 1, 0, 'C');
-        $pdf->Cell(35, 6, 'Tempat Kejadian', 1, 0, 'C');
+        $pdf->Cell(38, 6, 'Tempat Kejadian', 1, 0, 'C');
         $pdf->Cell(25, 6, 'Tanggal', 1, 0, 'C');
-        $pdf->Cell(35, 6, 'Objek Terdampak', 1, 0, 'C');
-        $pdf->Cell(35, 6, 'Kbn Terdampak LK', 1, 0, 'C');
-        $pdf->Cell(35, 6, 'Kbn Terdampak PR', 1, 0, 'C');
-        $pdf->Cell(30, 6, 'Tindakan', 1, 0, 'C');
-        $pdf->Cell(45, 6, 'Keterangan', 1, 1, 'C');
+        $pdf->Cell(60, 6, 'Korban Terdampak Laki', 1, 0, 'C');
+        $pdf->Cell(60, 6, 'Korban Terdampak Perempuan', 1, 0, 'C');
+        $pdf->Cell(55, 6, 'Keterangan', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $informasi_kebencanaan =  $this->informasiKebencanaanModel->getInformasiKebencanaan();
         $no = 1;
@@ -336,13 +334,11 @@ class Laporan extends BaseController
             $pdf->SetFont('times', '', 11);
             $pdf->Cell(8, 7, $no, 1, 0, 'C');
             $pdf->Cell(35, 7, $data->jenis_bencana, 1, 0);
-            $pdf->Cell(35, 7, $data->lokasi_tempat_kejadian, 1, 0, 'C');
+            $pdf->Cell(38, 7, $data->lokasi_tempat_kejadian, 1, 0, 'C');
             $pdf->Cell(25, 7, $data->tgl_bencana, 1, 0, 'C');
-            $pdf->Cell(35, 7, $data->objek_terdampak, 1, 0);
-            $pdf->Cell(35, 7, $data->jumlah_korban_terdampak_laki, 1, 0, 'C');
-            $pdf->Cell(35, 7, $data->jumlah_korban_terdampak_perempuan, 1, 0, 'C');
-            $pdf->Cell(30, 7, $data->tindakan, 1, 0);
-            $pdf->Cell(45, 7, $data->keterangan, 1, 1);
+            $pdf->Cell(60, 7, $data->korban_laki, 1, 0, 'C');
+            $pdf->Cell(60, 7, $data->korban_perempuan, 1, 0, 'C');
+            $pdf->Cell(55, 7, $data->keterangan, 1, 1);
             $no++;
         }
         $pdf->isFinished = true;
