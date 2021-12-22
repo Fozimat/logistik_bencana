@@ -30,10 +30,21 @@
                         <th>Jenis Bencana</th>
                         <th>Lokasi</th>
                         <th>Tanggal Bencana</th>
-                        <th>Objek Terdampak</th>
-                        <th>Jumlah Korban Terdampak Laki</th>
-                        <th>Jumlah Korban Terdampak Perempuan</th>
-                        <th>Tindakan</th>
+                        <th>Korban Laki</th>
+                        <th>Korban Perempuan</th>
+                        <th>Usia 0 - 5</th>
+                        <th>Usia 6 - 20</th>
+                        <th>Usia 21 - 60</th>
+                        <th>Usia 61</th>
+                        <th>Ibu Hamil</th>
+                        <th>Meninggal</th>
+                        <th>Hilang</th>
+                        <th>Luka</th>
+                        <th>Mengungsi</th>
+                        <th>Jenis Prasarana</th>
+                        <th>Rusak Ringan</th>
+                        <th>Rusak Sedang</th>
+                        <th>Rusak Berat</th>
                         <th>Keterangan</th>
                         <?php if (session()->get('roles') == 'ADMIN') : ?>
                             <th>Aksi</th>
@@ -49,10 +60,21 @@
                             <td><?= $d->jenis_bencana; ?></td>
                             <td><?= $d->lokasi_tempat_kejadian; ?></td>
                             <td><?= $d->tgl_bencana; ?></td>
-                            <td><?= $d->objek_terdampak; ?></td>
-                            <td><?= $d->jumlah_korban_terdampak_laki; ?></td>
-                            <td><?= $d->jumlah_korban_terdampak_perempuan; ?></td>
-                            <td><?= $d->tindakan; ?></td>
+                            <td><?= $d->korban_laki; ?></td>
+                            <td><?= $d->korban_perempuan; ?></td>
+                            <td><?= $d->usia_0_5; ?></td>
+                            <td><?= $d->usia_6_20; ?></td>
+                            <td><?= $d->usia_21_60; ?></td>
+                            <td><?= $d->usia_61; ?></td>
+                            <td><?= $d->ibu_hamil; ?></td>
+                            <td><?= $d->meninggal; ?></td>
+                            <td><?= $d->hilang; ?></td>
+                            <td><?= $d->luka; ?></td>
+                            <td><?= $d->mengungsi; ?></td>
+                            <td><?= $d->jenis_prasarana; ?></td>
+                            <td><?= $d->rusak_ringan; ?></td>
+                            <td><?= $d->rusak_sedang; ?></td>
+                            <td><?= $d->rusak_berat; ?></td>
                             <td><?= $d->keterangan; ?></td>
                             <?php if (session()->get('roles') == 'ADMIN') : ?>
                                 <td>

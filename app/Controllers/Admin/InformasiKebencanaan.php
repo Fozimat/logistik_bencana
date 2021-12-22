@@ -52,28 +52,94 @@ class InformasiKebencanaan extends BaseController
                         'required' => 'Tanggal Bencana tidak boleh kosong'
                     ]
                 ],
-                'objek_terdampak' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Objek Terdampak tidak boleh kosong'
-                    ]
-                ],
-                'jumlah_korban_terdampak_laki' => [
+                'korban_laki' => [
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Jumlah Korban Terdampak Laki-laki tidak boleh kosong'
                     ]
                 ],
-                'jumlah_korban_terdampak_perempuan' => [
+                'korban_perempuan' => [
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Jumlah Korban Terdampak Perempuan tidak boleh kosong'
                     ]
                 ],
-                'tindakan' => [
+                'usia_0_5' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Tindakan tidak boleh kosong'
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'usia_6_20' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'usia_21_60' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'usia_61' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'ibu_hamil' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'meninggal' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'hilang' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'luka' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'mengungsi' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'jenis_prasarana' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Jenis Prasarana tidak boleh kosong'
+                    ]
+                ],
+                'rusak_ringan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'rusak_sedang' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'rusak_berat' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'keterangan' => [
@@ -90,10 +156,21 @@ class InformasiKebencanaan extends BaseController
             'jenis_bencana' => $this->request->getVar('jenis_bencana'),
             'lokasi_tempat_kejadian' => $this->request->getVar('lokasi_tempat_kejadian'),
             'tgl_bencana' => $this->request->getVar('tgl_bencana'),
-            'objek_terdampak' => $this->request->getVar('objek_terdampak'),
-            'jumlah_korban_terdampak_laki' => $this->request->getVar('jumlah_korban_terdampak_laki'),
-            'jumlah_korban_terdampak_perempuan' => $this->request->getVar('jumlah_korban_terdampak_perempuan'),
-            'tindakan' => $this->request->getVar('tindakan'),
+            'korban_laki' => $this->request->getVar('korban_laki'),
+            'korban_perempuan' => $this->request->getVar('korban_perempuan'),
+            'usia_0_5' => $this->request->getVar('usia_0_5'),
+            'usia_6_20' => $this->request->getVar('usia_6_20'),
+            'usia_21_60' => $this->request->getVar('usia_21_60'),
+            'usia_61' => $this->request->getVar('usia_61'),
+            'ibu_hamil' => $this->request->getVar('ibu_hamil'),
+            'meninggal' => $this->request->getVar('meninggal'),
+            'hilang' => $this->request->getVar('hilang'),
+            'luka' => $this->request->getVar('luka'),
+            'mengungsi' => $this->request->getVar('mengungsi'),
+            'jenis_prasarana' => $this->request->getVar('jenis_prasarana'),
+            'rusak_ringan' => $this->request->getVar('rusak_ringan'),
+            'rusak_sedang' => $this->request->getVar('rusak_sedang'),
+            'rusak_berat' => $this->request->getVar('rusak_berat'),
             'keterangan' => $this->request->getVar('keterangan'),
         ];
         $this->informasiKebencanaanModel->insertInformasiKebencanaan($data);
@@ -133,28 +210,94 @@ class InformasiKebencanaan extends BaseController
                         'required' => 'Tanggal Bencana tidak boleh kosong'
                     ]
                 ],
-                'objek_terdampak' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Objek Terdampak tidak boleh kosong'
-                    ]
-                ],
-                'jumlah_korban_terdampak_laki' => [
+                'korban_laki' => [
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Jumlah Korban Terdampak Laki-laki tidak boleh kosong'
                     ]
                 ],
-                'jumlah_korban_terdampak_perempuan' => [
+                'korban_perempuan' => [
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Jumlah Korban Terdampak Perempuan tidak boleh kosong'
                     ]
                 ],
-                'tindakan' => [
+                'usia_0_5' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Tindakan tidak boleh kosong'
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'usia_6_20' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'usia_21_60' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'usia_61' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Usia tidak boleh kosong'
+                    ]
+                ],
+                'ibu_hamil' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'meninggal' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'hilang' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'luka' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'mengungsi' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'jenis_prasarana' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Jenis Prasarana tidak boleh kosong'
+                    ]
+                ],
+                'rusak_ringan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'rusak_sedang' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
+                    ]
+                ],
+                'rusak_berat' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'keterangan' => [
@@ -171,10 +314,21 @@ class InformasiKebencanaan extends BaseController
             'jenis_bencana' => $this->request->getVar('jenis_bencana'),
             'lokasi_tempat_kejadian' => $this->request->getVar('lokasi_tempat_kejadian'),
             'tgl_bencana' => $this->request->getVar('tgl_bencana'),
-            'objek_terdampak' => $this->request->getVar('objek_terdampak'),
-            'jumlah_korban_terdampak_laki' => $this->request->getVar('jumlah_korban_terdampak_laki'),
-            'jumlah_korban_terdampak_perempuan' => $this->request->getVar('jumlah_korban_terdampak_perempuan'),
-            'tindakan' => $this->request->getVar('tindakan'),
+            'korban_laki' => $this->request->getVar('korban_laki'),
+            'korban_perempuan' => $this->request->getVar('korban_perempuan'),
+            'usia_0_5' => $this->request->getVar('usia_0_5'),
+            'usia_6_20' => $this->request->getVar('usia_6_20'),
+            'usia_21_60' => $this->request->getVar('usia_21_60'),
+            'usia_61' => $this->request->getVar('usia_61'),
+            'ibu_hamil' => $this->request->getVar('ibu_hamil'),
+            'meninggal' => $this->request->getVar('meninggal'),
+            'hilang' => $this->request->getVar('hilang'),
+            'luka' => $this->request->getVar('luka'),
+            'mengungsi' => $this->request->getVar('mengungsi'),
+            'jenis_prasarana' => $this->request->getVar('jenis_prasarana'),
+            'rusak_ringan' => $this->request->getVar('rusak_ringan'),
+            'rusak_sedang' => $this->request->getVar('rusak_sedang'),
+            'rusak_berat' => $this->request->getVar('rusak_berat'),
             'keterangan' => $this->request->getVar('keterangan'),
         ];
         $this->informasiKebencanaanModel->updateInformasiKebencanaan($id, $data);

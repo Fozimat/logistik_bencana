@@ -10,7 +10,7 @@ class InformasiKebencanaanModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['jenis_bencana', 'lokasi_tempat_kejadian', 'tgl_bencana', 'objek_terdampak', 'jumlah_korban_terdampak_laki', 'jumlah_korban_terdampak_perempuan', 'tindakan', 'keterangan'];
+    protected $allowedFields    = ['jenis_bencana', 'lokasi_tempat_kejadian', 'tgl_bencana', 'korban_laki', 'korban_perempuan', 'usia_0_5', 'usia_6_20', 'usia_21_60', 'usia_61', 'ibu_hamil', 'meninggal', 'hilang', 'luka', 'mengungsi', 'jenis_prasarana', 'rusak_ringan', 'rusak_sedang', 'rusak_berat', 'keterangan'];
 
     public function getInformasiKebencanaan()
     {
