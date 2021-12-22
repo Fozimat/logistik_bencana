@@ -17,15 +17,24 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
+    <style>
+        .bg-login {
+            background-image: url("<?= base_url('assets-profil/img/galeri/galeri2.jpg'); ?>");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-login">
 
     <div class="container">
 
         <div class="row d-flex justify-content-center align-items-center vh-100">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <div class="row">
@@ -65,7 +74,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= site_url('register'); ?>">Create an Account!</a>
+                                        <!-- <a class="small" href="<?= site_url('register'); ?>">Create an Account!</a> -->
                                     </div>
                                 </div>
                             </div>
