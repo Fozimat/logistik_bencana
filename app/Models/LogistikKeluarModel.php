@@ -28,7 +28,7 @@ class LogistikKeluarModel extends Model
 
     public function insertLogistikKeluar($data)
     {
-        return $this->save($data);
+        return $this->insertBatch($data);
     }
 
     public function getLogistikKeluarById($id)

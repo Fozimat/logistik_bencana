@@ -21,58 +21,47 @@
                                     <?= csrf_field(); ?>
                                     <div class="form-group">
                                         <label for="no_berita_acara" class="hitam-tebal">No Berita Acara</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('no_berita_acara')) ? 'is-invalid' : ''; ?>" value="<?= old('no_berita_acara'); ?>" name="no_berita_acara" id="no_berita_acara">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('no_berita_acara'); ?>
-                                        </div>
+                                        <input required type="text" class="form-control" name="no_berita_acara" id="no_berita_acara">
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="id_barang" class="hitam-tebal">Nama Barang</label>
-                                        <select name="id_barang" id="id_barang" class="form-control  <?= ($validation->hasError('id_barang')) ? 'is-invalid' : ''; ?>">
-                                            <option value="">--- Pilih Barang ---</option>
-                                            <?php foreach ($persediaan as $pd) : ?>
-                                                <option value="<?= $pd->id; ?>"><?= $pd->nama_barang; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('id_barang'); ?>
+                                    <div class="form-tambah-barang">
+                                        <div class="form-group">
+                                            <label for="id_barang" class="hitam-tebal">Nama Barang</label>
+                                            <select required name="id_barang[0]" id="id_barang" class="form-control">
+                                                <option value="">--- Pilih Barang ---</option>
+                                                <?php foreach ($persediaan as $pd) : ?>
+                                                    <option value="<?= $pd->id; ?>"><?= $pd->nama_barang; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
+                                        </div>
+                                        <div class="row d-flex justify-content-between align-items-center">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label for="vol_unit" class="hitam-tebal">Vol/Unit</label>
+                                                    <input required required type="number" class="form-control" name="vol_unit[0]" id="vol_unit">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mt-3">
+                                                <button class="btn btn-success btn-sm pull-right tambah-barang"><i class="fas fa-plus"></i></button>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="tgl_keluar" class="hitam-tebal">Tanggal Keluar</label>
-                                        <input type="date" class="form-control <?= ($validation->hasError('tgl_keluar')) ? 'is-invalid' : ''; ?>" value="<?= old('tgl_keluar'); ?>" name="tgl_keluar" id="tgl_keluar">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('tgl_keluar'); ?>
-                                        </div>
+                                        <input required type="date" class="form-control" name="tgl_keluar" id="tgl_keluar">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="pihak_pertama" class="hitam-tebal">Pihak Pertama</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_pertama')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_pertama'); ?>" name="pihak_pertama" id="pihak_pertama">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('pihak_pertama'); ?>
-                                        </div>
+                                        <input required type="text" class="form-control" name="pihak_pertama" id="pihak_pertama">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="pihak_kedua" class="hitam-tebal">Pihak Kedua</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_kedua')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_kedua'); ?>" name="pihak_kedua" id="pihak_kedua">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('pihak_kedua'); ?>
-                                        </div>
+                                        <input required type="text" class="form-control" name="pihak_kedua" id="pihak_kedua">
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="vol_unit" class="hitam-tebal">Vol/Unit</label>
-                                        <input type="number" class="form-control <?= ($validation->hasError('vol_unit')) ? 'is-invalid' : ''; ?>" value="<?= old('vol_unit'); ?>" name="vol_unit" id="vol_unit">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('vol_unit'); ?>
-                                        </div>
-                                    </div>
-
-
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plane"> Simpan</i></button>
@@ -86,6 +75,52 @@
         </div>
     </div>
 </div>
+<?= $this->endSection(); ?>
 
-
+<?= $this->section('script'); ?>
+<script>
+    $(document).ready(function() {
+        var max_fields = <?= $total_barang; ?>;
+        var wrapper = $(".form-tambah-barang");
+        var add_button = $(".tambah-barang");
+        var field = 1;
+        $(add_button).click(function(e) {
+            e.preventDefault();
+            if (field < max_fields) {
+                field++;
+                $(wrapper).append(
+                    `<div class="form-tambah-barang">
+                <div class="form-group">
+                    <label for="id_barang" class="hitam-tebal">Nama Barang</label>
+                    <select required name="id_barang[]" id="id_barang" class="form-control">
+                        <option value="">--- Pilih Barang ---</option>
+                        <?php foreach ($persediaan as $pd) : ?>
+                            <option value="<?= $pd->id; ?>"><?= $pd->nama_barang; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                   
+                </div>
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="vol_unit" class="hitam-tebal">Vol/Unit</label>
+                            <input required type="number" class="form-control"  name="vol_unit[]" id="vol_unit">
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <button class="btn btn-danger btn-sm hapus-barang"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>`
+                );
+            }
+        });
+        $(wrapper).on("click", ".hapus-barang", function(e) {
+            e.preventDefault();
+            $(this).closest(".form-tambah-barang").remove();
+            field--;
+        })
+    })
+</script>
 <?= $this->endSection(); ?>
