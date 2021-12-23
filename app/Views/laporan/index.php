@@ -16,8 +16,8 @@
                     <option value="">--Pilih--</option>
                     <option value="persediaan">Laporan Persediaan</option>
                     <option value="logistik_masuk">Laporan Logistik Masuk</option>
-                    <option value="logistik_keluar">Laporan Logsitik Keluar</option>
-                    <option value="kebencanaan">Laporan Informasi Kebencanaan</option>
+                    <option value="logistik_keluar">Laporan Logistik Keluar</option>
+                    <!-- <option value="kebencanaan">Laporan Informasi Kebencanaan</option> -->
                     <option value="berita_masuk">Laporan Berita Acara Barang Masuk</option>
                     <option value="berita_keluar">Laporan Berita Acara Barang Keluar</option>
                 </select>

@@ -19,7 +19,7 @@
         <?php if (session()->get('roles') == 'ADMIN') : ?>
             <a class="m-0 font-weight-bold btn btn-primary" href="<?= site_url('admin/informasikebencanaan/create'); ?>"><i class="fa fa-user-plus mr-1"></i>Tambah Data</a>
         <?php endif; ?>
-        <a class="m-0 font-weight-bold btn btn-success ml-2" href="<?= site_url('admin/laporan/informasi_kebencanaan'); ?>" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Laporan</a>
+        <a class="m-0 font-weight-bold btn btn-success ml-2" href="<?= site_url('admin/informasikebencanaan/downloadExcel'); ?>" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Excel</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

@@ -170,6 +170,16 @@
     <script src="<?= base_url('assets/vendor/datatables/jquery.dataTables.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js'); ?>"></script>
 
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/dataTables.buttons.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/buttons.flash.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/jszip.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/pdfmake.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/vfs_fonts.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/buttons.html5.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/datatables/extensions/export/buttons.print.min.js'); ?>"></script>
+
+    <?= $this->renderSection('content'); ?>
+
     <script>
         $(document).ready(function() {
             $('#dataTable').DataTable();
@@ -192,6 +202,8 @@
             }
         }
     </script>
+
+    <script src="<?= base_url('assets/js/script.js');; ?>"></script>
 
 </body>
 
