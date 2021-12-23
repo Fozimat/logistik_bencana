@@ -28,7 +28,7 @@ class LogistikMasukModel extends Model
 
     public function insertLogistikMasuk($data)
     {
-        return $this->save($data);
+        return $this->insertBatch($data);
     }
 
     public function getLogistikMasukById($id)
