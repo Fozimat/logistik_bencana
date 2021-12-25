@@ -5,6 +5,8 @@ namespace App\Controllers\Admin;
 use App\ThirdParty\PDF;
 use App\ThirdParty\PDFL;
 use App\ThirdParty\PDF_Persediaan as PDF_P;
+use App\ThirdParty\PDF_Logistik as PDF_L;
+use App\ThirdParty\PDF_BeritaAcara as PDF_BA;
 use App\Models\DasarModel;
 use App\Models\PersediaanModel;
 use App\Models\LogistikMasukModel;
@@ -164,7 +166,7 @@ class Laporan extends BaseController
 
     public function logistik_masuk()
     {
-        $pdf = new PDF();
+        $pdf = new PDF_L();
         $pdf->isFinished = false;
         $pdf->SetTitle('Laporan Logistik Masuk');
         $pdf->AddPage('P', 'A4');
@@ -176,8 +178,8 @@ class Laporan extends BaseController
         $pdf->Cell(50, 6, 'Nama Barang', 1, 0, 'C');
         $pdf->Cell(28, 6, 'Tanggal Masuk', 1, 0, 'C');
         $pdf->Cell(15, 6, 'Vol/Unit', 1, 0, 'C');
-        $pdf->Cell(43, 6, 'Satuan', 1, 0, 'C');
-        $pdf->Cell(50, 6, 'Keterangan', 1, 1, 'C');
+        $pdf->Cell(25, 6, 'Satuan', 1, 0, 'C');
+        $pdf->Cell(68, 6, 'Keterangan', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $logistik_masuk = $this->logistikMasukModel->getLogistikMasuk();
         $no = 1;
@@ -187,8 +189,8 @@ class Laporan extends BaseController
             $pdf->Cell(50, 7, $data->nama_barang, 1, 0, 'L');
             $pdf->Cell(28, 7, $data->tgl_masuk, 1, 0, 'C');
             $pdf->Cell(15, 7, $data->vol_unit, 1, 0, 'C');
-            $pdf->Cell(43, 7, $data->satuan, 1, 0);
-            $pdf->Cell(50, 7, $data->keterangan, 1, 1);
+            $pdf->Cell(25, 7, $data->satuan, 1, 0);
+            $pdf->Cell(68, 7, $data->keterangan, 1, 1);
             $no++;
         }
         $pdf->isFinished = true;
@@ -198,7 +200,7 @@ class Laporan extends BaseController
 
     public function logistik_keluar()
     {
-        $pdf = new PDF();
+        $pdf = new PDF_L();
         $pdf->isFinished = false;
         $pdf->SetTitle('Laporan Logistik Keluar');
         $pdf->AddPage('P', 'A4');
@@ -210,8 +212,8 @@ class Laporan extends BaseController
         $pdf->Cell(50, 6, 'Nama Barang', 1, 0, 'C');
         $pdf->Cell(28, 6, 'Tanggal Keluar', 1, 0, 'C');
         $pdf->Cell(15, 6, 'Vol/Unit', 1, 0, 'C');
-        $pdf->Cell(43, 6, 'Satuan', 1, 0, 'C');
-        $pdf->Cell(50, 6, 'Keterangan', 1, 1, 'C');
+        $pdf->Cell(25, 6, 'Satuan', 1, 0, 'C');
+        $pdf->Cell(68, 6, 'Keterangan', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $logistik_keluar =  $this->logistikKeluarModel->getLogistikKeluar();
         $no = 1;
@@ -221,10 +223,11 @@ class Laporan extends BaseController
             $pdf->Cell(50, 7, $data->nama_barang, 1, 0, 'L');
             $pdf->Cell(28, 7, $data->tgl_keluar, 1, 0, 'C');
             $pdf->Cell(15, 7, $data->vol_unit, 1, 0, 'C');
-            $pdf->Cell(43, 7, $data->satuan, 1, 0);
-            $pdf->Cell(50, 7, $data->keterangan, 1, 1);
+            $pdf->Cell(25, 7, $data->satuan, 1, 0);
+            $pdf->Cell(68, 7, $data->keterangan, 1, 1);
             $no++;
         }
+
         $pdf->isFinished = true;
         $pdf->Output();
         exit;
@@ -232,7 +235,7 @@ class Laporan extends BaseController
 
     public function berita_barang_masuk()
     {
-        $pdf = new PDF();
+        $pdf = new PDF_BA();
         $pdf->isFinished = false;
         $pdf->SetTitle('Laporan Berita Acara Barang Masuk');
         $pdf->AddPage('P', 'A4');
@@ -241,22 +244,18 @@ class Laporan extends BaseController
         $pdf->Cell(0, 15, 'BERITA ACARA BARANG MASUK', 0, 1, 'C');
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(8, 10, 'No', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'No Berita Acara', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'Tanggal Masuk', 1, 0, 'C');
-        $pdf->Cell(33, 10, 'Pihak Pertama', 1, 0, 'C');
-        $pdf->Cell(33, 10, 'Pihak Kedua', 1, 0, 'C');
-        $pdf->Cell(60, 10, 'Gambar', 1, 1, 'C');
+        $pdf->Cell(62, 10, 'No Berita Acara', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Tanggal Masuk', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Gambar', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $berita_barang_masuk =  $this->beritaBarangMasukModel->getBeritaBarangMasuk();
         $no = 1;
         foreach ($berita_barang_masuk as $data) {
             $pdf->SetFont('times', '', 11);
             $pdf->Cell(8, 40,  $no++, 1, 0, 'C');
-            $pdf->Cell(30, 40, $data->no_berita_acara, 1, 0);
-            $pdf->Cell(30, 40, $data->tgl_ba_masuk, 1, 0, 'C');
-            $pdf->Cell(33, 40, $data->pihak_pertama, 1, 0, 'C');
-            $pdf->Cell(33, 40, $data->pihak_kedua, 1, 0, 'C');
-            $pdf->Cell(60, 40, $pdf->InlineImage(FCPATH . 'upload/barang_masuk/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 60, 40,));
+            $pdf->Cell(62, 40, $data->no_berita_acara, 1, 0);
+            $pdf->Cell(62, 40, $data->tgl_ba_masuk, 1, 0, 'C');
+            $pdf->Cell(62, 40, $pdf->InlineImage(FCPATH . 'upload/barang_masuk/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 62, 40,));
             $pdf->Ln(0);
         }
         $pdf->isFinished = true;
@@ -266,7 +265,7 @@ class Laporan extends BaseController
 
     public function berita_barang_keluar()
     {
-        $pdf = new PDF();
+        $pdf = new PDF_BA();
         $pdf->isFinished = false;
         $pdf->SetTitle('Laporan Berita Acara Barang Keluar');
         $pdf->AddPage('P', 'A4');
@@ -275,22 +274,18 @@ class Laporan extends BaseController
         $pdf->Cell(0, 15, 'BERITA ACARA BARANG KELUAR', 0, 1, 'C');
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(8, 10, 'No', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'No Berita Acara', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'Tanggal Keluar', 1, 0, 'C');
-        $pdf->Cell(33, 10, 'Pihak Pertama', 1, 0, 'C');
-        $pdf->Cell(33, 10, 'Pihak Kedua', 1, 0, 'C');
-        $pdf->Cell(60, 10, 'Gambar', 1, 1, 'C');
+        $pdf->Cell(62, 10, 'No Berita Acara', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Tanggal Keluar', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Gambar', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $berita_barang_keluar =  $this->beritaBarangKeluarModel->getBeritaBarangkeluar();
         $no = 1;
         foreach ($berita_barang_keluar as $data) {
             $pdf->SetFont('times', '', 11);
             $pdf->Cell(8, 40,  $no++, 1, 0, 'C');
-            $pdf->Cell(30, 40, $data->no_berita_acara, 1, 0);
-            $pdf->Cell(30, 40, $data->tgl_ba_keluar, 1, 0, 'C');
-            $pdf->Cell(33, 40, $data->pihak_pertama, 1, 0, 'C');
-            $pdf->Cell(33, 40, $data->pihak_kedua, 1, 0, 'C');
-            $pdf->Cell(60, 40, $pdf->InlineImage(FCPATH . 'upload/barang_keluar/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 60, 40,));
+            $pdf->Cell(62, 40, $data->no_berita_acara, 1, 0, 'C');
+            $pdf->Cell(62, 40, $data->tgl_ba_keluar, 1, 0, 'C');
+            $pdf->Cell(62, 40, $pdf->InlineImage(FCPATH . 'upload/barang_keluar/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 62, 40,));
             $pdf->Ln(0);
         }
         $pdf->isFinished = true;

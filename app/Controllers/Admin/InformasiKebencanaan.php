@@ -69,25 +69,25 @@ class InformasiKebencanaan extends BaseController
                 'usia_0_5' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'usia_6_20' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'usia_21_60' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'usia_61' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'ibu_hamil' => [
@@ -227,25 +227,25 @@ class InformasiKebencanaan extends BaseController
                 'usia_0_5' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'usia_6_20' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'usia_21_60' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'usia_61' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Usia tidak boleh kosong'
+                        'required' => 'Kolom tidak boleh kosong'
                     ]
                 ],
                 'ibu_hamil' => [

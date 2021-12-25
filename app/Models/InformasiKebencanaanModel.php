@@ -17,6 +17,12 @@ class InformasiKebencanaanModel extends Model
         return $this->findAll();
     }
 
+    public function get5InformasiKebencanaan()
+    {
+        $builder = $this->db->table('informasi_kebencanaan');
+        return $builder->orderBy('tgl_bencana', 'DESC')->get(5)->getResult();
+    }
+
     public function getCount()
     {
         $builder = $this->db->table('informasi_kebencanaan');

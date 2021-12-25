@@ -30,7 +30,7 @@ class Dashboard extends BaseController
             'total_logistik_masuk' =>  $this->logistikMasukModel->getCount(),
             'total_logistik_keluar' =>  $this->logistikKeluarModel->getCount(),
             'total_bencana' =>  $this->informasiKebencanaanModel->getCount(),
-            'informasi_kebencanaan' => $this->informasiKebencanaanModel->getInformasiKebencanaan()
+            'informasi_kebencanaan' => $this->informasiKebencanaanModel->get5InformasiKebencanaan()
         ];
         return view('dashboard/index', $data);
     }

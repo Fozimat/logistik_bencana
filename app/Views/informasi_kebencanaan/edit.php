@@ -49,7 +49,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="korban_laki" class="hitam-tebal">Jumlah Korban Terdampak Laki-laki</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('korban_laki')) ? 'is-invalid' : ''; ?>" value="<?= old('korban_laki', $informasi_kebencanaan->korban_laki); ?>" name="korban_laki" id="korban_laki">
+                                                <input type="text" class="form-control <?= ($validation->hasError('korban_laki')) ? 'is-invalid' : ''; ?>" value="<?= old('korban_laki', $informasi_kebencanaan->korban_laki); ?>" name="korban_laki" id="korban_laki">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('korban_laki'); ?>
                                                 </div>
@@ -58,7 +58,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="korban_perempuan" class="hitam-tebal">Jumlah Korban Terdampak Perempuan</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('korban_perempuan')) ? 'is-invalid' : ''; ?>" value="<?= old('korban_perempuan', $informasi_kebencanaan->korban_perempuan); ?>" name="korban_perempuan" id="korban_perempuan">
+                                                <input type="text" class="form-control <?= ($validation->hasError('korban_perempuan')) ? 'is-invalid' : ''; ?>" value="<?= old('korban_perempuan', $informasi_kebencanaan->korban_perempuan); ?>" name="korban_perempuan" id="korban_perempuan">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('korban_perempuan'); ?>
                                                 </div>
@@ -70,7 +70,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="usia_0_5" class="hitam-tebal">Usia 0 - 5 Tahun</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('usia_0_5')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_0_5', $informasi_kebencanaan->usia_0_5); ?>" name="usia_0_5" id="usia_0_5">
+                                                <input type="text" class="form-control <?= ($validation->hasError('usia_0_5')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_0_5', $informasi_kebencanaan->usia_0_5); ?>" name="usia_0_5" id="usia_0_5">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('usia_0_5'); ?>
                                                 </div>
@@ -79,7 +79,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="usia_6_20" class="hitam-tebal">Usia 6 - 20 Tahun</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('usia_6_20')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_6_20', $informasi_kebencanaan->usia_6_20); ?>" name="usia_6_20" id="usia_6_20">
+                                                <input type="text" class="form-control <?= ($validation->hasError('usia_6_20')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_6_20', $informasi_kebencanaan->usia_6_20); ?>" name="usia_6_20" id="usia_6_20">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('usia_6_20'); ?>
                                                 </div>
@@ -92,7 +92,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="usia_21_60" class="hitam-tebal">Usia 21 - 60 Tahun</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('usia_21_60')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_21_60', $informasi_kebencanaan->usia_21_60); ?>" name="usia_21_60" id="usia_21_60">
+                                                <input type="text" class="form-control <?= ($validation->hasError('usia_21_60')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_21_60', $informasi_kebencanaan->usia_21_60); ?>" name="usia_21_60" id="usia_21_60">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('usia_21_60'); ?>
                                                 </div>
@@ -101,7 +101,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="usia_61" class="hitam-tebal">Usia 61 Tahun ke atas</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('usia_61')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_61', $informasi_kebencanaan->usia_61); ?>" name="usia_61" id="usia_61">
+                                                <input type="text" class="form-control <?= ($validation->hasError('usia_61')) ? 'is-invalid' : ''; ?>" value="<?= old('usia_61', $informasi_kebencanaan->usia_61); ?>" name="usia_61" id="usia_61">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('usia_61'); ?>
                                                 </div>
@@ -113,7 +113,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="ibu_hamil" class="hitam-tebal">Ibu Hamil</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('ibu_hamil')) ? 'is-invalid' : ''; ?>" value="<?= old('ibu_hamil', $informasi_kebencanaan->ibu_hamil); ?>" name="ibu_hamil" id="ibu_hamil">
+                                                <input type="text" class="form-control <?= ($validation->hasError('ibu_hamil')) ? 'is-invalid' : ''; ?>" value="<?= old('ibu_hamil', $informasi_kebencanaan->ibu_hamil); ?>" name="ibu_hamil" id="ibu_hamil">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('ibu_hamil'); ?>
                                                 </div>
@@ -122,7 +122,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="meninggal" class="hitam-tebal">Meninggal</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('meninggal')) ? 'is-invalid' : ''; ?>" value="<?= old('meninggal', $informasi_kebencanaan->meninggal); ?>" name="meninggal" id="meninggal">
+                                                <input type="text" class="form-control <?= ($validation->hasError('meninggal')) ? 'is-invalid' : ''; ?>" value="<?= old('meninggal', $informasi_kebencanaan->meninggal); ?>" name="meninggal" id="meninggal">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('meninggal'); ?>
                                                 </div>
@@ -134,7 +134,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="hilang" class="hitam-tebal">Hilang</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('hilang')) ? 'is-invalid' : ''; ?>" value="<?= old('hilang', $informasi_kebencanaan->hilang); ?>" name="hilang" id="hilang">
+                                                <input type="text" class="form-control <?= ($validation->hasError('hilang')) ? 'is-invalid' : ''; ?>" value="<?= old('hilang', $informasi_kebencanaan->hilang); ?>" name="hilang" id="hilang">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('hilang'); ?>
                                                 </div>
@@ -143,7 +143,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="luka" class="hitam-tebal">Luka</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('luka')) ? 'is-invalid' : ''; ?>" value="<?= old('luka', $informasi_kebencanaan->luka); ?>" name="luka" id="luka">
+                                                <input type="text" class="form-control <?= ($validation->hasError('luka')) ? 'is-invalid' : ''; ?>" value="<?= old('luka', $informasi_kebencanaan->luka); ?>" name="luka" id="luka">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('luka'); ?>
                                                 </div>
@@ -155,7 +155,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="mengungsi" class="hitam-tebal">Mengungsi</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('mengungsi')) ? 'is-invalid' : ''; ?>" value="<?= old('mengungsi', $informasi_kebencanaan->mengungsi); ?>" name="mengungsi" id="mengungsi">
+                                                <input type="text" class="form-control <?= ($validation->hasError('mengungsi')) ? 'is-invalid' : ''; ?>" value="<?= old('mengungsi', $informasi_kebencanaan->mengungsi); ?>" name="mengungsi" id="mengungsi">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('mengungsi'); ?>
                                                 </div>
@@ -176,7 +176,7 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="rusak_ringan" class="hitam-tebal">Rusak Ringan</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('rusak_ringan')) ? 'is-invalid' : ''; ?>" value="<?= old('rusak_ringan', $informasi_kebencanaan->rusak_ringan); ?>" name="rusak_ringan" id="rusak_ringan">
+                                                <input type="text" class="form-control <?= ($validation->hasError('rusak_ringan')) ? 'is-invalid' : ''; ?>" value="<?= old('rusak_ringan', $informasi_kebencanaan->rusak_ringan); ?>" name="rusak_ringan" id="rusak_ringan">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('rusak_ringan'); ?>
                                                 </div>
@@ -185,7 +185,7 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="rusak_sedang" class="hitam-tebal">Rusak Sedang</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('rusak_sedang')) ? 'is-invalid' : ''; ?>" value="<?= old('rusak_sedang', $informasi_kebencanaan->rusak_sedang); ?>" name="rusak_sedang" id="rusak_sedang">
+                                                <input type="text" class="form-control <?= ($validation->hasError('rusak_sedang')) ? 'is-invalid' : ''; ?>" value="<?= old('rusak_sedang', $informasi_kebencanaan->rusak_sedang); ?>" name="rusak_sedang" id="rusak_sedang">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('rusak_sedang'); ?>
                                                 </div>
@@ -194,7 +194,7 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="rusak_berat" class="hitam-tebal">Rusak Berat</label>
-                                                <input type="number" class="form-control <?= ($validation->hasError('rusak_berat')) ? 'is-invalid' : ''; ?>" value="<?= old('rusak_berat', $informasi_kebencanaan->rusak_berat); ?>" name="rusak_berat" id="rusak_berat">
+                                                <input type="text" class="form-control <?= ($validation->hasError('rusak_berat')) ? 'is-invalid' : ''; ?>" value="<?= old('rusak_berat', $informasi_kebencanaan->rusak_berat); ?>" name="rusak_berat" id="rusak_berat">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('rusak_berat'); ?>
                                                 </div>
