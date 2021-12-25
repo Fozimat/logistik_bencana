@@ -10,9 +10,10 @@
         <div class="card-shadow">
             <div class="card-body">
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3 bg-primary">
+                    <div class="card-header py-3 bg-primary d-flex justify-content-between align-items-center">
                         <h5 class="m-0 font-weight-bold text-light">Form Edit Informasi Kebencanaan
                         </h5>
+                        <a href="<?= base_url('admin/informasikebencanaan'); ?>" class="btn btn-warning btn-sm"><i class="fa fa-backward"></i> Kembali</a>
                     </div>
                     <div class="card-body">
                         <div class="row">
