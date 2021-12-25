@@ -48,20 +48,8 @@ class BeritaBarangMasuk extends BaseController
                         'required' => 'Tanggal berita acara tidak boleh kosong'
                     ]
                 ],
-                'pihak_pertama' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Pihak pertama tidak boleh kosong'
-                    ]
-                ],
-                'pihak_kedua' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Pihak kedua tidak boleh kosong'
-                    ]
-                ],
                 'gambar' => [
-                    'rules' => 'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                    'rules' => 'uploaded[gambar]|max_size[gambar,5120]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
                     'errors' => [
                         'uploaded' => 'Gambar tidak boleh kosong',
                         'max_size' => 'Ukuran gambar terlalu besar',
@@ -79,8 +67,6 @@ class BeritaBarangMasuk extends BaseController
         $data = [
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'tgl_ba_masuk' => $this->request->getVar('tgl_ba_masuk'),
-            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
-            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'gambar' => $namaGambar
         ];
         $this->beritaBarangMasukModel->insertBeritaBarangMasuk($data);
@@ -114,20 +100,8 @@ class BeritaBarangMasuk extends BaseController
                         'required' => 'Tanggal berita acara tidak boleh kosong'
                     ]
                 ],
-                'pihak_pertama' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Pihak pertama tidak boleh kosong'
-                    ]
-                ],
-                'pihak_kedua' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Pihak kedua tidak boleh kosong'
-                    ]
-                ],
                 'gambar' => [
-                    'rules' => 'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                    'rules' => 'max_size[gambar,5120]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
                     'errors' => [
                         'max_size' => 'Ukuran gambar terlalu besar',
                         'is_image' => 'Yang anda pilih bukan gambar',
@@ -150,8 +124,6 @@ class BeritaBarangMasuk extends BaseController
         $data = [
             'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'tgl_ba_masuk' => $this->request->getVar('tgl_ba_masuk'),
-            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
-            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'gambar' => $namaGambar
         ];
         $this->beritaBarangMasukModel->update($id, $data);

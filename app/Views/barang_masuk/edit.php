@@ -38,23 +38,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="pihak_pertama" class="hitam-tebal">Pihak Pertama</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_pertama')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_pertama', $barang_masuk->pihak_pertama); ?>" name="pihak_pertama" id="pihak_pertama">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('pihak_pertama'); ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pihak_kedua" class="hitam-tebal">Pihak Kedua</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_kedua')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_kedua', $barang_masuk->pihak_kedua); ?>" name="pihak_kedua" id="pihak_kedua">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('pihak_kedua'); ?>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
                                         <label for="gambar" class="col-sm-3 col-form-label">Gambar</label>
                                         <div class="row">
                                             <div class="col-sm-3">

@@ -10,7 +10,7 @@ class BeritaBarangMasukModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['no_berita_acara', 'tgl_ba_masuk', 'pihak_pertama', 'pihak_kedua', 'gambar'];
+    protected $allowedFields    = ['no_berita_acara', 'tgl_ba_masuk', 'gambar'];
 
     public function getBeritaBarangMasuk()
     {
