@@ -30,8 +30,6 @@
                         <th>No</th>
                         <th>No berita Acara</th>
                         <th>Tanggal Keluar</th>
-                        <th>Pihak Pertama</th>
-                        <th>Pihak Kedua</th>
                         <th>Gambar</th>
                         <?php if (session()->get('roles') == 'ADMIN') : ?>
                             <th>Aksi</th>
@@ -46,8 +44,6 @@
                             <th><?= $i++; ?></th>
                             <td><?= $ba->no_berita_acara; ?></td>
                             <td><?= $ba->tgl_ba_keluar; ?></td>
-                            <td><?= $ba->pihak_pertama; ?></td>
-                            <td><?= $ba->pihak_kedua; ?></td>
                             <td><img width="100" height="100" src="<?= site_url('upload/barang_keluar/' . $ba->gambar); ?>" alt=""></td>
                             <?php if (session()->get('roles') == 'ADMIN') : ?>
                                 <td>
