@@ -13,8 +13,8 @@
         </li>
         <li class="dropdown"><a href="#"><span>Kebencanaan</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-                <li><a href="#">Edukasi</a></li>
-                <li><a href="#">Data Kejadian</a></li>
+                <!-- <li><a href="#">Edukasi</a></li> -->
+                <!-- <li><a href="#">Data Kejadian</a></li> -->
                 <li><a class="<?= ($uri->getSegment(2) == 'siaga_bencana') ? 'active' : ''; ?>" href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
             </ul>
         </li>

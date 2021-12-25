@@ -37,21 +37,20 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Link Navigasi</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Sejarah</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Visi & Misi</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Struktur Organisasi</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Edukasi</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('home'); ?>">Beranda</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('profil/tentang'); ?>">Tentang</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('profil/visi'); ?>">Visi & Misi</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('profil/struktur_organisasi'); ?>">Struktur Organisasi</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Data Kejadian</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Pedoman Peringatan Dini</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Berita</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Galeri</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Kontak</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('berita'); ?>">Berita</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('galeri'); ?>">Galeri</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('kontak'); ?>">Kontak</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('login'); ?>">Login</a></li>
                     </ul>
                 </div>
 
@@ -59,10 +58,8 @@
                     <h4>Sosial Media Kami</h4>
                     <p>Ikuti kami untuk mendapatkan informasi terkini</p>
                     <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                         <a target="_blank" href="https://www.facebook.com/profile.php?id=100075927138948" class="facebook"><i class="bx bxl-facebook"></i></a>
                         <a target="_blank" href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
                     </div>
                 </div>
 

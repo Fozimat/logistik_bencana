@@ -35,10 +35,8 @@
                 <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 812 7572 3321</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a target="_blank" href="https://www.facebook.com/profile.php?id=100075927138948" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
-                <a target="_blank" href="https://www.instagram.com/bpbd_lingga" class="instagram"><i class="bi bi-instagram"></i></a>
             </div>
         </div>
     </section>
@@ -62,8 +60,8 @@
                     </li>
                     <li class="dropdown"><a href="#"><span>Kebencanaan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Edukasi</a></li>
-                            <li><a href="#">Data Kejadian</a></li>
+                            <!-- <li><a href="#">Edukasi</a></li>
+                            <li><a href="#">Data Kejadian</a></li> -->
                             <li><a href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
                         </ul>
                     </li>
