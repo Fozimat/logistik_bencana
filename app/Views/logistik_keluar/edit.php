@@ -21,15 +21,6 @@
                                 <form action="<?= site_url('admin/logistikkeluar/update/' . $logistik_keluar->id); ?>" method="POST">
                                     <?= csrf_field(); ?>
                                     <div class="form-group">
-                                        <label for="no_berita_acara" class="hitam-tebal">No Berita Acara</label>
-                                        <input type="hidden" name="id" value="<?= $logistik_keluar->id; ?>">
-                                        <input type="text" class="form-control <?= ($validation->hasError('no_berita_acara')) ? 'is-invalid' : ''; ?>" value="<?= old('no_berita_acara', $logistik_keluar->no_berita_acara); ?>" name="no_berita_acara" id="no_berita_acara">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('no_berita_acara'); ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
                                         <label for="id_barang" class="hitam-tebal">Nama Barang</label>
                                         <select name="id_barang" id="id_barang" class="form-control  <?= ($validation->hasError('id_barang')) ? 'is-invalid' : ''; ?>">
                                             <option value="">--- Pilih Barang ---</option>
@@ -47,22 +38,6 @@
                                         <input type="date" class="form-control <?= ($validation->hasError('tgl_keluar')) ? 'is-invalid' : ''; ?>" value="<?= old('tgl_keluar', $logistik_keluar->tgl_keluar); ?>" name="tgl_keluar" id="tgl_keluar">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('tgl_keluar'); ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pihak_pertama" class="hitam-tebal">Pihak Pertama</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_pertama')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_pertama', $logistik_keluar->pihak_pertama); ?>" name="pihak_pertama" id="pihak_pertama">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('pihak_pertama'); ?>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pihak_kedua" class="hitam-tebal">Pihak Kedua</label>
-                                        <input type="text" class="form-control <?= ($validation->hasError('pihak_kedua')) ? 'is-invalid' : ''; ?>" value="<?= old('pihak_kedua', $logistik_keluar->pihak_kedua); ?>" name="pihak_kedua" id="pihak_kedua">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('pihak_kedua'); ?>
                                         </div>
                                     </div>
 

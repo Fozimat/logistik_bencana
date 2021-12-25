@@ -43,12 +43,9 @@ class LogistikKeluar extends BaseController
         $data = [];
         foreach ($id_barang as $id) {
             array_push($data, [
-                'no_berita_acara' => $this->request->getVar('no_berita_acara'),
                 'id_barang' => $id,
                 'vol_unit' => $vol_unit[$index],
                 'tgl_keluar' => $this->request->getVar('tgl_keluar'),
-                'pihak_pertama' => $this->request->getVar('pihak_pertama'),
-                'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             ]);
             $id_barang =  $id;
             $persediaan = (int)$this->persediaanModel->getVolUnitPersediaan($id_barang)->vol_unit;
@@ -79,12 +76,6 @@ class LogistikKeluar extends BaseController
     {
         if (!$this->validate(
             [
-                'no_berita_acara' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Nomor Berita Acara tidak boleh kosong'
-                    ]
-                ],
                 'id_barang' => [
                     'rules' => 'required',
                     'errors' => [
@@ -95,18 +86,6 @@ class LogistikKeluar extends BaseController
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Tanggal Keluar tidak boleh kosong'
-                    ]
-                ],
-                'pihak_pertama' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Pihak Pertama tidak boleh kosong'
-                    ]
-                ],
-                'pihak_kedua' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Pihak Kedua tidak boleh kosong'
                     ]
                 ],
                 'vol_unit' => [
@@ -120,11 +99,8 @@ class LogistikKeluar extends BaseController
             return redirect()->to('admin/logistikkeluar/edit/' . $this->request->getVar('id'))->withInput();
         }
         $data = [
-            'no_berita_acara' => $this->request->getVar('no_berita_acara'),
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_keluar' => $this->request->getVar('tgl_keluar'),
-            'pihak_pertama' => $this->request->getVar('pihak_pertama'),
-            'pihak_kedua' => $this->request->getVar('pihak_kedua'),
             'vol_unit' => $this->request->getVar('vol_unit'),
         ];
 
