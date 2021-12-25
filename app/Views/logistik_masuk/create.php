@@ -19,11 +19,6 @@
                             <div class="offset-md-3 col-md-6">
                                 <form action="<?= site_url('admin/logistikmasuk/store'); ?>" method="POST">
                                     <?= csrf_field(); ?>
-                                    <div class="form-group">
-                                        <label for="no_berita_acara" class="hitam-tebal">No Berita Acara</label>
-                                        <input required type="text" class="form-control" name="no_berita_acara" id="no_berita_acara">
-
-                                    </div>
 
                                     <div class="form-tambah-barang">
                                         <div class="form-group">
@@ -52,19 +47,6 @@
                                     <div class="form-group">
                                         <label for="tgl_masuk" class="hitam-tebal">Tanggal Masuk</label>
                                         <input required type="date" class="form-control" name="tgl_masuk" id="tgl_masuk">
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pihak_pertama" class="hitam-tebal">Pihak Pertama</label>
-                                        <input required type="text" class="form-control" name="pihak_pertama" id="pihak_pertama">
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pihak_kedua" class="hitam-tebal">Pihak Kedua</label>
-                                        <input required type="text" class="form-control" name="pihak_kedua" id="pihak_kedua">
-
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plane"> Simpan</i></button>
