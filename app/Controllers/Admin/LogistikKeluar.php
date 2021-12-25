@@ -46,6 +46,7 @@ class LogistikKeluar extends BaseController
                 'id_barang' => $id,
                 'vol_unit' => $vol_unit[$index],
                 'tgl_keluar' => $this->request->getVar('tgl_keluar'),
+                'keterangan' => $this->request->getVar('keterangan'),
             ]);
             $id_barang =  $id;
             $persediaan = (int)$this->persediaanModel->getVolUnitPersediaan($id_barang)->vol_unit;
@@ -94,6 +95,12 @@ class LogistikKeluar extends BaseController
                         'required' => 'Vol/Unit tidak boleh kosong'
                     ]
                 ],
+                'keterangan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Keterangan tidak boleh kosong'
+                    ]
+                ],
             ]
         )) {
             return redirect()->to('admin/logistikkeluar/edit/' . $this->request->getVar('id'))->withInput();
@@ -102,6 +109,7 @@ class LogistikKeluar extends BaseController
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_keluar' => $this->request->getVar('tgl_keluar'),
             'vol_unit' => $this->request->getVar('vol_unit'),
+            'keterangan' => $this->request->getVar('keterangan'),
         ];
 
         $id_barang =  $this->request->getVar('id_barang');

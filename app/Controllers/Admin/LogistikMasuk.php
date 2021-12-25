@@ -48,6 +48,7 @@ class LogistikMasuk extends BaseController
                 'id_barang' => $id,
                 'vol_unit' => $vol_unit[$index],
                 'tgl_masuk' => $this->request->getVar('tgl_masuk'),
+                'keterangan' => $this->request->getVar('keterangan'),
             ]);
             $id_barang =  $id;
             $persediaan = (int)$this->persediaanModel->getVolUnitPersediaan($id_barang)->vol_unit;
@@ -96,6 +97,12 @@ class LogistikMasuk extends BaseController
                         'required' => 'Vol/Unit tidak boleh kosong'
                     ]
                 ],
+                'keterangan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Keterangan tidak boleh kosong'
+                    ]
+                ],
             ]
         )) {
             return redirect()->to('admin/logistikmasuk/edit/' . $this->request->getVar('id'))->withInput();
@@ -104,6 +111,7 @@ class LogistikMasuk extends BaseController
             'id_barang' => $this->request->getVar('id_barang'),
             'tgl_masuk' => $this->request->getVar('tgl_masuk'),
             'vol_unit' => $this->request->getVar('vol_unit'),
+            'keterangan' => $this->request->getVar('keterangan'),
         ];
 
         $id_barang =  $this->request->getVar('id_barang');

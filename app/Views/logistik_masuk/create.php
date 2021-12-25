@@ -49,6 +49,10 @@
                                         <input required type="date" class="form-control" name="tgl_masuk" id="tgl_masuk">
                                     </div>
                                     <div class="form-group">
+                                        <label for="keterangan" class="hitam-tebal">Keterangan</label>
+                                        <textarea required class="form-control" rows="3" name="keterangan"></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plane"> Simpan</i></button>
                                     </div>
                                 </form>

@@ -48,7 +48,10 @@
                                             <?= $validation->getError('vol_unit'); ?>
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="keterangan" class="hitam-tebal">Keterangan</label>
+                                        <textarea required class="form-control" rows="3" name="keterangan"><?= old('keterangan', $logistik_keluar->keterangan); ?></textarea>
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-plane"> Simpan</i></button>
                                     </div>

@@ -10,12 +10,12 @@ class LogistikKeluarModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['id_barang', 'tgl_keluar', 'vol_unit'];
+    protected $allowedFields    = ['id_barang', 'tgl_keluar', 'vol_unit', 'keterangan'];
 
     public function getLogistikKeluar()
     {
         return $this->db->table('logistik_keluar')
-            ->select('logistik_keluar.id, persediaan.nama_barang ,tgl_keluar, logistik_keluar.vol_unit, satuan, keterangan')
+            ->select('logistik_keluar.id, persediaan.nama_barang ,tgl_keluar, logistik_keluar.vol_unit, satuan, logistik_keluar.keterangan')
             ->join('persediaan', 'persediaan.id=logistik_keluar.id_barang')
             ->get()->getResultObject();
     }
@@ -34,7 +34,7 @@ class LogistikKeluarModel extends Model
     public function getLogistikKeluarById($id)
     {
         return $this->db->table('logistik_keluar')
-            ->select('logistik_keluar.id, id_barang, persediaan.nama_barang ,tgl_keluar, logistik_keluar.vol_unit, satuan, keterangan')
+            ->select('logistik_keluar.id, id_barang, persediaan.nama_barang ,tgl_keluar, logistik_keluar.vol_unit, satuan, logistik_keluar.keterangan')
             ->join('persediaan', 'persediaan.id=logistik_keluar.id_barang')
             ->where('logistik_keluar.id', $id)
             ->get()->getRow();
