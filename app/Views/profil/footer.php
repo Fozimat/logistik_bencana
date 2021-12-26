@@ -47,7 +47,6 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('berita'); ?>">Berita</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('galeri'); ?>">Galeri</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('kontak'); ?>">Kontak</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?= site_url('login'); ?>">Login</a></li>
