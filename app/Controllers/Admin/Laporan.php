@@ -59,6 +59,9 @@ class Laporan extends BaseController
             case "berita_keluar":
                 return redirect()->to('admin/laporan/berita_barang_keluar');
                 break;
+            case "informasi_kebencanaan":
+                return redirect()->to('admin/informasikebencanaan/downloadExcel');
+                break;
             default:
                 return redirect()->to('admin/laporan/cetak');
         }

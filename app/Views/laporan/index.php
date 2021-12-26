@@ -19,6 +19,7 @@
                     <option value="logistik_keluar">Laporan Logistik Keluar</option>
                     <option value="berita_masuk">Laporan Berita Acara Barang Masuk</option>
                     <option value="berita_keluar">Laporan Berita Acara Barang Keluar</option>
+                    <option value="informasi_kebencanaan">Laporan Informasi Kebencanaan</option>
                 </select>
             </div>
             <button type="submit" class="float-right font-weight-bold btn btn-primary"><i class="fa fa-print mr-1"></i>Cetak Laporan</button>
