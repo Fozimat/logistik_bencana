@@ -17,63 +17,47 @@
     </section>
 
     <section id="portfolio" class="portfolio">
-        <div class="container" data-aos="fade-up">
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img style="height: 200px; width: 350px;" src="<?= site_url('assets-profil/img/galeri/galeri1.jpg'); ?>" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="<?= site_url('assets-profil/img/galeri/galeri1.jpg'); ?>" data-gallery=" portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img style="height: 600px; width: 350px;" class="d-block w-100" src="<?= site_url('assets-profil/img/galeri/galeri1.jpg'); ?>">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Apel kesiap siagaan Bencana Tahun 2021</h2>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img style="height: 200px; width: 350px;" src="<?= site_url('assets-profil/img/galeri/galeri2.jpg'); ?>" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="<?= site_url('assets-profil/img/galeri/galeri2.jpg'); ?>" data-gallery=" portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <div class="carousel-item">
+                    <img style="height: 600px; width: 350px;" class="d-block w-100" src="<?= site_url('assets-profil/img/galeri/galeri2.jpg'); ?>">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Serah Terima Bantuan Desa Cukas</h2>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img style="height: 200px; width: 350px;" src="<?= site_url('assets-profil/img/galeri/galeri3.jpg'); ?>" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <a href="<?= site_url('assets-profil/img/galeri/galeri3.jpg'); ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <div class="carousel-item">
+                    <img style="height: 600px; width: 350px;" class="d-block w-100" src="<?= site_url('assets-profil/img/galeri/galeri3.jpg'); ?>">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Serah Terima Bantuan di Desa Cempa</h2>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img style="height: 200px; width: 350px;" src="<?= site_url('assets-profil/img/galeri/galeri4.jpg'); ?>" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <a href="<?= site_url('assets-profil/img/galeri/galeri4.jpg'); ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <div class="carousel-item">
+                    <img style="height: 600px; width: 350px;" class="d-block w-100" src="<?= site_url('assets-profil/img/galeri/galeri4.jpg'); ?>">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Serah Terima Bantuan Desa Marok Tua</h2>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img style="height: 200px; width: 350px;" src="<?= site_url('assets-profil/img/galeri/galeri5.jpg'); ?>" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <a href="<?= site_url('assets-profil/img/galeri/galeri5.jpg'); ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img style="height: 200px; width: 350px;" src="<?= site_url('assets-profil/img/galeri/galeri1.jpg'); ?>" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="<?= site_url('assets-profil/img/galeri/galeri1.jpg'); ?>" data-gallery=" portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <div class="carousel-item">
+                    <img style="height: 600px; width: 350px;" class="d-block w-100" src="<?= site_url('assets-profil/img/galeri/galeri5.jpg'); ?>">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Penyerahan Bantuan di Desa Pekajang</h2>
                     </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
         </div>
     </section>
 

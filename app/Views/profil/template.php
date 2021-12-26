@@ -58,6 +58,8 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?= site_url('assets-profil/vendor/purecounter/purecounter.js'); ?>"></script>
     <script src="<?= site_url('assets-profil/vendor/aos/aos.js'); ?>"></script>
     <script src="<?= site_url('assets-profil/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
@@ -69,6 +71,11 @@
 
     <!-- Template Main JS File -->
     <script src="<?= site_url('assets-profil/js/main.js'); ?>"></script>
+    <script>
+        $('.carousel').carousel({
+            interval: 2000
+        })
+    </script>
 
 </body>
 
