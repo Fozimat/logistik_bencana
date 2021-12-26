@@ -65,12 +65,13 @@
         Settings
     </div>
 
-
-    <li class="nav-item <?= ($uri->getSegment(2) == 'pesan') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= site_url('admin/pesan'); ?>">
-            <i class="fas fa-fw fa-sms"></i>
-            <span>Pesan</span></a>
-    </li>
+    <?php if (session()->get('roles') == 'ADMIN') : ?>
+        <li class="nav-item <?= ($uri->getSegment(2) == 'pesan') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= site_url('admin/pesan'); ?>">
+                <i class="fas fa-fw fa-sms"></i>
+                <span>Pesan</span></a>
+        </li>
+    <?php endif; ?>
 
     <li class="nav-item <?= ($uri->getSegment(2) == 'laporan') ? 'active' : ''; ?>">
         <a class="nav-link" href="<?= site_url('admin/laporan'); ?>">

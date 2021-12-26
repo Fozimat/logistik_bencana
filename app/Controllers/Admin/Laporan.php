@@ -158,7 +158,7 @@ class Laporan extends BaseController
         $pdf->Ln(3);
 
         $pdf->Cell(0, 5, 'Menjalankan jabatan tersebut dan bertanggung jawab atas pemasukan dan pengeuaran/penyaluran barang', 0, 1, 'L');
-        $pdf->Cell(0, 5, 'hibah habis pakai pada Badan Penganggulangan Bencana Daerah Kabupaten Lingga tahun anggaran ' . date('Y') . '.', 0, 1, 'L');
+        $pdf->Cell(0, 5, 'hibah habis pakai pada Badan Penganggulangan Bencana Daerah Kabupaten Lingga tahun anggaran 2020' . '.', 0, 1, 'L');
         $pdf->Ln(5);
         $pdf->Cell(0, 5, 'Adapun Daftar Persediaan barang Hibah Habis Pakai (Stock Opname) Badan Penganggulangan Bencana', 0, 1, 'L');
         $pdf->Cell(0, 5, 'Daerah Kabupaten Lingga per  ' . $pdf->format_ind(date('Y-m-d')) . ' sebagai berikut:', 0, 1, 'L');

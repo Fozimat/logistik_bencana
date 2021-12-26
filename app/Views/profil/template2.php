@@ -44,7 +44,7 @@
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
             <a href="#" class="logo"><img src="<?= site_url('assets/img/bpbd_lingga.png'); ?>" alt=""></a>
-            <h1 class="logo" style="margin-right: 130px;"><a href="#">BPBD KAB.LINGGA<span></span></a></h1>
+            <h1 class="logo" style="margin-right: 200px;"><a href="#">BPBD KAB.LINGGA<span></span></a></h1>
             <?php $uri = service('uri'); ?>
 
             <nav id="navbar" class="navbar">
@@ -65,7 +65,6 @@
                             <li><a href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="<?= site_url('berita'); ?>">Berita</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('galeri'); ?>">Galeri</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('kontak'); ?>">Kontak</a></li>
                     <li><a class="nav-link scrollto" href="<?= site_url('login'); ?>">Login</a></li>
