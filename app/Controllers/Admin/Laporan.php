@@ -64,6 +64,32 @@ class Laporan extends BaseController
         }
     }
 
+    public function cetak_periode()
+    {
+        $cetak = $this->request->getVar('cetak');
+        $data['tanggal1'] = $this->request->getVar('tanggal1');
+        $data['tanggal2'] = $this->request->getVar('tanggal2');
+        switch ($cetak) {
+            case "logistik_masuk":
+                $this->logistik_masuk_periode($data);
+                return redirect()->to('admin/laporan/logistik_masuk_periode');
+                break;
+            case "logistik_keluar":
+                $this->logistik_keluar_periode($data);
+                return redirect()->to('admin/laporan/logistik_keluar_periode');
+            case "berita_masuk":
+                $this->berita_barang_masuk_periode($data);
+                return redirect()->to('admin/laporan/berita_barang_masuk_periode');
+                break;
+            case "berita_keluar":
+                $this->berita_barang_keluar_periode($data);
+                return redirect()->to('admin/laporan/berita_barang_keluar_periode');
+                break;
+            default:
+                return redirect()->to('admin/laporan/cetak');
+        }
+    }
+
     public function kebutuhan_dasar()
     {
         $pdf = new PDF();
@@ -198,6 +224,81 @@ class Laporan extends BaseController
         exit;
     }
 
+    public function logistik_masuk_periode($data)
+    {
+        $pdf = new PDF_L();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Logistik Masuk');
+        $pdf->AddPage('P', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 10, 'LOGISTIK MASUK', 0, 1, 'C');
+        $pdf->SetFont('Times', 'B', '12');
+        $pdf->Cell(0, 5, '(' . $pdf->format_ind($data['tanggal1']) . ' - ' . $pdf->format_ind($data['tanggal2']) . ')', 0, 1, 'C');
+        $pdf->Ln(5);
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 6, 'No', 1, 0, 'C');
+        $pdf->Cell(50, 6, 'Nama Barang', 1, 0, 'C');
+        $pdf->Cell(28, 6, 'Tanggal Masuk', 1, 0, 'C');
+        $pdf->Cell(15, 6, 'Vol/Unit', 1, 0, 'C');
+        $pdf->Cell(25, 6, 'Satuan', 1, 0, 'C');
+        $pdf->Cell(68, 6, 'Keterangan', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $logistik_masuk = $this->logistikMasukModel->getLogistikMasukPerPeriode($data['tanggal1'], $data['tanggal2']);
+        $no = 1;
+        foreach ($logistik_masuk as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 7, $no, 1, 0, 'C');
+            $pdf->Cell(50, 7, $data->nama_barang, 1, 0, 'L');
+            $pdf->Cell(28, 7, $data->tgl_masuk, 1, 0, 'C');
+            $pdf->Cell(15, 7, $data->vol_unit, 1, 0, 'C');
+            $pdf->Cell(25, 7, $data->satuan, 1, 0);
+            $pdf->Cell(68, 7, $data->keterangan, 1, 1);
+            $no++;
+        }
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
+    }
+
+    public function logistik_keluar_periode($data)
+    {
+        $pdf = new PDF_L();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Logistik Keluar');
+        $pdf->AddPage('P', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 10, 'LOGISTIK KELUAR', 0, 1, 'C');
+        $pdf->SetFont('Times', 'B', '12');
+        $pdf->Cell(0, 5, '(' . $pdf->format_ind($data['tanggal1']) . ' - ' . $pdf->format_ind($data['tanggal2']) . ')', 0, 1, 'C');
+        $pdf->Ln(5);
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 6, 'No', 1, 0, 'C');
+        $pdf->Cell(50, 6, 'Nama Barang', 1, 0, 'C');
+        $pdf->Cell(28, 6, 'Tanggal Keluar', 1, 0, 'C');
+        $pdf->Cell(15, 6, 'Vol/Unit', 1, 0, 'C');
+        $pdf->Cell(25, 6, 'Satuan', 1, 0, 'C');
+        $pdf->Cell(68, 6, 'Keterangan', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $logistik_keluar =  $this->logistikKeluarModel->getLogistikKeluarPerPeriode($data['tanggal1'], $data['tanggal2']);
+        $no = 1;
+        foreach ($logistik_keluar as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 7, $no, 1, 0, 'C');
+            $pdf->Cell(50, 7, $data->nama_barang, 1, 0, 'L');
+            $pdf->Cell(28, 7, $data->tgl_keluar, 1, 0, 'C');
+            $pdf->Cell(15, 7, $data->vol_unit, 1, 0, 'C');
+            $pdf->Cell(25, 7, $data->satuan, 1, 0);
+            $pdf->Cell(68, 7, $data->keterangan, 1, 1);
+            $no++;
+        }
+
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
+    }
+
     public function logistik_keluar()
     {
         $pdf = new PDF_L();
@@ -263,6 +364,39 @@ class Laporan extends BaseController
         exit;
     }
 
+    public function berita_barang_masuk_periode($data)
+    {
+        $pdf = new PDF_BA();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Berita Acara Barang Masuk');
+        $pdf->AddPage('P', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 10, 'BERITA ACARA BARANG MASUK', 0, 1, 'C');
+        $pdf->SetFont('Times', 'B', '12');
+        $pdf->Cell(0, 5, '(' . $pdf->format_ind($data['tanggal1']) . ' - ' . $pdf->format_ind($data['tanggal2']) . ')', 0, 1, 'C');
+        $pdf->Ln(5);
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 10, 'No', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'No Berita Acara', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Tanggal Masuk', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Gambar', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $berita_barang_masuk =  $this->beritaBarangMasukModel->getBeritaBarangMasukPerPeriode($data['tanggal1'], $data['tanggal2']);
+        $no = 1;
+        foreach ($berita_barang_masuk as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 40,  $no++, 1, 0, 'C');
+            $pdf->Cell(62, 40, $data->no_berita_acara, 1, 0);
+            $pdf->Cell(62, 40, $data->tgl_ba_masuk, 1, 0, 'C');
+            $pdf->Cell(62, 40, $pdf->InlineImage(FCPATH . 'upload/barang_masuk/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 62, 40,));
+            $pdf->Ln(0);
+        }
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
+    }
+
     public function berita_barang_keluar()
     {
         $pdf = new PDF_BA();
@@ -279,6 +413,39 @@ class Laporan extends BaseController
         $pdf->Cell(62, 10, 'Gambar', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $berita_barang_keluar =  $this->beritaBarangKeluarModel->getBeritaBarangkeluar();
+        $no = 1;
+        foreach ($berita_barang_keluar as $data) {
+            $pdf->SetFont('times', '', 11);
+            $pdf->Cell(8, 40,  $no++, 1, 0, 'C');
+            $pdf->Cell(62, 40, $data->no_berita_acara, 1, 0, 'C');
+            $pdf->Cell(62, 40, $data->tgl_ba_keluar, 1, 0, 'C');
+            $pdf->Cell(62, 40, $pdf->InlineImage(FCPATH . 'upload/barang_keluar/' . $data->gambar, $pdf->GetX(), $pdf->GetY(), 62, 40,));
+            $pdf->Ln(0);
+        }
+        $pdf->isFinished = true;
+        $pdf->Output();
+        exit;
+    }
+
+    public function berita_barang_keluar_periode($data)
+    {
+        $pdf = new PDF_BA();
+        $pdf->isFinished = false;
+        $pdf->SetTitle('Laporan Berita Acara Barang Keluar');
+        $pdf->AddPage('P', 'A4');
+        $pdf->Cell(10, 5, '', 0, 1);
+        $pdf->SetFont('Times', 'B', '14');
+        $pdf->Cell(0, 10, 'BERITA ACARA BARANG KELUAR', 0, 1, 'C');
+        $pdf->SetFont('Times', 'B', '12');
+        $pdf->Cell(0, 5, '(' . $pdf->format_ind($data['tanggal1']) . ' - ' . $pdf->format_ind($data['tanggal2']) . ')', 0, 1, 'C');
+        $pdf->Ln(5);
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(8, 10, 'No', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'No Berita Acara', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Tanggal Keluar', 1, 0, 'C');
+        $pdf->Cell(62, 10, 'Gambar', 1, 1, 'C');
+        $pdf->SetFont('Arial', '', 10);
+        $berita_barang_keluar =  $this->beritaBarangKeluarModel->getBeritaBarangKeluarPerPeriode($data['tanggal1'], $data['tanggal2']);
         $no = 1;
         foreach ($berita_barang_keluar as $data) {
             $pdf->SetFont('times', '', 11);

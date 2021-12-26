@@ -17,6 +17,14 @@ class BeritaBarangMasukModel extends Model
         return $this->findAll();
     }
 
+    public function getBeritaBarangMasukPerPeriode($tanggal1, $tanggal2)
+    {
+        return $this->db->table('berita_acara_barang_masuk')
+            ->select('*')
+            ->where("tgl_ba_masuk BETWEEN '{$tanggal1}' AND '{$tanggal2}'")
+            ->get()->getResultObject();
+    }
+
     public function getBeritaBarangMasukById($id)
     {
         return $this->where(['id' => $id])->first();

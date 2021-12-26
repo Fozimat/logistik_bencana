@@ -17,6 +17,14 @@ class BeritaBarangKeluarModel extends Model
         return $this->findAll();
     }
 
+    public function getBeritaBarangKeluarPerPeriode($tanggal1, $tanggal2)
+    {
+        return $this->db->table('berita_acara_barang_keluar')
+            ->select('*')
+            ->where("tgl_ba_keluar BETWEEN '{$tanggal1}' AND '{$tanggal2}'")
+            ->get()->getResultObject();
+    }
+
     public function getBeritaBarangKeluarById($id)
     {
         return $this->where(['id' => $id])->first();

@@ -20,6 +20,15 @@ class LogistikMasukModel extends Model
             ->get()->getResultObject();
     }
 
+    public function getLogistikMasukPerPeriode($tanggal1, $tanggal2)
+    {
+        return $this->db->table('logistik_masuk')
+            ->select('logistik_masuk.id, persediaan.nama_barang ,tgl_masuk, logistik_masuk.vol_unit, satuan, logistik_masuk.keterangan')
+            ->join('persediaan', 'persediaan.id=logistik_masuk.id_barang')
+            ->where("tgl_masuk BETWEEN '{$tanggal1}' AND '{$tanggal2}'")
+            ->get()->getResultObject();
+    }
+
     public function getCount()
     {
         $builder = $this->db->table('logistik_masuk');
