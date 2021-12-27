@@ -19,7 +19,7 @@
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
     <style>
         .bg-login {
-            background-image: url("<?= base_url('assets-profil/img/galeri/galeri2.jpg'); ?>");
+            background-image: url("<?= base_url('assets-profil/img/galeri/galeri1.jpg'); ?>");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
