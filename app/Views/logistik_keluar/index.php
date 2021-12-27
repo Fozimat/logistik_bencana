@@ -14,13 +14,28 @@
     </div>
 <?php endif; ?>
 
-<div class="card shadow mb-4">
+<form action="<?= base_url('admin/laporan/cetak_periode'); ?>" method="POST" target="_blank">
+    <input type="hidden" name="cetak" value="logistik_keluar">
+    <div class="row mt-2">
+        <div class="col-4">
+            <label for="tanggal1">Mulai Tanggal </label>
+            <input type="date" class="form-control" name="tanggal1" required>
+        </div>
+        <div class="col-4">
+            <label for="tanggal2">Sampai Tanggal</label>
+            <input type="date" class="form-control" name="tanggal2" required>
+        </div>
+        <div class="col-4">
+            <button class="font-weight-bold btn btn-success" type="submit" style="margin-top: 30px;" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Laporan</button>
+        </div>
+    </div>
+</form>
+
+<div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
         <?php if (session()->get('roles') == 'ADMIN') : ?>
             <a class="m-0 font-weight-bold btn btn-primary" href="<?= site_url('admin/logistikkeluar/create'); ?>"><i class="fa fa-user-plus mr-1"></i>Tambah Data</a>
         <?php endif; ?>
-
-        <a class="m-0 font-weight-bold btn btn-success ml-2" href="<?= site_url('admin/laporan/logistik_keluar'); ?>" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Laporan</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

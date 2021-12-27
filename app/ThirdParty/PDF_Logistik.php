@@ -64,17 +64,7 @@ class PDF_Logistik extends FPDF
         return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
     }
 
-    function Footer()
-    {
-        if ($this->isFinished) {
-            $this->Cell(300, 20, 'Daik Lingga, ' . $this->format_ind(date('Y-m-d')), 0, 1, 'C');
-            $this->Ln(10);
-            $this->SetFont('Times', 'BU', '12');
-            $this->Cell(300, 10, '                                                               ', 0, 1, 'C');
-            $this->SetFont('Times', '', '11');
-            $this->Cell(300, 0, '(                                                                 )', 0, 1, 'C');
-        }
-    }
+
 
     function InlineImage($file, $x = null, $y = null, $w = 0, $h = 0, $type = '', $link = '')
     {
