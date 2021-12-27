@@ -19,7 +19,7 @@
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
     <style>
         .bg-login {
-            background-image: url("<?= base_url('assets-profil/img/galeri/galeri2.jpg'); ?>");
+            background-image: url("<?= base_url('assets-profil/img/galeri/galeri1.jpg'); ?>");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -61,13 +61,7 @@
                                         <div class="form-group">
                                             <input required type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
+
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
