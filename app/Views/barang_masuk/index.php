@@ -33,6 +33,9 @@
                         <?php if (session()->get('roles') == 'ADMIN') : ?>
                             <th>Aksi</th>
                         <?php endif; ?>
+                        <?php if (session()->get('roles') == 'KASI') : ?>
+                            <th>Aksi</th>
+                        <?php endif; ?>
                     </tr>
                 </thead>
 
@@ -46,11 +49,17 @@
                             <td><img width="100" height="100" src="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" alt=""></td>
                             <?php if (session()->get('roles') == 'ADMIN') : ?>
                                 <td>
+                                    <a href="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" class="btn btn-secondary" target="_blank">detail</a> |
                                     <a href="<?= site_url('admin/beritabarangmasuk/edit/' . $ba->id); ?>" class="btn btn-info">edit</a> |
                                     <form action="<?= site_url('admin/beritabarangmasuk/delete/' . $ba->id); ?>" method="POST" class="d-inline">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger">delete</button>
                                     </form>
+                                </td>
+                            <?php endif; ?>
+                            <?php if (session()->get('roles') == 'KASI') : ?>
+                                <td>
+                                    <a href="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" class="btn btn-secondary" target="_blank">detail</a>
                                 </td>
                             <?php endif; ?>
                         </tr>

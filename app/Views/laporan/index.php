@@ -16,7 +16,9 @@
                     <option value="">--Pilih--</option>
                     <option value="persediaan">Laporan Persediaan</option>
                     <option value="logistik_masuk">Laporan Logistik Masuk</option>
+                    <option value="logistik_masuk_excel">Laporan Logistik Masuk (Excel)</option>
                     <option value="logistik_keluar">Laporan Logistik Keluar</option>
+                    <option value="logistik_keluar_excel">Laporan Logistik Keluar (Excel)</option>
                     <option value="berita_masuk">Laporan Berita Acara Barang Masuk</option>
                     <option value="berita_keluar">Laporan Berita Acara Barang Keluar</option>
                     <option value="informasi_kebencanaan">Laporan Informasi Kebencanaan</option>
