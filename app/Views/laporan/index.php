@@ -10,30 +10,6 @@
         <h6 class="m-0 font-weight-bold text-primary">Cetak Laporan</h6>
     </div>
     <div class="card-body">
-        <form action="<?= base_url('admin/laporan/cetak'); ?>" method="POST" target="_blank">
-            <div class="form-group">
-                <select class="form-control" id="cetak" name="cetak" required>
-                    <option value="">--Pilih--</option>
-                    <option value="persediaan">Laporan Persediaan</option>
-                    <option value="logistik_masuk">Laporan Logistik Masuk</option>
-                    <option value="logistik_masuk_excel">Laporan Logistik Masuk (Excel)</option>
-                    <option value="logistik_keluar">Laporan Logistik Keluar</option>
-                    <option value="logistik_keluar_excel">Laporan Logistik Keluar (Excel)</option>
-                    <option value="berita_masuk">Laporan Berita Acara Barang Masuk</option>
-                    <option value="berita_keluar">Laporan Berita Acara Barang Keluar</option>
-                    <option value="informasi_kebencanaan">Laporan Informasi Kebencanaan</option>
-                </select>
-            </div>
-            <button type="submit" class="float-right font-weight-bold btn btn-primary"><i class="fa fa-print mr-1"></i>Cetak Laporan</button>
-        </form>
-    </div>
-</div>
-
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Cetak Laporan Per Periode</h6>
-    </div>
-    <div class="card-body">
         <form action="<?= base_url('admin/laporan/cetak_periode'); ?>" method="POST" target="_blank">
             <div class="row">
                 <div class="col-6">
@@ -42,9 +18,12 @@
                         <select class="form-control" id="cetak" name="cetak" required>
                             <option value="">--Pilih--</option>
                             <option value="logistik_masuk">Laporan Logistik Masuk</option>
+                            <option value="logistik_masuk_excel_periode">Laporan Logistik Masuk (Excel)</option>
                             <option value="logistik_keluar">Laporan Logistik Keluar</option>
+                            <option value="logistik_keluar_excel_periode">Laporan Logistik Keluar (Excel)</option>
                             <option value="berita_masuk">Laporan Berita Acara Barang Masuk</option>
                             <option value="berita_keluar">Laporan Berita Acara Barang Keluar</option>
+                            <option value="informasi_kebencanaan_excel_periode">Laporan Informasi Kebencanaan (Excel)</option>
                         </select>
                     </div>
                 </div>

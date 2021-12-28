@@ -121,6 +121,98 @@ class Laporan extends BaseController
         exit;
     }
 
+    public function logistik_masuk_excel_periode($data)
+    {
+        $item = $this->logistikMasukModel->getLogistikMasukPerPeriode($data['tanggal1'], $data['tanggal2']);
+
+        $fileName = 'logistik-masuk.xlsx';
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'NO');
+        $sheet->setCellValue('B1', 'NAMA BARANG');
+        $sheet->setCellValue('C1', 'TANGGAL MASUK');
+        $sheet->setCellValue('D1', 'VOL/UNIT');
+        $sheet->setCellValue('E1', 'SATUAN');
+        $sheet->setCellValue('F1', 'KETERANGAN');
+
+        $rows = 2;
+
+        //menggabungkan data atribut kedalam cell excel
+        for ($i = 'A'; $i !=  $spreadsheet->getActiveSheet()->getHighestColumn(); $i++) {
+            $spreadsheet->getActiveSheet()->getColumnDimension($i)->setAutoSize(TRUE);
+        }
+        $no = 1;
+        foreach ($item as $val) {
+            $sheet->setCellValue('A' . $rows, $no++);
+            $sheet->setCellValue('B' . $rows, $val->nama_barang);
+            $sheet->setCellValue('C' . $rows, $val->tgl_masuk);
+            $sheet->setCellValue('D' . $rows, $val->vol_unit);
+            $sheet->setCellValue('E' . $rows, $val->satuan);
+            $sheet->setCellValue('F' . $rows, $val->keterangan);
+
+            $rows++;
+        }
+        $writer = new Xlsx($spreadsheet);
+        $filepath = $fileName;
+        $writer->save($filepath);
+
+        header("Content-Type: application/vnd.ms-excel");
+        header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filepath));
+        flush();
+        readfile($filepath);
+        exit;
+    }
+
+    public function logistik_keluar_excel_periode($data)
+    {
+        $item =  $this->logistikKeluarModel->getLogistikKeluarPerPeriode($data['tanggal1'], $data['tanggal2']);
+
+        $fileName = 'logistik-keluar.xlsx';
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'NO');
+        $sheet->setCellValue('B1', 'NAMA BARANG');
+        $sheet->setCellValue('C1', 'TANGGAL KELUAR');
+        $sheet->setCellValue('D1', 'VOL/UNIT');
+        $sheet->setCellValue('E1', 'SATUAN');
+        $sheet->setCellValue('F1', 'KETERANGAN');
+
+        $rows = 2;
+
+        //menggabungkan data atribut kedalam cell excel
+        for ($i = 'A'; $i !=  $spreadsheet->getActiveSheet()->getHighestColumn(); $i++) {
+            $spreadsheet->getActiveSheet()->getColumnDimension($i)->setAutoSize(TRUE);
+        }
+        $no = 1;
+        foreach ($item as $val) {
+            $sheet->setCellValue('A' . $rows, $no++);
+            $sheet->setCellValue('B' . $rows, $val->nama_barang);
+            $sheet->setCellValue('C' . $rows, $val->tgl_keluar);
+            $sheet->setCellValue('D' . $rows, $val->vol_unit);
+            $sheet->setCellValue('E' . $rows, $val->satuan);
+            $sheet->setCellValue('F' . $rows, $val->keterangan);
+
+            $rows++;
+        }
+        $writer = new Xlsx($spreadsheet);
+        $filepath = $fileName;
+        $writer->save($filepath);
+
+        header("Content-Type: application/vnd.ms-excel");
+        header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filepath));
+        flush();
+        readfile($filepath);
+        exit;
+    }
+
     public function logistik_keluar_excel()
     {
         $data =  $this->logistikKeluarModel->getLogistikKeluar();
@@ -177,9 +269,17 @@ class Laporan extends BaseController
                 $this->logistik_masuk_periode($data);
                 return redirect()->to('admin/laporan/logistik_masuk_periode');
                 break;
+            case "logistik_masuk_excel_periode":
+                $this->logistik_masuk_excel_periode($data);
+                return redirect()->to('admin/laporan/logistik_masuk_excel_periode');
+                break;
             case "logistik_keluar":
                 $this->logistik_keluar_periode($data);
                 return redirect()->to('admin/laporan/logistik_keluar_periode');
+            case "logistik_keluar_excel_periode":
+                $this->logistik_keluar_excel_periode($data);
+                return redirect()->to('admin/laporan/logistik_keluar_excel_periode');
+                break;
             case "berita_masuk":
                 $this->berita_barang_masuk_periode($data);
                 return redirect()->to('admin/laporan/berita_barang_masuk_periode');
@@ -187,6 +287,10 @@ class Laporan extends BaseController
             case "berita_keluar":
                 $this->berita_barang_keluar_periode($data);
                 return redirect()->to('admin/laporan/berita_barang_keluar_periode');
+                break;
+            case "informasi_kebencanaan_excel_periode":
+                $this->informasi_kebencanaan_excel_periode($data);
+                return redirect()->to('admin/laporan/informasi_kebencanaan_excel_periode');
                 break;
             default:
                 return redirect()->to('admin/laporan/cetak');
@@ -596,6 +700,79 @@ class Laporan extends BaseController
         }
         $pdf->isFinished = true;
         $pdf->Output();
+        exit;
+    }
+
+    public function informasi_kebencanaan_excel_periode($data)
+    {
+        $item = $this->informasiKebencanaanModel->getInformasiKebencanaanPerPeriode($data['tanggal1'], $data['tanggal2']);
+
+        $fileName = 'informasi-kebencanaan.xlsx';
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'ID');
+        $sheet->setCellValue('B1', 'JENIS BENCANA');
+        $sheet->setCellValue('C1', 'LOKASI TEMPAT KEJADIAN');
+        $sheet->setCellValue('D1', 'TANGGAL BENCANA');
+        $sheet->setCellValue('E1', 'KORBAN LAKI');
+        $sheet->setCellValue('F1', 'KORBAN PEREMPUAN');
+        $sheet->setCellValue('G1', 'USIA 0 - 5 TAHUN');
+        $sheet->setCellValue('H1', 'USIA 6 - 20 TAHUN');
+        $sheet->setCellValue('I1', 'USIA 21 - 60 TAHUN');
+        $sheet->setCellValue('J1', 'USIA 61 KE ATAS');
+        $sheet->setCellValue('K1', 'IBU HAMIL');
+        $sheet->setCellValue('L1', 'MENINGGAL');
+        $sheet->setCellValue('M1', 'HILANG');
+        $sheet->setCellValue('N1', 'LUKA');
+        $sheet->setCellValue('O1', 'MENGUNGSI');
+        $sheet->setCellValue('P1', 'JENIS PRASARANA');
+        $sheet->setCellValue('Q1', 'RUSAK RINGAN');
+        $sheet->setCellValue('R1', 'RUSAK SEDANG');
+        $sheet->setCellValue('S1', 'RUSAK BERAT');
+        $sheet->setCellValue('T1', 'KETERANGAN');
+
+        $rows = 2;
+
+        //menggabungkan data atribut kedalam cell excel
+        for ($i = 'A'; $i !=  $spreadsheet->getActiveSheet()->getHighestColumn(); $i++) {
+            $spreadsheet->getActiveSheet()->getColumnDimension($i)->setAutoSize(TRUE);
+        }
+        foreach ($item as $val) {
+            $sheet->setCellValue('A' . $rows, $val->id);
+            $sheet->setCellValue('B' . $rows, $val->jenis_bencana);
+            $sheet->setCellValue('C' . $rows, $val->lokasi_tempat_kejadian);
+            $sheet->setCellValue('D' . $rows, $val->tgl_bencana);
+            $sheet->setCellValue('E' . $rows, $val->korban_laki);
+            $sheet->setCellValue('F' . $rows, $val->korban_perempuan);
+            $sheet->setCellValue('G' . $rows, $val->usia_0_5);
+            $sheet->setCellValue('H' . $rows, $val->usia_6_20);
+            $sheet->setCellValue('I' . $rows, $val->usia_21_60);
+            $sheet->setCellValue('J' . $rows, $val->usia_61);
+            $sheet->setCellValue('K' . $rows, $val->ibu_hamil);
+            $sheet->setCellValue('L' . $rows, $val->meninggal);
+            $sheet->setCellValue('M' . $rows, $val->hilang);
+            $sheet->setCellValue('N' . $rows, $val->luka);
+            $sheet->setCellValue('O' . $rows, $val->mengungsi);
+            $sheet->setCellValue('P' . $rows, $val->jenis_prasarana);
+            $sheet->setCellValue('Q' . $rows, $val->rusak_ringan);
+            $sheet->setCellValue('R' . $rows, $val->rusak_sedang);
+            $sheet->setCellValue('S' . $rows, $val->rusak_berat);
+            $sheet->setCellValue('T' . $rows, $val->keterangan);
+
+            $rows++;
+        }
+        $writer = new Xlsx($spreadsheet);
+        $filepath = $fileName;
+        $writer->save($filepath);
+
+        header("Content-Type: application/vnd.ms-excel");
+        header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filepath));
+        flush();
+        readfile($filepath);
         exit;
     }
 }

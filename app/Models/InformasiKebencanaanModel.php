@@ -23,6 +23,14 @@ class InformasiKebencanaanModel extends Model
         return $builder->orderBy('tgl_bencana', 'DESC')->get(5)->getResult();
     }
 
+    public function getInformasiKebencanaanPerPeriode($tanggal1, $tanggal2)
+    {
+        return $this->db->table('informasi_kebencanaan')
+            ->select('*')
+            ->where("tgl_bencana BETWEEN '{$tanggal1}' AND '{$tanggal2}'")
+            ->get()->getResultObject();
+    }
+
     public function getCount()
     {
         $builder = $this->db->table('informasi_kebencanaan');
