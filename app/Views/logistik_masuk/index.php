@@ -14,7 +14,7 @@
     </div>
 <?php endif; ?>
 <form action="<?= base_url('admin/laporan/cetak_periode'); ?>" method="POST" target="_blank">
-    <input type="hidden" name="cetak" value="logistik_masuk">
+    <input type="hidden" name="cetak" value="logistik_masuk_excel_periode">
     <div class="row mt-2">
         <div class="col-4">
             <label for="tanggal1">Mulai Tanggal </label>
@@ -25,7 +25,7 @@
             <input type="date" class="form-control" name="tanggal2" required>
         </div>
         <div class="col-4">
-            <button class="font-weight-bold btn btn-success" type="submit" style="margin-top: 30px;" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Laporan</button>
+            <button class="font-weight-bold btn btn-success" type="submit" style="margin-top: 30px;" target="_blank"><i class="fa fa-print mr-1"></i>Cetak Excel</button>
         </div>
     </div>
 </form>

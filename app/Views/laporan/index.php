@@ -17,13 +17,11 @@
                         <label for="cetak">Laporan</label>
                         <select class="form-control" id="cetak" name="cetak" required>
                             <option value="">--Pilih--</option>
-                            <option value="logistik_masuk">Laporan Logistik Masuk</option>
-                            <option value="logistik_masuk_excel_periode">Laporan Logistik Masuk (Excel)</option>
-                            <option value="logistik_keluar">Laporan Logistik Keluar</option>
-                            <option value="logistik_keluar_excel_periode">Laporan Logistik Keluar (Excel)</option>
+                            <option value="logistik_masuk_excel_periode">Laporan Logistik Masuk</option>
+                            <option value="logistik_keluar_excel_periode">Laporan Logistik Keluar</option>
                             <option value="berita_masuk">Laporan Berita Acara Barang Masuk</option>
                             <option value="berita_keluar">Laporan Berita Acara Barang Keluar</option>
-                            <option value="informasi_kebencanaan_excel_periode">Laporan Informasi Kebencanaan (Excel)</option>
+                            <option value="informasi_kebencanaan_excel_periode">Laporan Informasi Kebencanaan</option>
                         </select>
                     </div>
                 </div>
