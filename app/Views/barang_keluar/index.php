@@ -43,7 +43,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>No berita Acara</th>
+                        <th>No Berita Acara</th>
                         <th>Tanggal Keluar</th>
                         <th>Gambar</th>
                         <?php if (session()->get('roles') == 'ADMIN') : ?>

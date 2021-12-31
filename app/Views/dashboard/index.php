@@ -86,7 +86,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Informasi Bencana Terbaru</h6>
@@ -95,16 +95,18 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">No</th>
                             <th scope="col">Bencana</th>
                             <th scope="col">Lokasi</th>
                             <th scope="col">Tanggal</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($informasi_kebencanaan as $data) : ?>
+                        <?php
+                        $no = 1;
+                        foreach ($informasi_kebencanaan as $data) : ?>
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row"><?= $no++; ?></th>
                                 <td><?= $data->jenis_bencana; ?></td>
                                 <td><?= $data->lokasi_tempat_kejadian; ?></td>
                                 <td><?= $data->tgl_bencana; ?></td>
