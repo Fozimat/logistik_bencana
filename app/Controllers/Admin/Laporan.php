@@ -373,20 +373,18 @@ class Laporan extends BaseController
 
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(8, 6, 'NO', 1, 0, 'C');
-        $pdf->Cell(60, 6, 'NAMA BARANG', 1, 0, 'C');
+        $pdf->Cell(130, 6, 'NAMA BARANG', 1, 0, 'C');
         $pdf->Cell(25, 6, 'VOL/UNIT', 1, 0, 'C');
-        $pdf->Cell(30, 6, 'SATUAN', 1, 0, 'C');
-        $pdf->Cell(70, 6, 'KETERANGAN', 1, 1, 'C');
+        $pdf->Cell(30, 6, 'SATUAN', 1, 1, 'C');
         $pdf->SetFont('Arial', '', 10);
         $persediaan = $this->persediaanModel->getPersediaan();
         $no = 1;
         foreach ($persediaan as $data) {
             $pdf->SetFont('times', '', 11);
             $pdf->Cell(8, 7, $no, 1, 0, 'C');
-            $pdf->Cell(60, 7, $data->nama_barang, 1, 0);
+            $pdf->Cell(130, 7, $data->nama_barang, 1, 0);
             $pdf->Cell(25, 7, $data->vol_unit, 1, 0, 'C');
-            $pdf->Cell(30, 7, $data->satuan, 1, 0, 'C');
-            $pdf->Cell(70, 7, $data->keterangan, 1, 1);
+            $pdf->Cell(30, 7, $data->satuan, 1, 1, 'C');
             $no++;
         }
         $pdf->Ln(5);
@@ -710,7 +708,7 @@ class Laporan extends BaseController
         $fileName = 'informasi-kebencanaan.xlsx';
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-        $sheet->setCellValue('A1', 'ID');
+        $sheet->setCellValue('A1', 'NO');
         $sheet->setCellValue('B1', 'JENIS BENCANA');
         $sheet->setCellValue('C1', 'LOKASI TEMPAT KEJADIAN');
         $sheet->setCellValue('D1', 'TANGGAL BENCANA');
@@ -737,8 +735,9 @@ class Laporan extends BaseController
         for ($i = 'A'; $i !=  $spreadsheet->getActiveSheet()->getHighestColumn(); $i++) {
             $spreadsheet->getActiveSheet()->getColumnDimension($i)->setAutoSize(TRUE);
         }
+        $no = 1;
         foreach ($item as $val) {
-            $sheet->setCellValue('A' . $rows, $val->id);
+            $sheet->setCellValue('A' . $rows, $no++);
             $sheet->setCellValue('B' . $rows, $val->jenis_bencana);
             $sheet->setCellValue('C' . $rows, $val->lokasi_tempat_kejadian);
             $sheet->setCellValue('D' . $rows, $val->tgl_bencana);
