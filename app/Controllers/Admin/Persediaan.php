@@ -134,4 +134,13 @@ class Persediaan extends BaseController
         session()->setFlashdata('status', 'Data berhasil dihapus');
         return redirect()->to('admin/persediaan');
     }
+
+    public function cetakWord()
+    {
+        $data = [
+            'title' => 'Persediaan',
+            'persediaan' => $this->persediaanModel->getPersediaan()
+        ];
+        return view('persediaan/cetak', $data);
+    }
 }
