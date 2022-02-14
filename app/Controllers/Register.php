@@ -21,7 +21,6 @@ class Register extends BaseController
             'username'  => 'required|min_length[3]|max_length[20]',
             'password'      => 'required|min_length[4]|max_length[200]',
             'confpassword'  => 'matches[password]',
-            'roles' => 'required'
         ];
 
         if (!$this->validate($rules)) {
@@ -31,7 +30,7 @@ class Register extends BaseController
         $data = [
             'username'     => $this->request->getVar('username'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            'roles' => $this->request->getVar('roles')
+            'roles' => 'PENGUNJUNG'
         ];
         $model->save($data);
         session()->setFlashdata('status', 'Register berhasil, silahkan login');

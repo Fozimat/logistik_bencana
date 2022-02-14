@@ -26,7 +26,7 @@ class Persediaan extends BaseController
     public function create()
     {
         if ($this->session->get('roles') != 'ADMIN') {
-            return redirect()->to('admin/persediaan');
+            return redirect()->back();
         }
 
         $data = [

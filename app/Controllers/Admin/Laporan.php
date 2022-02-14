@@ -2,12 +2,10 @@
 
 namespace App\Controllers\Admin;
 
-use App\ThirdParty\PDF;
 use App\ThirdParty\PDFL;
 use App\ThirdParty\PDF_Persediaan as PDF_P;
 use App\ThirdParty\PDF_Logistik as PDF_L;
 use App\ThirdParty\PDF_BeritaAcara as PDF_BA;
-use App\Models\DasarModel;
 use App\Models\PersediaanModel;
 use App\Models\LogistikMasukModel;
 use App\Controllers\BaseController;
@@ -22,7 +20,6 @@ class Laporan extends BaseController
 {
     public function __construct()
     {
-        $this->dasarModel = new DasarModel();
         $this->persediaanModel = new PersediaanModel();
         $this->logistikMasukModel = new LogistikMasukModel();
         $this->logistikKeluarModel = new LogistikKeluarModel();
@@ -297,41 +294,7 @@ class Laporan extends BaseController
         }
     }
 
-    public function kebutuhan_dasar()
-    {
-        $pdf = new PDF();
-        $pdf->isFinished = false;
-        $pdf->SetTitle('Laporan Logistik Masuk');
-        $pdf->AddPage('P', 'A4');
-        $pdf->Cell(10, 5, '', 0, 1);
-        $pdf->SetFont('Times', 'B', '14');
-        $pdf->Cell(0, 15, 'LOGISTIK MASUK', 0, 1, 'C');
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(8, 6, 'No', 1, 0, 'C');
-        $pdf->Cell(40, 6, 'Nama Kebutuhan', 1, 0, 'C');
-        $pdf->Cell(25, 6, 'Jenis', 1, 0, 'C');
-        $pdf->Cell(15, 6, 'Jumlah', 1, 0, 'C');
-        $pdf->Cell(15, 6, 'Satuan', 1, 0, 'C');
-        $pdf->Cell(40, 6, 'Kebutuhan', 1, 0, 'C');
-        $pdf->Cell(50, 6, 'Keterangan', 1, 1, 'C');
-        $pdf->SetFont('Arial', '', 10);
-        $dasar = $this->dasarModel->getDasar();
-        $no = 1;
-        foreach ($dasar as $data) {
-            $pdf->SetFont('times', '', 11);
-            $pdf->Cell(8, 7, $no, 1, 0, 'C');
-            $pdf->Cell(40, 7, $data->nama_kebutuhan, 1, 0);
-            $pdf->Cell(25, 7, $data->jenis, 1, 0, 'C');
-            $pdf->Cell(15, 7, $data->jumlah, 1, 0, 'C');
-            $pdf->Cell(15, 7, $data->satuan, 1, 0);
-            $pdf->Cell(40, 7, $data->kebutuhan, 1, 0);
-            $pdf->Cell(50, 7, $data->keterangan, 1, 1);
-            $no++;
-        }
-        $pdf->isFinished = true;
-        $pdf->Output();
-        exit;
-    }
+
 
     public function persediaan()
     {

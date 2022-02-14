@@ -33,7 +33,11 @@ class Login extends BaseController
                     'roles' => $data->roles
                 ];
                 session()->set($ses_data);
-                return redirect()->to('admin/dashboard');
+                if ($data->roles == 'ADMIN' || $data->roles == 'KASI') {
+                    return redirect()->to('admin/dashboard');
+                } else {
+                    return redirect()->to('laporantanggapbencana');
+                }
             } else {
                 session()->setFlashdata('status', 'Password salah');
                 return redirect()->to('login');

@@ -56,16 +56,6 @@
                                                 <?= $validation->getError('confpassword'); ?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <select name="roles" id="roles" class="form-control form-control-user <?= ($validation->hasError('roles')) ? 'is-invalid' : ''; ?>">
-                                                <option value="">-- Pilih Role ---</option>
-                                                <option value="ADMIN">Admin</option>
-                                                <option value="KEPALA">Kepala</option>
-                                            </select>
-                                            <div class="invalid-feedback">
-                                                <?= $validation->getError('roles'); ?>
-                                            </div>
-                                        </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Register Account
                                         </button>
