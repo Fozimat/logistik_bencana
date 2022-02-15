@@ -9,8 +9,8 @@ class PDF_Persediaan extends FPDF
     function Header()
     {
         if ($this->PageNo() == 1) {
-            $this->Image(APPPATH . 'ThirdParty/img/lingga.png', 10, 5, 35, 30, 'PNG');
-            $this->Image(APPPATH . 'ThirdParty/img/kepri.png', 173, 4, 30, 30, 'PNG');
+            $this->Image(APPPATH . 'ThirdParty/img/kepri.png', 10, 5, 35, 30, 'PNG');
+            $this->Image(APPPATH . 'ThirdParty/img/lingga.png', 173, 4, 30, 30, 'PNG');
             $this->judul('PEMERINTAH KABUPATEN LINGGA', 'BADAN PENANGGULANGAN BENCANA DAERAH', 'JALAN ISTANA KOTA BARU (KOMPLEK PERKANTORAN PEMKAB)', 'e-mail: bpbdkab.lingga@gmail.com', 'DAIK - LINGGA');
             $this->garis();
         }
