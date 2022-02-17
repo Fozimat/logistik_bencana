@@ -21,4 +21,9 @@ class LaporModel extends Model
     {
         return $this->save($data);
     }
+
+    public function getLaporById($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
 }

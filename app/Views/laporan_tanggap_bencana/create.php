@@ -19,10 +19,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="offset-md-3 col-md-6">
-                                <form action="<?= site_url('laporantanggapbencana/store'); ?>" method="POST">
+                                <form action="<?= site_url('laporantanggapbencana/store'); ?>" method="POST" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <div class="form-group">
-                                        <label for="jenis_bencana" class="hitam-tebal">Jenis bencana</label>
+                                        <label for="jenis_bencana" class="hitam-tebal">Jenis Bencana</label>
                                         <input type="text" class="form-control <?= ($validation->hasError('jenis_bencana')) ? 'is-invalid' : ''; ?>" value="<?= old('jenis_bencana'); ?>" name="jenis_bencana" id="jenis_bencana">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('jenis_bencana'); ?>
@@ -44,7 +44,6 @@
                                             <?= $validation->getError('no_hp'); ?>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="keterangan" class="hitam-tebal">Keterangan</label>
                                         <textarea class="form-control <?= ($validation->hasError('keterangan')) ? 'is-invalid' : ''; ?>" rows="3" name="keterangan"><?= old('keterangan'); ?></textarea>

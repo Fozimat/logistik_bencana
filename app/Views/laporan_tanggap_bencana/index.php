@@ -30,6 +30,7 @@
                         <th>No Hp</th>
                         <th>Keterangan</th>
                         <th>Status</th>
+                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -45,6 +46,7 @@
                             <td><?= $d->no_hp; ?></td>
                             <td><?= $d->keterangan; ?></td>
                             <td><span class="badge badge-primary"><?= $d->status; ?></span></td>
+                            <td><a href="<?= site_url('laporantanggapbencana/create_photo/' . $d->id); ?>" class="badge badge-success">Tambah Foto Kejadian</a></td>
                             <td>
                                 <a href="#" class="btn btn-info">edit</a> |
                                 <form action="#" method="POST" class="d-inline">
