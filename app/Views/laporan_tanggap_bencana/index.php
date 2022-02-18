@@ -48,8 +48,8 @@
                             <td><span class="badge badge-primary"><?= $d->status; ?></span></td>
                             <td><a href="<?= site_url('laporantanggapbencana/create_photo/' . $d->id); ?>" class="badge badge-success">Tambah Foto Kejadian</a></td>
                             <td>
-                                <a href="#" class="btn btn-info">edit</a> |
-                                <form action="#" method="POST" class="d-inline">
+                                <a href="<?= site_url('laporantanggapbencana/edit/' . $d->id); ?>" class="btn btn-info">edit</a> |
+                                <form action="<?= site_url('laporantanggapbencana/delete/' . $d->id); ?>" method="POST" class="d-inline">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger">delete</button>
                                 </form>

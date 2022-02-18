@@ -125,4 +125,67 @@ class LaporanTanggapBencana extends BaseController
         session()->setFlashdata('status', 'Foto berhasil ditambahkan');
         return redirect()->to('laporantanggapbencana');
     }
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Form Edit Foto Kejadian',
+            'validation' => \Config\Services::validation(),
+            'lapor' => $this->tanggapBencana->getLaporById($id)
+        ];
+        return view('laporan_tanggap_bencana/edit', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate(
+            [
+                'jenis_bencana' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Jenis Bencana tidak boleh kosong'
+                    ]
+                ],
+                'tanggal_waktu_kejadian' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal Waktu Kejadian tidak boleh kosong'
+                    ]
+                ],
+                'no_hp' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'No Hp tidak boleh kosong'
+                    ]
+                ],
+                'keterangan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Keterangan tidak boleh kosong'
+                    ]
+                ],
+            ]
+        )) {
+            return redirect()->to('laporantanggapbencana/create')->withInput();
+        }
+        $data = [
+            'id_user' => session()->get('user_id'),
+            'jenis_bencana' => $this->request->getVar('jenis_bencana'),
+            'tanggal_waktu_kejadian' => $this->request->getVar('tanggal_waktu_kejadian'),
+            'tanggal_waktu_lapor' => Time::now(),
+            'no_hp' => $this->request->getVar('no_hp'),
+            'status' => 'Belum ditanggapi',
+            'keterangan' => $this->request->getVar('keterangan'),
+        ];
+        $this->tanggapBencana->updateLapor($id, $data);
+        session()->setFlashdata('status', 'Data berhasil ditambahkan');
+        return redirect()->to('laporantanggapbencana');
+    }
+
+    public function delete($id)
+    {
+        $this->tanggapBencana->deleteLapor($id);
+        session()->setFlashdata('status', 'Data berhasil dihapus');
+        return redirect()->to('laporantanggapbencana');
+    }
 }

@@ -26,4 +26,18 @@ class LaporModel extends Model
     {
         return $this->where(['id' => $id])->first();
     }
+
+    public function updateLapor($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteLapor($id)
+    {
+        $lapor = $this->find($id);
+        if (empty($lapor)) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Data dengan id: ' . $id . ' tidak ditemukan');
+        }
+        return $this->delete($id);
+    }
 }
