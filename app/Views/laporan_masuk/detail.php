@@ -19,29 +19,40 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <form action="" method="POST" enctype="multipart/form-data">
-                                    <?= csrf_field(); ?>
+                                <form>
                                     <div class="form-group">
-                                        <label for="jenis_bencana" class="hitam-tebal">Jenis Bencana</label>
+                                        <label for="jenis_bencana">Jenis Bencana</label>
                                         <input type="text" class="form-control" readonly value="<?= $lapor->jenis_bencana; ?>" name="jenis_bencana" id="jenis_bencana">
                                     </div>
                                     <div class="form-group">
-                                        <label for="tanggal_waktu_kejadian" class="hitam-tebal">Tanggal Waktu Kejadian</label>
+                                        <label for="tanggal_waktu_kejadian">Tanggal Waktu Kejadian</label>
                                         <input type="datetime-local" class="form-control" readonly value="<?= date('Y-m-d\TH:i', strtotime($lapor->tanggal_waktu_kejadian)); ?>" name="tanggal_waktu_kejadian" id="tanggal_waktu_kejadian">
                                     </div>
                                     <div class="form-group">
-                                        <label for="tanggal_waktu_lapor" class="hitam-tebal">Tanggal Waktu Lapor</label>
+                                        <label for="tanggal_waktu_lapor">Tanggal Waktu Lapor</label>
                                         <input type="datetime-local" class="form-control" readonly value="<?= date('Y-m-d\TH:i', strtotime($lapor->tanggal_waktu_lapor)); ?>" name="tanggal_waktu_lapor" id="tanggal_waktu_lapor">
                                     </div>
                                     <div class="form-group">
-                                        <label for="no_hp" class="hitam-tebal">No HP (Kontak yang bisa dihubungi)</label>
+                                        <label for="lokasi_tempat_kejadian">Lokasi Tempat Kejadian</label>
+                                        <textarea readonly class="form-control" rows="3" name="lokasi_tempat_kejadian"><?= $lapor->lokasi_tempat_kejadian; ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="no_hp">No HP (Kontak yang bisa dihubungi)</label>
                                         <input type="number" class="form-control" readonly name="no_hp" id="no_hp" value="<?= $lapor->no_hp; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="keterangan" class="hitam-tebal">Keterangan</label>
+                                        <label for="keterangan">Keterangan</label>
                                         <textarea class="form-control" readonly rows="3" name="keterangan"><?= $lapor->keterangan; ?></textarea>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="jenis_bencana">Foto Kejadian Bencana</label>
+                                    <?php foreach ($foto as $f) : ?>
+                                        <img src="<?= site_url('upload/laporan_tanggap_bencana/' . $f->foto); ?>" alt="Foto Kejadian" class="img-thumbnail mb-3" style="width: 400px;height: auto;">
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
                     </div>

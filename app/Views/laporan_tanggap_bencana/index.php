@@ -39,7 +39,7 @@
                         <tr>
                             <th><?= $i++; ?></th>
                             <td><?= $d->jenis_bencana; ?></td>
-                            <td><?= $d->tanggal_waktu_kejadian; ?></td>
+                            <td><?= date('d-m-Y H:i', strtotime($d->tanggal_waktu_kejadian)); ?></td>
                             <td><?= $d->lokasi_tempat_kejadian; ?></td>
                             <td><span class="badge badge-primary"><?= $d->status; ?></span></td>
                             <td><a href="<?= site_url('laporantanggapbencana/create_photo/' . $d->id); ?>" class="badge badge-success">+ Foto Kejadian</a></td>

@@ -24,8 +24,6 @@
                         <th>No</th>
                         <th>Jenis Bencana</th>
                         <th>Waktu Kejadian</th>
-                        <th>Waktu Lapor</th>
-                        <th>Kontak</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -37,9 +35,7 @@
                         <tr>
                             <th><?= $i++; ?></th>
                             <td><?= $d->jenis_bencana; ?></td>
-                            <td><?= $d->tanggal_waktu_kejadian; ?></td>
-                            <td><?= $d->tanggal_waktu_lapor; ?></td>
-                            <td><?= $d->no_hp; ?></td>
+                            <td><?= date('d-m-Y H:i', strtotime($d->tanggal_waktu_kejadian)); ?></td>
                             <td><a href="#"><span class="badge badge-primary"><?= $d->status; ?></span></a></td>
                             <td>
                                 <a href="<?= site_url('admin/laporanmasuk/detail/' . $d->id); ?>" class="btn btn-secondary">detail</a> |
