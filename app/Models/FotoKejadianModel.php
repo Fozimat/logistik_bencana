@@ -16,4 +16,9 @@ class FotoKejadianModel extends Model
     {
         return $this->insert($data);
     }
+
+    public function getFotoById($id)
+    {
+        return $this->where(['id_lapor' => $id])->findAll();
+    }
 }

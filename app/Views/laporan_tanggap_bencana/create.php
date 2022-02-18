@@ -38,6 +38,14 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="lokasi_tempat_kejadian" class="hitam-tebal">Lokasi Tempat Kejadian</label>
+                                        <textarea class="form-control <?= ($validation->hasError('lokasi_tempat_kejadian')) ? 'is-invalid' : ''; ?>" rows="3" name="lokasi_tempat_kejadian"><?= old('lokasi_tempat_kejadian'); ?></textarea>
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('lokasi_tempat_kejadian'); ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="no_hp" class="hitam-tebal">No HP (Kontak yang bisa dihubungi)</label>
                                         <input type="number" class="form-control <?= ($validation->hasError('no_hp')) ? 'is-invalid' : ''; ?>" value="<?= old('no_hp'); ?>" name="no_hp" id="no_hp">
                                         <div class="invalid-feedback">

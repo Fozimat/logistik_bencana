@@ -26,9 +26,7 @@
                         <th>No</th>
                         <th>Jenis Bencana</th>
                         <th>Tanggal Waktu Kejadian</th>
-                        <th>Tanggal Waktu Lapor</th>
-                        <th>No Hp</th>
-                        <th>Keterangan</th>
+                        <th>Lokasi</th>
                         <th>Status</th>
                         <th>Foto</th>
                         <th>Aksi</th>
@@ -42,11 +40,9 @@
                             <th><?= $i++; ?></th>
                             <td><?= $d->jenis_bencana; ?></td>
                             <td><?= $d->tanggal_waktu_kejadian; ?></td>
-                            <td><?= $d->tanggal_waktu_lapor; ?></td>
-                            <td><?= $d->no_hp; ?></td>
-                            <td><?= $d->keterangan; ?></td>
+                            <td><?= $d->lokasi_tempat_kejadian; ?></td>
                             <td><span class="badge badge-primary"><?= $d->status; ?></span></td>
-                            <td><a href="<?= site_url('laporantanggapbencana/create_photo/' . $d->id); ?>" class="badge badge-success">Tambah Foto Kejadian</a></td>
+                            <td><a href="<?= site_url('laporantanggapbencana/create_photo/' . $d->id); ?>" class="badge badge-success">+ Foto Kejadian</a></td>
                             <td>
                                 <a href="<?= site_url('laporantanggapbencana/edit/' . $d->id); ?>" class="btn btn-info">edit</a> |
                                 <form action="<?= site_url('laporantanggapbencana/delete/' . $d->id); ?>" method="POST" class="d-inline">

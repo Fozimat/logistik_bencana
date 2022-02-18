@@ -70,16 +70,16 @@
             Settings
         </div>
 
-        <li class="nav-item <?= ($uri->getSegment(2) == 'pesan') ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?= site_url('admin/pesan'); ?>">
+        <li class="nav-item <?= ($uri->getSegment(2) == 'laporanmasuk') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= site_url('admin/laporanmasuk'); ?>">
                 <i class="fas fa-fw fa-sms"></i>
-                <span>Pesan</span></a>
+                <span>Laporan Masuk</span></a>
         </li>
 
         <li class="nav-item <?= ($uri->getSegment(2) == 'laporan') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('admin/laporan'); ?>">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Laporan</span></a>
+                <span>Cetak Laporan</span></a>
         </li>
     <?php endif; ?>
 

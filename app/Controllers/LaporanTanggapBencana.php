@@ -59,10 +59,10 @@ class LaporanTanggapBencana extends BaseController
                         'required' => 'No Hp tidak boleh kosong'
                     ]
                 ],
-                'keterangan' => [
+                'lokasi_tempat_kejadian' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Keterangan tidak boleh kosong'
+                        'required' => 'Lokasi Tempat Kejadian tidak boleh kosong'
                     ]
                 ],
             ]
@@ -72,6 +72,7 @@ class LaporanTanggapBencana extends BaseController
         $data = [
             'id_user' => session()->get('user_id'),
             'jenis_bencana' => $this->request->getVar('jenis_bencana'),
+            'lokasi_tempat_kejadian' => $this->request->getVar('lokasi_tempat_kejadian'),
             'tanggal_waktu_kejadian' => $this->request->getVar('tanggal_waktu_kejadian'),
             'tanggal_waktu_lapor' => Time::now(),
             'no_hp' => $this->request->getVar('no_hp'),
@@ -158,10 +159,10 @@ class LaporanTanggapBencana extends BaseController
                         'required' => 'No Hp tidak boleh kosong'
                     ]
                 ],
-                'keterangan' => [
+                'lokasi_tempat_kejadian' => [
                     'rules' => 'required',
                     'errors' => [
-                        'required' => 'Keterangan tidak boleh kosong'
+                        'required' => 'Lokasi Tempat Kejadian tidak boleh kosong'
                     ]
                 ],
             ]
@@ -172,6 +173,7 @@ class LaporanTanggapBencana extends BaseController
             'id_user' => session()->get('user_id'),
             'jenis_bencana' => $this->request->getVar('jenis_bencana'),
             'tanggal_waktu_kejadian' => $this->request->getVar('tanggal_waktu_kejadian'),
+            'lokasi_tempat_kejadian' => $this->request->getVar('lokasi_tempat_kejadian'),
             'tanggal_waktu_lapor' => Time::now(),
             'no_hp' => $this->request->getVar('no_hp'),
             'status' => 'Belum ditanggapi',
