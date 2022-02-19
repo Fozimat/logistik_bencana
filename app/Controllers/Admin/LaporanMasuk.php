@@ -36,6 +36,63 @@ class LaporanMasuk extends BaseController
         return view('laporan_masuk/detail', $data);
     }
 
+    public function update_status_belum_ditanggapi($id)
+    {
+        $data = [
+            'status' => 'Sedang ditanggapi'
+        ];
+        if ($this->tanggapBencana->updateLapor($id, $data)) {
+            echo json_encode([
+                'success' => true,
+                'status' => $data['status']
+            ]);
+            exit;
+        } else {
+            echo json_encode([
+                'success' => false
+            ]);
+            exit;
+        }
+    }
+
+    public function update_status_sedang_ditanggapi($id)
+    {
+        $data = [
+            'status' => 'Selesai'
+        ];
+        if ($this->tanggapBencana->updateLapor($id, $data)) {
+            echo json_encode([
+                'success' => true,
+                'status' => $data['status']
+            ]);
+            exit;
+        } else {
+            echo json_encode([
+                'success' => false
+            ]);
+            exit;
+        }
+    }
+
+    public function update_status_selesai($id)
+    {
+        $data = [
+            'status' => 'Belum ditanggapi'
+        ];
+        if ($this->tanggapBencana->updateLapor($id, $data)) {
+            echo json_encode([
+                'success' => true,
+                'status' => $data['status']
+            ]);
+            exit;
+        } else {
+            echo json_encode([
+                'success' => false
+            ]);
+            exit;
+        }
+    }
+
     public function delete($id)
     {
         $this->tanggapBencana->deleteLapor($id);
