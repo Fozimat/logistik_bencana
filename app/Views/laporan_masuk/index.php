@@ -37,7 +37,7 @@
                             <th><?= $i++; ?></th>
                             <td><?= $d->jenis_bencana; ?></td>
                             <td><?= date('d-m-Y H:i', strtotime($d->tanggal_waktu_kejadian)); ?></td>
-                            <td><a id="id<?= $d->id; ?>" href="javascript:void(0);"><span id="status<?= $d->id; ?>" class="badge badge-secondary"><?= $d->status; ?></span></a></td>
+                            <td><a id="id<?= $d->id; ?>" href="javascript:void(0);"><span id="status<?= $d->id; ?>" class="badge badge-info"><?= $d->status; ?></span></a></td>
                             <td>
                                 <a href="<?= site_url('admin/laporanmasuk/detail/' . $d->id); ?>" class="btn btn-success">detail</a> |
                                 <form action="<?= site_url('admin/laporanmasuk/delete/' . $d->id); ?>" method="POST" class="d-inline">

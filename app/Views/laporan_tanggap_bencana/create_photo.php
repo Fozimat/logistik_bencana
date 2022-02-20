@@ -18,15 +18,10 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="offset-md-3 col-md-6">
+                            <div class="col-md-6">
                                 <form action="<?= site_url('laporantanggapbencana/store_photo'); ?>" method="POST" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="id_lapor" value="<?= $lapor->id; ?>">
-                                    <div class="form-group">
-                                        <label for="jenis_bencana" class="hitam-tebal">Jenis Bencana</label>
-                                        <input type="text" readonly class="form-control" value="<?= $lapor->jenis_bencana; ?>" name="jenis_bencana" id="jenis_bencana">
-                                    </div>
-
                                     <div class="form-group">
                                         <label for="gambar">Gambar</label>
                                         <div class="row">
@@ -43,6 +38,16 @@
                                     </div>
                                 </form>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="jenis_bencana">Foto Kejadian Bencana</label>
+                                    <?php foreach ($foto as $f) : ?>
+                                        <img src="<?= site_url('upload/laporan_tanggap_bencana/' . $f->foto); ?>" alt="Foto Kejadian" class="img-thumbnail mb-3" style="width: 400px;height: auto;">
+                                        <a href="<?= site_url('laporantanggapbencana/edit_photo/' . $f->id); ?>" class="badge badge-info"><i class="fas fa-fw fa-edit"></i></a>
+                                        <a onclick="return confirm('Apakah anda yakin?')" href="<?= site_url('laporantanggapbencana/delete_photo/' . $f->id); ?>" class="badge badge-danger d-inline-block"><i class="fas fa-fw fa-trash"></i></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,6 +55,4 @@
         </div>
     </div>
 </div>
-
-
 <?= $this->endSection(); ?>

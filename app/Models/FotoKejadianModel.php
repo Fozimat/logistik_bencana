@@ -21,4 +21,24 @@ class FotoKejadianModel extends Model
     {
         return $this->where(['id_lapor' => $id])->findAll();
     }
+
+    public function getFoto($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
+
+    public function updateFoto($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteFoto($id)
+    {
+        $foto = $this->find($id);
+        unlink('upload/laporan_tanggap_bencana/' . $foto->foto);
+        if (empty($foto)) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Data dengan id: ' . $id . ' tidak ditemukan');
+        }
+        return $this->delete($id);
+    }
 }

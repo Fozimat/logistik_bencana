@@ -17,6 +17,11 @@ class LaporModel extends Model
         return $this->findAll();
     }
 
+    public function getLaporByUser($user)
+    {
+        return $this->where(['id_user' => $user])->findAll();
+    }
+
     public function insertLapor($data)
     {
         return $this->save($data);

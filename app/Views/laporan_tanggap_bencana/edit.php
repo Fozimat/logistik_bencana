@@ -21,6 +21,8 @@
                             <div class="offset-md-3 col-md-6">
                                 <form action="<?= site_url('laporantanggapbencana/update/' . $lapor->id); ?>" method="POST" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
+                                    <input type="hidden" name="id" value="<?= $lapor->id; ?>">
+
                                     <div class="form-group">
                                         <label for="jenis_bencana" class="hitam-tebal">Jenis Bencana</label>
                                         <input type="text" class="form-control <?= ($validation->hasError('jenis_bencana')) ? 'is-invalid' : ''; ?>" value="<?= $lapor->jenis_bencana; ?>" name="jenis_bencana" id="jenis_bencana">
