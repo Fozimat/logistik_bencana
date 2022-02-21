@@ -64,6 +64,9 @@
                                     <div class="text-center">
                                         <a class="small" href="<?= site_url('login'); ?>">Already have an account? Login!</a>
                                     </div>
+                                    <div class="text-center">
+                                        <a class="small" href="<?= site_url('/'); ?>">Back</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
