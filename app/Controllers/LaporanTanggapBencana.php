@@ -87,11 +87,13 @@ class LaporanTanggapBencana extends BaseController
 
     public function create_photo($id)
     {
+        $uri = service('uri');
         $data = [
             'title' => 'Form Tambah Foto Kejadian',
             'validation' => \Config\Services::validation(),
             'lapor' => $this->tanggapBencana->getLaporById($id),
-            'foto' =>  $this->fotoKejadian->getFotoById($id)
+            'foto' =>  $this->fotoKejadian->getFotoById($id),
+            'segment' => $uri->getSegment('3')
         ];
         return view('laporan_tanggap_bencana/create_photo', $data);
     }
@@ -125,7 +127,8 @@ class LaporanTanggapBencana extends BaseController
             }
         }
         session()->setFlashdata('status', 'Foto berhasil ditambahkan');
-        return redirect()->to('laporantanggapbencana');
+        $segment = $this->request->getVar('segment');
+        return redirect()->to('laporantanggapbencana/create_photo/' . $segment);
     }
 
     public function edit($id)
@@ -239,8 +242,9 @@ class LaporanTanggapBencana extends BaseController
 
     public function delete_photo($id)
     {
+        $segment = $this->request->getVar('segment');
         $this->fotoKejadian->deleteFoto($id);
         session()->setFlashdata('status', 'Foto berhasil dihapus');
-        return redirect()->to('laporantanggapbencana');
+        return redirect()->to('laporantanggapbencana/create_photo/' . $segment);
     }
 }

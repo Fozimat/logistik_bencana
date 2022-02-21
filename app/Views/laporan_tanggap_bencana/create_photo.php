@@ -6,6 +6,15 @@
     </h1>
 </div>
 
+<?php if (session()->getFlashdata('status')) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><?= session()->getFlashdata('status'); ?></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<?php endif; ?>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card-shadow">
@@ -22,6 +31,7 @@
                                 <form action="<?= site_url('laporantanggapbencana/store_photo'); ?>" method="POST" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="id_lapor" value="<?= $lapor->id; ?>">
+                                    <input type="hidden" name="segment" value="<?= $segment; ?>">
                                     <div class="form-group">
                                         <label for="gambar">Gambar</label>
                                         <div class="row">
@@ -43,8 +53,13 @@
                                     <label for="jenis_bencana">Foto Kejadian Bencana</label>
                                     <?php foreach ($foto as $f) : ?>
                                         <img src="<?= site_url('upload/laporan_tanggap_bencana/' . $f->foto); ?>" alt="Foto Kejadian" class="img-thumbnail mb-3" style="width: 400px;height: auto;">
-                                        <a href="<?= site_url('laporantanggapbencana/edit_photo/' . $f->id); ?>" class="badge badge-info"><i class="fas fa-fw fa-edit"></i></a>
-                                        <a onclick="return confirm('Apakah anda yakin?')" href="<?= site_url('laporantanggapbencana/delete_photo/' . $f->id); ?>" class="badge badge-danger d-inline-block"><i class="fas fa-fw fa-trash"></i></a>
+                                        <a href="<?= site_url('laporantanggapbencana/edit_photo/' . $f->id); ?>" class="btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i></a>
+                                        <!-- <a onclick="return confirm('Apakah anda yakin?')" href="<?= site_url('laporantanggapbencana/delete_photo/' . $f->id); ?>" class="badge badge-danger d-inline-block"><i class="fas fa-fw fa-trash"></i></a> -->
+                                        <form action="<?= site_url('laporantanggapbencana/delete_photo/' . $f->id); ?>" method="POST" class="d-inline">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="segment" value="<?= $segment; ?>">
+                                            <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger btn-sm d-inline-block"><i class="fas fa-fw fa-trash"></i></button>
+                                        </form>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
