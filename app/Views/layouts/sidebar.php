@@ -12,7 +12,7 @@
     <?php if (session()->get('roles') == 'ADMIN' || session()->get('roles') == 'KASI') : ?>
         <li class="nav-item <?= ($uri->getSegment(2) == 'dashboard') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('admin/dashboard'); ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fas fa-fw fa-home"></i>
                 <span>Dashboard</span></a>
         </li>
 
@@ -24,7 +24,7 @@
 
         <li class="nav-item  <?= ($uri->getSegment(2) == 'persediaan') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('admin/persediaan'); ?>">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-fw fa-shopping-basket"></i>
                 <span>Persediaan</span></a>
         </li>
 
@@ -43,13 +43,13 @@
 
         <li class="nav-item <?= ($uri->getSegment(2) == 'informasikebencanaan') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('admin/informasikebencanaan'); ?>">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-fw fa-info-circle"></i>
                 <span>Informasi Kebencanaan</span></a>
         </li>
 
         <li class="nav-item <?= ($uri->getSegment(2) == 'beritabarangmasuk') || ($uri->getSegment(2) == 'beritabarangkeluar') ? 'active' : ''; ?>">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
+                <i class="fas fa-fw fa-file"></i>
                 <span>Berita Acara</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -78,7 +78,7 @@
 
         <li class="nav-item <?= ($uri->getSegment(2) == 'laporan') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('admin/laporan'); ?>">
-                <i class="fas fa-fw fa-chart-area"></i>
+                <i class="fas fa-fw fa-print"></i>
                 <span>Cetak Laporan</span></a>
         </li>
     <?php endif; ?>
