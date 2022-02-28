@@ -16,7 +16,7 @@
 
 <div class="card shadow mb-4 mt-4">
     <div class="card-header py-3">
-        <a class="m-0 font-weight-bold btn btn-primary" href="<?= site_url('laporantanggapbencana/create'); ?>"><i class="fa fa-user-plus mr-1"></i>Tambah Data</a>
+        <a class="m-0 font-weight-bold btn btn-primary" href="<?= base_url('laporantanggapbencana/create'); ?>"><i class="fa fa-user-plus mr-1"></i>Tambah Data</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

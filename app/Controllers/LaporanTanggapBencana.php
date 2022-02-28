@@ -26,9 +26,9 @@ class LaporanTanggapBencana extends BaseController
 
     public function create()
     {
-        if ($this->session->get('roles') != 'PENGUNJUNG') {
-            return redirect()->back();
-        }
+        // if ($this->session->get('roles') != 'PENGUNJUNG') {
+        //     return redirect()->back();
+        // }
 
         $data = [
             'title' => 'Form Tambah Laporan',

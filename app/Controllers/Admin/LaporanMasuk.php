@@ -97,6 +97,6 @@ class LaporanMasuk extends BaseController
     {
         $this->tanggapBencana->deleteLapor($id);
         session()->setFlashdata('status', 'Data berhasil dihapus');
-        return redirect()->to('laporamasuk');
+        return redirect()->to('admin/laporanmasuk');
     }
 }

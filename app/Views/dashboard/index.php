@@ -89,27 +89,29 @@
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Informasi Bencana Terbaru</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Laporan Tanggap Bencana Terbaru</h6>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Bencana</th>
-                            <th scope="col">Lokasi</th>
-                            <th scope="col">Tanggal</th>
+                            <th>Jenis Bencana</th>
+                            <th>Tanggal Waktu Kejadian</th>
+                            <th>Lokasi</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($informasi_kebencanaan as $data) : ?>
+                        foreach ($tanggap_bencana as $d) : ?>
                             <tr>
                                 <th scope="row"><?= $no++; ?></th>
-                                <td><?= $data->jenis_bencana; ?></td>
-                                <td><?= $data->lokasi_tempat_kejadian; ?></td>
-                                <td><?= $data->tgl_bencana; ?></td>
+                                <td><?= $d->jenis_bencana; ?></td>
+                                <td><?= date('d-m-Y H:i', strtotime($d->tanggal_waktu_kejadian)); ?></td>
+                                <td><?= $d->lokasi_tempat_kejadian; ?></td>
+                                <td><span class="badge badge-primary"><?= $d->status; ?></span></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

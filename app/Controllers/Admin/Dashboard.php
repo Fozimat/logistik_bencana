@@ -2,9 +2,10 @@
 
 namespace App\Controllers\Admin;
 
-use App\Controllers\BaseController;
+use App\Models\LaporModel;
 use App\Models\PersediaanModel;
 use App\Models\LogistikMasukModel;
+use App\Controllers\BaseController;
 use App\Models\LogistikKeluarModel;
 use App\Models\BeritaBarangMasukModel;
 use App\Models\BeritaBarangKeluarModel;
@@ -20,6 +21,7 @@ class Dashboard extends BaseController
         $this->beritaBarangMasukModel = new BeritaBarangMasukModel();
         $this->beritaBarangKeluarModel = new BeritaBarangKeluarModel();
         $this->informasiKebencanaanModel = new InformasiKebencanaanModel();
+        $this->tanggapBencana = new LaporModel();
     }
 
     public function index()
@@ -30,7 +32,7 @@ class Dashboard extends BaseController
             'total_logistik_masuk' =>  $this->logistikMasukModel->getCount(),
             'total_logistik_keluar' =>  $this->logistikKeluarModel->getCount(),
             'total_bencana' =>  $this->informasiKebencanaanModel->getCount(),
-            'informasi_kebencanaan' => $this->informasiKebencanaanModel->get5InformasiKebencanaan()
+            'tanggap_bencana' => $this->tanggapBencana->get5Lapor()
         ];
         return view('dashboard/index', $data);
     }

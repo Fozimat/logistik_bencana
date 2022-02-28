@@ -17,6 +17,12 @@ class LaporModel extends Model
         return $this->findAll();
     }
 
+    public function get5Lapor()
+    {
+        $builder = $this->db->table('lapor');
+        return $builder->orderBy('tanggal_waktu_kejadian', 'DESC')->get(5)->getResult();
+    }
+
     public function getLaporByUser($user)
     {
         return $this->where(['id_user' => $user])->findAll();
