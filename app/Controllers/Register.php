@@ -18,12 +18,18 @@ class Register extends BaseController
     public function store()
     {
         $rules = [
-            'username'  => 'required|min_length[3]|max_length[20]',
+            'username'  => 'required|is_unique[user.username]|min_length[3]|max_length[20]',
             'password'      => 'required|min_length[4]|max_length[200]',
             'confpassword'  => 'matches[password]',
         ];
 
-        if (!$this->validate($rules)) {
+        $messages = [
+            'username' => [
+                'is_unique' => "Username sudah digunakan"
+            ]
+        ];
+
+        if (!$this->validate($rules, $messages)) {
             return redirect()->to('register')->withInput();
         }
         $model = new UserModel();

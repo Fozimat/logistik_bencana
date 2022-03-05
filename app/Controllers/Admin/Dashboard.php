@@ -34,6 +34,7 @@ class Dashboard extends BaseController
             'total_bencana' =>  $this->informasiKebencanaanModel->getCount(),
             'tanggap_bencana' => $this->tanggapBencana->get5Lapor()
         ];
+        // dd(app_timezone());
         return view('dashboard/index', $data);
     }
 }

@@ -73,7 +73,7 @@
         <li class="nav-item <?= ($uri->getSegment(2) == 'laporanmasuk') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('admin/laporanmasuk'); ?>">
                 <i class="fas fa-fw fa-sms"></i>
-                <span>Laporan Masuk</span></a>
+                <span>Laporan Bencana</span></a>
         </li>
 
         <li class="nav-item <?= ($uri->getSegment(2) == 'laporan') ? 'active' : ''; ?>">
@@ -87,7 +87,7 @@
         <li class="nav-item <?= ($uri->getSegment(1) == 'laporantanggapbencana') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('laporantanggapbencana'); ?>">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Buat Laporan</span></a>
+                <span>Laporan Bencana</span></a>
         </li>
     <?php endif; ?>
 
