@@ -65,7 +65,8 @@
                             <td><img width="100" height="100" src="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" alt=""></td>
                             <?php if (session()->get('roles') == 'ADMIN') : ?>
                                 <td>
-                                    <a href="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" class="btn btn-secondary" target="_blank">detail</a> |
+                                    <a href="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" class="btn btn-success" target="_blank">detail</a> |
+                                    <a href="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>" class="btn btn-dark" download="<?= site_url('upload/barang_masuk/' . $ba->gambar); ?>">download</a> |
                                     <a href="<?= site_url('admin/beritabarangmasuk/edit/' . $ba->id); ?>" class="btn btn-info">edit</a> |
                                     <form action="<?= site_url('admin/beritabarangmasuk/delete/' . $ba->id); ?>" method="POST" class="d-inline">
                                         <input type="hidden" name="_method" value="DELETE">
