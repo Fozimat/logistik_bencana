@@ -31,7 +31,7 @@ class Dashboard extends BaseController
             'total_persediaan' =>  $this->persediaanModel->getCount(),
             'total_logistik_masuk' =>  $this->logistikMasukModel->getCount(),
             'total_logistik_keluar' =>  $this->logistikKeluarModel->getCount(),
-            'total_bencana' =>  $this->informasiKebencanaanModel->getCount(),
+            'total_tanggap_bencana' =>  $this->tanggapBencana->getCount(),
             'tanggap_bencana' => $this->tanggapBencana->get5Lapor()
         ];
         // dd(app_timezone());

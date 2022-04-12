@@ -23,6 +23,12 @@ class LaporModel extends Model
         return $builder->orderBy('tanggal_waktu_kejadian', 'DESC')->get(5)->getResult();
     }
 
+    public function getCount()
+    {
+        $builder = $this->db->table('lapor');
+        return $builder->countAllResults();
+    }
+
     public function getLaporByUser($user)
     {
         return $this->where(['id_user' => $user])->findAll();
