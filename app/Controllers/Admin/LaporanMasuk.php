@@ -20,7 +20,7 @@ class LaporanMasuk extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Laporan Tanggap Bencana',
+            'title' => 'Laporan Bencana',
             'tanggap_bencana' => $this->tanggapBencana->getLapor()
         ];
         return view('laporan_masuk/index', $data);
