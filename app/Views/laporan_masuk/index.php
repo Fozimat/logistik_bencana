@@ -40,10 +40,28 @@
                             <td><?= date('d-m-Y H:i', strtotime($d->tanggal_waktu_kejadian)); ?></td>
                             <td><?= $d->lokasi_tempat_kejadian; ?></td>
                             <?php if (session()->get('roles') == 'ADMIN') : ?>
-                                <td><a id="id<?= $d->id; ?>" href="javascript:void(0);"><span id="status<?= $d->id; ?>" class="badge badge-info"><?= $d->status; ?></span></a></td>
+                                <td>
+                                    <?php if ($d->status == 'Belum ditanggapi') {
+                                        echo "<a class='badge badge-danger' href='" . site_url('admin/laporanmasuk/belumditanggapi/' . $d->id) . "'>" . $d->status . "</a>";
+                                    } else if ($d->status == 'Sedang ditanggapi') {
+                                        echo "<a class='badge badge-warning' href='" . site_url('admin/laporanmasuk/sedangditanggapi/' . $d->id) . "'>" . $d->status . "</a>";
+                                    } else {
+                                        echo "<a class='badge badge-success' href='" . site_url('admin/laporanmasuk/selesai/' . $d->id) . "'>" . $d->status . "</a>";
+                                    }
+                                    ?>
+                                </td>
                             <?php endif; ?>
                             <?php if (session()->get('roles') == 'KASI') : ?>
-                                <td><span id="status<?= $d->id; ?>" class="badge badge-info"><?= $d->status; ?></span></td>
+                                <td>
+                                    <?php if ($d->status == 'Belum ditanggapi') {
+                                        echo "<a class='badge badge-danger' href='#'>" . $d->status . "</a>";
+                                    } else if ($d->status == 'Sedang ditanggapi') {
+                                        echo "<a class='badge badge-warning' href='#'>" . $d->status . "</a>";
+                                    } else {
+                                        echo "<a class='badge badge-success' href='#'>" . $d->status . "</a>";
+                                    }
+                                    ?>
+                                </td>
                             <?php endif; ?>
 
                             <td>
@@ -61,35 +79,4 @@
     </div>
 </div>
 
-<?= $this->endSection(); ?>
-
-<?= $this->section('script'); ?>
-<script>
-    $("[id^=id]").each(function() {
-        var id_lapor = $(this).val();
-        var status_sekarang = $('#status' + id_lapor).text();
-        $('#id' + id_lapor).on('click', function(e) {
-            // e.preventDefault();
-            document.location.reload();
-            $.ajax({
-                type: "POST",
-                url: status_sekarang == "Belum ditanggapi" ? "http://localhost:8080/admin/laporanmasuk/update_status_belum_ditanggapi/" + id_lapor : (status_sekarang == "Sedang ditanggapi" ? "http://localhost:8080/admin/laporanmasuk/update_status_sedang_ditanggapi/" + id_lapor : "http://localhost:8080/admin/laporanmasuk/update_status_selesai/" + id_lapor),
-                dataType: 'json',
-                data: {
-                    id_lapor: id_lapor
-                },
-                success: function(res) {
-                    if (res.success == true) {
-                        $('#status' + id_lapor).text(res.status);
-                    } else {
-                        console.log("Failed");
-                    }
-                },
-                error: function() {
-                    console.log("Error");
-                }
-            });
-        });
-    });
-</script>
 <?= $this->endSection(); ?>

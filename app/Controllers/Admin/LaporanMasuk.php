@@ -36,61 +36,31 @@ class LaporanMasuk extends BaseController
         return view('laporan_masuk/detail', $data);
     }
 
-    public function update_status_belum_ditanggapi($id)
+    public function belumditanggapi($id)
     {
         $data = [
             'status' => 'Sedang ditanggapi'
         ];
-        if ($this->tanggapBencana->updateLapor($id, $data)) {
-            echo json_encode([
-                'success' => true,
-                'status' => $data['status']
-            ]);
-            exit;
-        } else {
-            echo json_encode([
-                'success' => false
-            ]);
-            exit;
-        }
+        $this->tanggapBencana->updateLapor($id, $data);
+        return redirect()->to('admin/laporanmasuk');
     }
 
-    public function update_status_sedang_ditanggapi($id)
+    public function sedangditanggapi($id)
     {
         $data = [
             'status' => 'Selesai'
         ];
-        if ($this->tanggapBencana->updateLapor($id, $data)) {
-            echo json_encode([
-                'success' => true,
-                'status' => $data['status']
-            ]);
-            exit;
-        } else {
-            echo json_encode([
-                'success' => false
-            ]);
-            exit;
-        }
+        $this->tanggapBencana->updateLapor($id, $data);
+        return redirect()->to('admin/laporanmasuk');
     }
 
-    public function update_status_selesai($id)
+    public function selesai($id)
     {
         $data = [
             'status' => 'Belum ditanggapi'
         ];
-        if ($this->tanggapBencana->updateLapor($id, $data)) {
-            echo json_encode([
-                'success' => true,
-                'status' => $data['status']
-            ]);
-            exit;
-        } else {
-            echo json_encode([
-                'success' => false
-            ]);
-            exit;
-        }
+        $this->tanggapBencana->updateLapor($id, $data);
+        return redirect()->to('admin/laporanmasuk');
     }
 
     public function delete($id)

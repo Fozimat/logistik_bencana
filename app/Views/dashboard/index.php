@@ -111,7 +111,16 @@
                                 <td><?= $d->jenis_bencana; ?></td>
                                 <td><?= date('d-m-Y H:i', strtotime($d->tanggal_waktu_kejadian)); ?></td>
                                 <td><?= $d->lokasi_tempat_kejadian; ?></td>
-                                <td><span class="badge badge-primary"><?= $d->status; ?></span></td>
+                                <td>
+                                    <?php if ($d->status == 'Belum ditanggapi') {
+                                        echo "<a class='badge badge-danger' href='#'>" . $d->status . "</a>";
+                                    } else if ($d->status == 'Sedang ditanggapi') {
+                                        echo "<a class='badge badge-warning' href='#'>" . $d->status . "</a>";
+                                    } else {
+                                        echo "<a class='badge badge-success' href='#'>" . $d->status . "</a>";
+                                    }
+                                    ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
