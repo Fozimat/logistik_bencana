@@ -53,6 +53,15 @@
                                         </div>
                                     <?php endif; ?>
 
+                                    <?php if (session()->getFlashdata('status_sukses')) : ?>
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong><?= session()->getFlashdata('status_sukses'); ?></strong>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    <?php endif; ?>
+
                                     <form class="user" method="POST" action="<?= site_url('login/auth'); ?>">
                                         <?= csrf_field(); ?>
                                         <div class="form-group">

@@ -39,7 +39,7 @@ class Register extends BaseController
             'roles' => 'PENGUNJUNG'
         ];
         $model->save($data);
-        session()->setFlashdata('status', 'Register berhasil, silahkan login');
+        session()->setFlashdata('status_sukses', 'Register berhasil, silahkan login');
         return redirect()->to('login');
     }
 }
