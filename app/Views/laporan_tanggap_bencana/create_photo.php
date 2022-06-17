@@ -1,6 +1,31 @@
 <?= $this->extend('layouts/template'); ?>
-<?= $this->section('content'); ?>
 
+<?= $this->section('script'); ?>
+<script>
+    $(function() {
+        // Multiple images preview in browser
+        var imagesPreview = function(input, placeToInsertImagePreview) {
+            if (input.files) {
+                var filesAmount = input.files.length;
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img class="img-thumbnail mb-3" style="width: 400px;height: auto;">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        };
+
+        $('#gallery-photo-add').on('change', function() {
+            imagesPreview(this, 'div.gallery');
+        });
+    });
+</script>
+<?= $this->endSection(); ?>
+
+
+<?= $this->section('content'); ?>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Laporan Tanggap Bencana
     </h1>
@@ -36,7 +61,7 @@
                                         <label for="gambar">Gambar</label>
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <input type="file" name="gambar[]" multiple="" class="<?= ($validation->hasError('gambar')) ? 'is-invalid' : ''; ?>">
+                                                <input type="file" name="gambar[]" multiple="" class="<?= ($validation->hasError('gambar')) ? 'is-invalid' : ''; ?>" id="gallery-photo-add">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('gambar'); ?>
                                                 </div>
@@ -51,6 +76,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="jenis_bencana">Foto Kejadian Bencana</label>
+                                    <div class="gallery"></div>
                                     <?php foreach ($foto as $f) : ?>
                                         <img src="<?= site_url('upload/laporan_tanggap_bencana/' . $f->foto); ?>" alt="Foto Kejadian" class="img-thumbnail mb-3" style="width: 400px;height: auto;">
                                         <a href="<?= site_url('laporantanggapbencana/edit_photo/' . $f->id); ?>" class="btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i></a>
