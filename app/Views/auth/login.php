@@ -77,10 +77,10 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= site_url('register'); ?>">Create an Account!</a>
+                                        <a class="small" href="<?= site_url('register'); ?>">Buat akun baru!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="<?= site_url('/'); ?>">Back</a>
+                                        <a class="small" href="<?= site_url('/'); ?>">Kembali</a>
                                     </div>
                                 </div>
                             </div>

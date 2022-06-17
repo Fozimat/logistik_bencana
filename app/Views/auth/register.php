@@ -57,15 +57,16 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Register Account
+                                            Daftar
                                         </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= site_url('login'); ?>">Already have an account? Login!</a>
+                                        <a class="small" href="<?= site_url('login'); ?>">Sudah memiliki akun? Login!
+                                        </a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="<?= site_url('/'); ?>">Back</a>
+                                        <a class="small" href="<?= site_url('/'); ?>">Kembali</a>
                                     </div>
                                 </div>
                             </div>
