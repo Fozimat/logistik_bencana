@@ -122,6 +122,7 @@
                                 </form>
                             </div>
                             <div class="col-md-6">
+                                <label for="lokasi">Lokasi</label>
                                 <div id="googleMap" style="width:100%;height:500px;"></div>
                             </div>
                         </div>

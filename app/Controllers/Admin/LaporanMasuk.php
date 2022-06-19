@@ -3,7 +3,6 @@
 namespace App\Controllers\Admin;
 
 use App\Models\LaporModel;
-use App\Models\PesanModel;
 use App\Models\FotoKejadianModel;
 use App\Controllers\BaseController;
 

@@ -35,7 +35,7 @@ class Register extends BaseController
         $model = new UserModel();
         $data = [
             'username'     => $this->request->getVar('username'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'password' => $this->request->getVar('password'),
             'roles' => 'PENGUNJUNG'
         ];
         $model->save($data);

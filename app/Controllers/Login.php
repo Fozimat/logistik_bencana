@@ -21,29 +21,22 @@ class Login extends BaseController
         $model = new UserModel();
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
-        $data = $model->where('username', $username)->first();
+        $data = $model->where('username', $username)->where('password', $password)->first();
         if ($data) {
-            $pass = $data->password;
-            $verify_pass = password_verify($password, $pass);
-            if ($verify_pass) {
-                $ses_data = [
-                    'user_id'       => $data->id,
-                    'username'    => $data->username,
-                    'logged_in'     => TRUE,
-                    'roles' => $data->roles
-                ];
-                session()->set($ses_data);
-                if ($data->roles == 'ADMIN' || $data->roles == 'KASI') {
-                    return redirect()->to('admin/dashboard');
-                } else {
-                    return redirect()->to('laporantanggapbencana');
-                }
+            $ses_data = [
+                'user_id'       => $data->id,
+                'username'    => $data->username,
+                'logged_in'     => TRUE,
+                'roles' => $data->roles
+            ];
+            session()->set($ses_data);
+            if ($data->roles == 'ADMIN' || $data->roles == 'KASI') {
+                return redirect()->to('admin/dashboard');
             } else {
-                session()->setFlashdata('status', 'Password salah');
-                return redirect()->to('login');
+                return redirect()->to('laporantanggapbencana');
             }
         } else {
-            session()->setFlashdata('status', 'Username tidak ditemukan');
+            session()->setFlashdata('status', 'Username/Password salah');
             return redirect()->to('login');
         }
     }
