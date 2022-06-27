@@ -41,6 +41,12 @@ class LaporanTanggapBencana extends BaseController
     {
         if (!$this->validate(
             [
+                'nik' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'NIK tidak boleh kosong'
+                    ]
+                ],
                 'jenis_bencana' => [
                     'rules' => 'required',
                     'errors' => [
@@ -71,6 +77,7 @@ class LaporanTanggapBencana extends BaseController
         }
         $data = [
             'id_user' => session()->get('user_id'),
+            'nik' => $this->request->getVar('nik'),
             'jenis_bencana' => $this->request->getVar('jenis_bencana'),
             'lokasi_tempat_kejadian' => $this->request->getVar('lokasi_tempat_kejadian'),
             'tanggal_waktu_kejadian' => $this->request->getVar('tanggal_waktu_kejadian'),
@@ -147,6 +154,12 @@ class LaporanTanggapBencana extends BaseController
     {
         if (!$this->validate(
             [
+                'nik' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'NIK tidak boleh kosong'
+                    ]
+                ],
                 'jenis_bencana' => [
                     'rules' => 'required',
                     'errors' => [
@@ -177,6 +190,7 @@ class LaporanTanggapBencana extends BaseController
         }
         $data = [
             'id_user' => session()->get('user_id'),
+            'nik' => $this->request->getVar('nik'),
             'jenis_bencana' => $this->request->getVar('jenis_bencana'),
             'tanggal_waktu_kejadian' => $this->request->getVar('tanggal_waktu_kejadian'),
             'lokasi_tempat_kejadian' => $this->request->getVar('lokasi_tempat_kejadian'),
@@ -188,7 +202,7 @@ class LaporanTanggapBencana extends BaseController
             'keterangan' => $this->request->getVar('keterangan'),
         ];
         $this->tanggapBencana->updateLapor($id, $data);
-        session()->setFlashdata('status', 'Data berhasil ditambahkan');
+        session()->setFlashdata('status', 'Data berhasil diubah');
         return redirect()->to('laporantanggapbencana');
     }
 

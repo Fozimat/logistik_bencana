@@ -43,6 +43,12 @@
                             <div class="col-md-6">
                                 <form>
                                     <div class="form-group">
+                                        <label for="nik">NIK</label>
+                                        <input type="number" readonly class="form-control" value="<?= $lapor->nik; ?>" name="nik" id="nik">
+
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="jenis_bencana">Jenis Bencana</label>
                                         <input type="text" class="form-control" readonly value="<?= $lapor->jenis_bencana; ?>" name="jenis_bencana" id="jenis_bencana">
                                     </div>

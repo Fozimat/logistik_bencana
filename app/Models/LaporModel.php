@@ -10,7 +10,7 @@ class LaporModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['id_user', 'tanggal_waktu_kejadian', 'jenis_bencana', 'lokasi_tempat_kejadian', 'latitude', 'longitude', 'tanggal_waktu_lapor', 'no_hp', 'keterangan', 'status'];
+    protected $allowedFields    = ['id_user', 'nik', 'tanggal_waktu_kejadian', 'jenis_bencana', 'lokasi_tempat_kejadian', 'latitude', 'longitude', 'tanggal_waktu_lapor', 'no_hp', 'keterangan', 'status'];
 
     public function getLapor()
     {

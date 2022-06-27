@@ -146,6 +146,15 @@
                             <div class="col-md-6">
                                 <form action="<?= site_url('laporantanggapbencana/store'); ?>" method="POST" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
+
+                                    <div class="form-group">
+                                        <label for="nik">NIK</label>
+                                        <input type="number" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" value="<?= old('nik'); ?>" name="nik" id="nik">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('nik'); ?>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="jenis_bencana">Jenis Bencana</label>
                                         <input type="text" class="form-control <?= ($validation->hasError('jenis_bencana')) ? 'is-invalid' : ''; ?>" value="<?= old('jenis_bencana'); ?>" name="jenis_bencana" id="jenis_bencana">
