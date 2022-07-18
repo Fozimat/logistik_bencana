@@ -6,37 +6,38 @@ use CodeIgniter\Model;
 
 class BeritaModel extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'beritas';
+    protected $table            = 'berita';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $insertID         = 0;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $returnType       = 'object';
+    protected $allowedFields    = ['kategori_id', 'tanggal_post', 'judul', 'slug', 'post', 'gambar'];
 
-    // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    public function getBerita()
+    {
+        return $this->findAll();
+    }
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    public function insertBerita($data)
+    {
+        return $this->save($data);
+    }
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    public function getBeritaById($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
+
+    public function updateBerita($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteBerita($id)
+    {
+        $kategori = $this->find($id);
+        if (empty($kategori)) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Data dengan id: ' . $id . ' tidak ditemukan');
+        }
+        return $this->delete($id);
+    }
 }

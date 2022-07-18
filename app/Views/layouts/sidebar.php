@@ -95,8 +95,8 @@
                 <span>Kategori Berita</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#">
+        <li class="nav-item <?= ($uri->getSegment(2) == 'postberita') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= site_url('admin/postberita'); ?>">
                 <i class="fas fa-fw fa-rss"></i>
                 <span>Post Berita</span></a>
         </li>
