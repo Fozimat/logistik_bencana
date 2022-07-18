@@ -83,6 +83,25 @@
         </li>
     <?php endif; ?>
 
+    <?php if (session()->get('roles') == 'ADMIN') : ?>
+
+        <div class="sidebar-heading">
+            Post
+        </div>
+
+        <li class="nav-item <?= ($uri->getSegment(2) == 'kategoriberita') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= site_url('admin/kategoriberita'); ?>">
+                <i class="fas fa-fw fa-file"></i>
+                <span>Kategori Berita</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-rss"></i>
+                <span>Post Berita</span></a>
+        </li>
+    <?php endif; ?>
+
     <?php if (session()->get('roles') == 'PENGUNJUNG') : ?>
         <li class="nav-item <?= ($uri->getSegment(1) == 'laporantanggapbencana') ? 'active' : ''; ?>">
             <a class="nav-link" href="<?= site_url('laporantanggapbencana'); ?>">
