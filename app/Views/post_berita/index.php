@@ -29,6 +29,7 @@
                         <th>TANGGAL POST</th>
                         <th>POST</th>
                         <th>GAMBAR</th>
+                        <th>AKSI</th>
                     </tr>
                 </thead>
 
@@ -38,13 +39,16 @@
                         <tr>
                             <th><?= $i++; ?></th>
                             <td><?= $d->judul; ?></td>
-                            <td><?= $d->kategori_id; ?></td>
-                            <td><?= $d->tanggal_post; ?></td>
+                            <td><?= $d->kategori; ?></td>
+                            <td><?= date('d-m-Y', strtotime($d->tanggal_post)); ?></td>
                             <td><?= $d->post; ?></td>
-                            <td><?= $d->gambar; ?></td>
                             <td>
-                                <a href="<?= site_url('admin/kategoriberita/edit/' . $d->id); ?>" class="btn btn-info">edit</a> |
-                                <form action="<?= site_url('admin/kategoriberita/delete/' . $d->id); ?>" method="POST" class="d-inline">
+                                <img width="100" height="100" src="<?= site_url('upload/post_berita/' . $d->gambar); ?>" alt="">
+
+                            </td>
+                            <td>
+                                <a href="<?= site_url('admin/postberita/edit/' . $d->id); ?>" class="btn btn-info">edit</a> |
+                                <form action="<?= site_url('admin/postberita/delete/' . $d->id); ?>" method="POST" class="d-inline">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button onclick="return confirm('Apakah anda yakin?')" type="submit" class="btn btn-danger">delete</button>
                                 </form>

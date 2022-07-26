@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="<?= site_url('admin/postberita/store'); ?>" method="POST">
+                                <form action="<?= site_url('admin/postberita/store'); ?>" method="POST" enctype="multipart/form-data">
                                     <?= csrf_field(); ?>
                                     <div class="form-group">
                                         <label for="judul" class="hitam-tebal">Judul</label>
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="kategori_id" class="hitam-tebal">Kategori</label>
-                                        <select required name="kategori_id" id="kategori_id" class="form-control">
+                                        <select name="kategori_id" id="kategori_id" class="form-control <?= ($validation->hasError('kategori_id')) ? 'is-invalid' : ''; ?>">
                                             <option value="">--- Pilih Kategori ---</option>
                                             <?php foreach ($kategori as $pd) : ?>
                                                 <option value="<?= $pd->id; ?>"><?= $pd->kategori; ?></option>
@@ -48,12 +48,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="tanggal_post" class="hitam-tebal">Tanggal Masuk</label>
-                                        <input required type="date" class="form-control" name="tanggal_post" id="tanggal_post">
+                                        <input type="date" class="form-control <?= ($validation->hasError('tanggal_post')) ? 'is-invalid' : ''; ?>" name="tanggal_post" id="tanggal_post">
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('tanggal_post'); ?>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="keterangan">Keterangan</label>
-                                        <textarea name="keterangan" id="editor" class="form-control">
+                                        <label for="keterangan">Post</label>
+                                        <textarea name="post" id="editor" class="form-control <?= ($validation->hasError('post')) ? 'is-invalid' : ''; ?>">
                                             </textarea>
+                                        <div class="invalid-feedback">
+                                            <?= $validation->getError('post'); ?>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="gambar" class="col-sm-3 col-form-label">Gambar</label>
@@ -61,7 +67,7 @@
                                             <div class="col-sm-3">
                                                 <img src="<?= site_url('assets/img/default.jpg'); ?>" class="img-thumbnail img-preview" alt="">
                                             </div>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-9">
                                                 <div class="custom-file">
                                                     <input type="file" name="gambar" class="custom-file-input <?= ($validation->hasError('gambar')) ? 'is-invalid' : ''; ?>" id="gambar" onchange="previewImg()">
                                                     <div class="invalid-feedback">

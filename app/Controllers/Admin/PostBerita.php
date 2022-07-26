@@ -34,4 +34,69 @@ class PostBerita extends BaseController
         ];
         return view('post_berita/create', $data);
     }
+
+    public function store()
+    {
+        if (!$this->validate(
+            [
+                'judul' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Judul tidak boleh kosong'
+                    ]
+                ],
+                'kategori_id' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kategori tidak boleh kosong'
+                    ]
+                ],
+                'tanggal_post' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal tidak boleh kosong'
+                    ]
+                ],
+                'post' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Post tidak boleh kosong'
+                    ]
+                ],
+                'gambar' => [
+                    'rules' => 'uploaded[gambar]|max_size[gambar,5120]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                    'errors' => [
+                        'uploaded' => 'Gambar tidak boleh kosong',
+                        'max_size' => 'Ukuran gambar terlalu besar',
+                        'is_image' => 'Yang anda pilih bukan gambar',
+                        'mime_in' => 'Yang anda pilih bukan gambar'
+                    ]
+                ]
+            ]
+        )) {
+            return redirect()->to('admin/postberita/create')->withInput();
+        }
+        $gambar = $this->request->getFile('gambar');
+        $namaGambar = time() . '_' . $gambar->getName();
+        $gambar->move('upload/post_berita', $namaGambar);
+        $data = [
+            'kategori_id' => $this->request->getPost('kategori_id'),
+            'tanggal_post' => $this->request->getPost('tanggal_post'),
+            'judul' => $this->request->getPost('judul'),
+            'slug' =>  url_title($this->request->getPost('judul'), '-', TRUE),
+            'post' => nl2br($this->request->getPost('post')),
+            'gambar' => $namaGambar,
+
+        ];
+        $this->postBerita->insertBerita($data);
+        session()->setFlashdata('status', 'Postingan berhasil ditambahkan');
+        return redirect()->to('admin/postberita');
+    }
+
+    public function delete($id)
+    {
+        $this->postBerita->deleteBerita($id);
+        session()->setFlashdata('status', 'Postingan berhasil dihapus');
+        return redirect()->to('admin/postberita');
+    }
 }

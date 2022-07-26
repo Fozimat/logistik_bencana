@@ -14,7 +14,10 @@ class BeritaModel extends Model
 
     public function getBerita()
     {
-        return $this->findAll();
+        return $this->db->table('berita')
+            ->select('berita.id, kategori_berita.kategori, judul, tanggal_post, slug ,post, gambar')
+            ->join('kategori_berita', 'kategori_berita.id=berita.kategori_id')
+            ->get()->getResultObject();
     }
 
     public function insertBerita($data)
@@ -34,8 +37,9 @@ class BeritaModel extends Model
 
     public function deleteBerita($id)
     {
-        $kategori = $this->find($id);
-        if (empty($kategori)) {
+        $post = $this->find($id);
+        unlink('upload/post_berita/' . $post->gambar);
+        if (empty($post)) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Data dengan id: ' . $id . ' tidak ditemukan');
         }
         return $this->delete($id);
