@@ -93,6 +93,79 @@ class PostBerita extends BaseController
         return redirect()->to('admin/postberita');
     }
 
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Form Edit Post Berita',
+            'validation' => \Config\Services::validation(),
+            'post_berita' => $this->postBerita->getBeritaById($id),
+            'kategori' => $this->kategoriBeritaModel->getKategori(),
+        ];
+        return view('post_berita/edit', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate(
+            [
+                'judul' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Judul tidak boleh kosong'
+                    ]
+                ],
+                'kategori_id' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kategori tidak boleh kosong'
+                    ]
+                ],
+                'tanggal_post' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal tidak boleh kosong'
+                    ]
+                ],
+                'post' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Post tidak boleh kosong'
+                    ]
+                ],
+                'gambar' => [
+                    'rules' => 'max_size[gambar,5120]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                    'errors' => [
+                        'max_size' => 'Ukuran gambar terlalu besar',
+                        'is_image' => 'Yang anda pilih bukan gambar',
+                        'mime_in' => 'Yang anda pilih bukan gambar'
+                    ]
+                ]
+            ]
+        )) {
+            return redirect()->to('admin/postberita/edit/' . $this->request->getVar('id'))->withInput();
+        }
+        $gambar = $this->request->getFile('gambar');
+        if ($gambar->getError() == 4) {
+            $namaGambar = $this->request->getVar('gambar_lama');
+        } else {
+            $namaGambar = time() . '_' . $gambar->getName();
+            $gambar->move('upload/post_berita', $namaGambar);
+            unlink('upload/post_berita/' . $this->request->getVar('gambar_lama'));
+        }
+
+        $data = [
+            'kategori_id' => $this->request->getPost('kategori_id'),
+            'tanggal_post' => $this->request->getPost('tanggal_post'),
+            'judul' => $this->request->getPost('judul'),
+            'slug' =>  url_title($this->request->getPost('judul'), '-', TRUE),
+            'post' => nl2br($this->request->getPost('post')),
+            'gambar' => $namaGambar,
+        ];
+        $this->postBerita->updateBerita($id, $data);
+        session()->setFlashdata('status', 'Data berhasil diubah');
+        return redirect()->to('admin/postberita');
+    }
+
     public function delete($id)
     {
         $this->postBerita->deleteBerita($id);
