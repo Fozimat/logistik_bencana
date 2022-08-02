@@ -44,7 +44,7 @@
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
             <a href="#" class="logo"><img src="<?= site_url('assets/img/bpbd_lingga.png'); ?>" alt=""></a>
-            <h1 class="logo" style="margin-right: 200px;"><a href="#">BPBD KAB.LINGGA<span></span></a></h1>
+            <h1 class="logo" style="margin-right: 50px;"><a href="#">BPBD KAB.LINGGA<span></span></a></h1>
             <?= $this->include('profil/sidebar'); ?>
         </div>
     </header>

@@ -30,6 +30,11 @@ class BeritaModel extends Model
         return $this->where(['id' => $id])->first();
     }
 
+    public function getBeritaBySlug($slug)
+    {
+        return $this->where(['slug' => $slug])->first();
+    }
+
     public function updateBerita($id, $data)
     {
         return $this->update($id, $data);

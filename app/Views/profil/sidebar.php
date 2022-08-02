@@ -14,6 +14,7 @@
         <li class="dropdown"><a href="#"><span>Kebencanaan</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
                 <li><a class="<?= ($uri->getSegment(2) == 'siaga_bencana') ? 'active' : ''; ?>" href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
+                <li><a class="<?= ($uri->getSegment(2) == 'berita') ? 'active' : ''; ?>" href="<?= site_url('listberita/index'); ?>">Berita</a></li>
             </ul>
         </li>
         <li><a class="nav-link scrollto" href="<?= site_url('login'); ?>">Laporan Bencana</a></li>
