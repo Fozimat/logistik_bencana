@@ -63,6 +63,8 @@
                             <!-- <li><a href="#">Edukasi</a></li>
                             <li><a href="#">Data Kejadian</a></li> -->
                             <li><a href="<?= site_url('profil/siaga_bencana'); ?>">Siaga Bencana</a></li>
+                            <li><a class="<?= ($uri->getSegment(2) == 'berita') ? 'active' : ''; ?>" href="<?= site_url('listberita/index'); ?>">Berita</a></li>
+
                         </ul>
                     </li>
                     <li><a class="nav-link scrollto" href="<?= site_url('login'); ?>">Laporan Bencana</a></li>
